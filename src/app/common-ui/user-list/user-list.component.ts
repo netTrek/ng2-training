@@ -1,23 +1,28 @@
-import {Component, OnInit, ContentChild, AfterContentInit} from '@angular/core';
+import {Component, OnInit, AfterViewInit, ViewChild, ViewChildren, QueryList} from '@angular/core';
 import {UserTitleComponent} from '../user-title/user-title.component';
+import {UserComponent} from '../user/user.component';
 
 @Component({
   selector: 'baywa-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss']
 })
-export class UserListComponent implements OnInit, AfterContentInit {
+export class UserListComponent implements OnInit, AfterViewInit {
 
-  @ContentChild(UserTitleComponent) userTitle : UserTitleComponent;
+  @ViewChild(UserTitleComponent) userTitle : UserTitleComponent;
+  @ViewChildren(UserComponent) users : QueryList<UserComponent>;
 
 
   constructor() { }
 
   ngOnInit() {
-    console.info ( 'hier gibt es userTitle noch nicht', this.userTitle );
+    console.info ( 'hier gibt es userTitle noch nicht');
   }
 
-  ngAfterContentInit() : void {
+  ngAfterViewInit() : void {
+
     console.info ( 'hier gibt es userTitle', this.userTitle );
+    console.info ( this.users );
+
   }
 }
