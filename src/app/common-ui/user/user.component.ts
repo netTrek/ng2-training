@@ -1,4 +1,8 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component, OnInit, ViewEncapsulation, ContentChild, AfterContentInit, ContentChildren,
+  QueryList
+} from '@angular/core';
+import {UserTitleComponent} from "../user-title/user-title.component";
 
 @Component({
   selector: 'baywa-user',
@@ -12,12 +16,27 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
     `],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, AfterContentInit {
 
-  constructor() { }
+  @ContentChild(UserTitleComponent) title : UserTitleComponent;
+  //@ContentChildren(UserTitleComponent) titles : QueryList<UserTitleComponent>;
 
-  ngOnInit() {
-    console.info ( 'init' );
+  constructor() {
   }
 
+  ngOnInit() {
+    console.info('hier gibt es das Element noch nicht');
+  }
+
+  ngAfterContentInit() : void {
+
+    console.info('hier gibt es das Element', this.title);
+    this.title.prop = '*';
+    /*
+    console.info ( this.titles );
+    this.titles.map( title => {
+      title.prop = '#';
+    });
+    */
+  }
 }

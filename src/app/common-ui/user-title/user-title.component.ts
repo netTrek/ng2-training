@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserTitleComponent implements OnInit {
 
+  prop : string = '';
+
   constructor() { }
 
   ngOnInit() {
