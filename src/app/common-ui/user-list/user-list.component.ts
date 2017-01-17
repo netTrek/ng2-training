@@ -12,8 +12,13 @@ export class UserListComponent implements OnInit, AfterViewInit {
   @ViewChild(UserTitleComponent) userTitle : UserTitleComponent;
   @ViewChildren(UserComponent) users : QueryList<UserComponent>;
 
+  prop : string = 'Eigenschaft';
 
   constructor() { }
+
+  func ( a : number, b : number ) : number {
+    return a + b;
+  }
 
   ngOnInit() {
     console.info ( 'hier gibt es userTitle noch nicht');
