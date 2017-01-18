@@ -1,4 +1,4 @@
-import {Component, OnInit, AfterViewInit, ViewChild, ViewChildren, QueryList} from '@angular/core';
+import {Component, OnInit, AfterViewInit, ViewChild, ViewChildren, QueryList, Input} from '@angular/core';
 import {UserTitleComponent} from '../user-title/user-title.component';
 import {UserComponent} from '../user/user.component';
 
@@ -12,7 +12,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
   @ViewChild(UserTitleComponent) userTitle: UserTitleComponent;
   @ViewChildren(UserComponent) users: QueryList<UserComponent>;
 
-  selectedInd: number = 1;
+  @Input( 'selected-usr' ) selectedInd: number = 1;
 
   constructor() {
   }
