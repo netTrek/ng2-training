@@ -21,8 +21,17 @@ import {UserListComponent} from "./common-ui/user-list/user-list.component";
     RouterModule.forRoot( [
       {
         path: '',
+        pathMatch: 'full',
+        redirectTo: 'list'
+      },
+      {
+        path: 'list',
         component: UserListComponent
-      }
+      },
+      {
+        path: '**',
+        redirectTo: 'list'
+      },
     ], {useHash: false})
   ],
   providers: [ UserService ],
