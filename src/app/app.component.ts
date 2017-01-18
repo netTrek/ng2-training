@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {ReversePipe} from "./common-ui/reverse.pipe";
+import {Observable, Subscription} from "rxjs";
 
 @Component({
   selector: 'baywa-root',
@@ -17,6 +18,18 @@ export class AppComponent {
     console.info ( reversePipe.transform( 123 ) );
     console.info ( reversePipe.transform( 'sa' ) );
     console.info ( reversePipe.transform( [1, 3, 2] ) );
+
+    const observable : Observable<number> = Observable.range ( 1, 5 );
+
+    const subscription : Subscription = observable
+      //.filter ( val => { return val % 2 === 0; } ) //nur gerade
+      //.map ( item => item += 1 )                   //ungerade machen
+      .subscribe(
+        next => console.info ( 'next %s', next ),
+        error => console.info ( 'error %s', error ),
+        () => console.info ( 'complete' ),
+      );
+
   }
 
 
