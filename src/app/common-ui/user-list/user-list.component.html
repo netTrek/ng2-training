@@ -1,5 +1,5 @@
 <baywa-user-title>Herr</baywa-user-title>
 
-<baywa-user [class]="'underlined'">Saban Ünlü1</baywa-user>
-<baywa-user class="underlined" [class]="makeGreen()">Saban Ünlü2</baywa-user>
-<baywa-user class="underlined" [class.blue]="1+1===2">Saban Ünlü3</baywa-user>
+<baywa-user [class.underlined]="selectedInd===1" (click)="clickHdl ( 1, $event )">Saban Ünlü1</baywa-user>
+<baywa-user [class.underlined]="selectedInd===2" (click)="clickHdl ( 2, $event )">Saban Ünlü2</baywa-user>
+<baywa-user [class.underlined]="selectedInd===3" (click)="clickHdl ( 3 )">Saban Ünlü3</baywa-user>

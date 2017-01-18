@@ -12,13 +12,17 @@ export class UserListComponent implements OnInit, AfterViewInit {
   @ViewChild(UserTitleComponent) userTitle: UserTitleComponent;
   @ViewChildren(UserComponent) users: QueryList<UserComponent>;
 
-  imgUrl: string = 'https://placekitten.com/g/64/64';
-  width: number = 100;
+  selectedInd: number = 1;
 
   constructor() {
   }
 
-  makeGreen (): string {
+  clickHdl(selectedIndex: number, evt?: Event) {
+    console.info(selectedIndex, evt);
+    this.selectedInd = selectedIndex;
+  }
+
+  makeGreen(): string {
     return 'green';
   }
 
