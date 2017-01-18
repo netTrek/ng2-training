@@ -9,7 +9,7 @@ export class AppComponent {
 
   title = 'app works!';
 
-  selectedInd: number = 1;
+  selectedInd: number = 0;
 
   /*
   chg ( ind: number ) {

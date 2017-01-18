@@ -25,7 +25,11 @@ export class UserListComponent implements OnInit, AfterViewInit {
    selectionChg: EventEmitter<number> = new EventEmitter<number> ();
    */
 
-  //imgUrl: string = 'https://placekitten.com/g/96/96';
+  userList: {first: string, last: string}[] = [
+    {first: 'saban', last: 'ünlü'},
+    {first: 'hans', last: 'müller'},
+    {first: 'peter', last: 'meier'}
+  ];
 
   constructor() {
   }
