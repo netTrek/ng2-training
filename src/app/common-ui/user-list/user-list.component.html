@@ -1,6 +1,6 @@
 <baywa-user-title>Herr</baywa-user-title>
 
-<baywa-user *ngFor="let usr of userList; let i = index"
+<baywa-user *ngFor="let usr of $user.userList; let i = index"
       [class.underlined]="selectedInd===i"
       baywaItalic="palevioletred"
       (click)="clickHdl ( i, $event )">{{usr.firstname | reverse}} {{usr.lastname}}</baywa-user>
