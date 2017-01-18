@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { CommonUiModule } from './common-ui/common-ui.module';
 import {UserService} from "./common-ui/user.service";
+import {RouterModule} from "@angular/router";
+import {UserListComponent} from "./common-ui/user-list/user-list.component";
 
 @NgModule({
   declarations: [
@@ -15,7 +17,13 @@ import {UserService} from "./common-ui/user.service";
     BrowserModule,
     FormsModule,
     HttpModule,
-    CommonUiModule
+    CommonUiModule,
+    RouterModule.forRoot( [
+      {
+        path: '',
+        component: UserListComponent
+      }
+    ], {useHash: false})
   ],
   providers: [ UserService ],
   bootstrap: [AppComponent]
