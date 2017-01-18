@@ -15,8 +15,9 @@ import {Component, OnInit, ViewEncapsulation, HostBinding, HostListener} from '@
 export class UserComponent implements OnInit {
 
   @HostBinding ('class.green') over: boolean = false;
-  @HostListener ('mouseover')
-  onOver () {
+  @HostListener ('mouseover', ['$event'])
+  onOver ( evt: Event ) {
+    console.info ( evt );
     this.over = true;
   }
   @HostListener ('mouseout')
