@@ -18,6 +18,10 @@ export class UserListComponent implements OnInit, AfterViewInit {
   constructor() {
   }
 
+  makeGreen (): string {
+    return 'green';
+  }
+
   func(a: number, b: number): number {
     return a + b;
   }

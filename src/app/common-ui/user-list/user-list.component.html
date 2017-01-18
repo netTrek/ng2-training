@@ -1,9 +1,5 @@
 <baywa-user-title>Herr</baywa-user-title>
 
-<img [src]="imgUrl" [attr.alt]="1+1" [style.width]="width+'px'">
-<img [src]="imgUrl" [attr.alt]="1+1" [style.width.px]="width">
-<img [src]="imgUrl" [attr.alt]="1+1" [style.width.%]="width">
-
-<baywa-user [style.color]="'green'">Saban Ünlü1</baywa-user>
-<baywa-user>Saban Ünlü2</baywa-user>
-<baywa-user>Saban Ünlü3</baywa-user>
+<baywa-user [class]="'underlined'">Saban Ünlü1</baywa-user>
+<baywa-user class="underlined" [class]="makeGreen()">Saban Ünlü2</baywa-user>
+<baywa-user class="underlined" [class.blue]="1+1===2">Saban Ünlü3</baywa-user>
