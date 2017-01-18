@@ -5,12 +5,13 @@ import { UserTitleComponent } from './user-title/user-title.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { ItalicDirective } from './italic.directive';
 import { ReversePipe } from './reverse.pipe';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [UserComponent, UserTitleComponent, UserListComponent, ItalicDirective, ReversePipe],
-  exports: [UserComponent, UserTitleComponent, UserListComponent, ItalicDirective, ReversePipe]
+  declarations: [UserComponent, UserTitleComponent, UserListComponent, ItalicDirective, ReversePipe, HomeComponent],
+  exports: [UserComponent, UserTitleComponent, UserListComponent, ItalicDirective, ReversePipe, HomeComponent]
 })
 export class CommonUiModule { }

@@ -1,7 +1,11 @@
 <h1>
-  {{title | slice : 1 : 5 | uppercase }} # {{selectedInd}}
+  {{title}}
 </h1>
-{{now | date : 'fullDate'}}
+
+<nav>
+  <a routerLink="home" routerLinkActive="active">home</a>
+  <a routerLink="list" routerLinkActive="active">list</a>
+</nav>
 
 <!--
 <baywa-user-list [selectedInd]="2" (selectionChg)="chg($event)"></baywa-user-list>

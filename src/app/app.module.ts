@@ -8,6 +8,7 @@ import { CommonUiModule } from './common-ui/common-ui.module';
 import {UserService} from "./common-ui/user.service";
 import {RouterModule} from "@angular/router";
 import {UserListComponent} from "./common-ui/user-list/user-list.component";
+import {HomeComponent} from "./common-ui/home/home.component";
 
 @NgModule({
   declarations: [
@@ -22,15 +23,19 @@ import {UserListComponent} from "./common-ui/user-list/user-list.component";
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'list'
+        redirectTo: 'home'
       },
       {
         path: 'list',
         component: UserListComponent
       },
       {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
         path: '**',
-        redirectTo: 'list'
+        redirectTo: 'home'
       },
     ], {useHash: false})
   ],
