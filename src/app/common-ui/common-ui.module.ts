@@ -10,6 +10,6 @@ import { ItalicDirective } from './italic.directive';
     CommonModule
   ],
   declarations: [UserComponent, UserTitleComponent, UserListComponent, ItalicDirective],
-  exports: [UserComponent, UserTitleComponent, UserListComponent]
+  exports: [UserComponent, UserTitleComponent, UserListComponent, ItalicDirective]
 })
 export class CommonUiModule { }

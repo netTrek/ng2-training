@@ -2,5 +2,5 @@
 
 <baywa-user *ngFor="let usr of userList; let i = index"
       [class.underlined]="selectedInd===i"
-      baywaItalic
+      baywaItalic="palevioletred"
       (click)="clickHdl ( i, $event )">{{usr.first}} {{usr.last}}</baywa-user>
