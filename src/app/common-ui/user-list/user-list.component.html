@@ -1,5 +1,5 @@
 <baywa-user-title>Herr</baywa-user-title>
 
-<baywa-user [class]="'underlined'">Saban Ünlü1</baywa-user>
-<baywa-user class="underlined" [class]="makeGreen()">Saban Ünlü2</baywa-user>
-<baywa-user class="underlined" [class.blue]="1+1===2">Saban Ünlü3</baywa-user>
+<baywa-user [class]="'underlined'" [ngStyle]="{margin: '10px'}">Saban Ünlü1</baywa-user>
+<baywa-user class="underlined" [ngClass]="makeGreen()">Saban Ünlü2</baywa-user>
+<baywa-user class="underlined" [ngClass]="{green:true, underlined:false}">Saban Ünlü3</baywa-user>
