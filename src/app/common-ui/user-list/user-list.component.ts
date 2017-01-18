@@ -12,8 +12,8 @@ export class UserListComponent implements OnInit, AfterViewInit {
   @ViewChild(UserTitleComponent) userTitle: UserTitleComponent;
   @ViewChildren(UserComponent) users: QueryList<UserComponent>;
 
-  prop: string = 'Eigenschaft';
   imgUrl: string = 'https://placekitten.com/g/64/64';
+  width: number = 100;
 
   constructor() {
   }
