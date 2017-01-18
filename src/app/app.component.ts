@@ -9,4 +9,12 @@ export class AppComponent {
 
   title = 'app works!';
 
+  selectedInd: number = 1;
+
+  /*
+  chg ( ind: number ) {
+    console.info ( ind );
+  }
+  */
+
 }

@@ -1,4 +1,7 @@
-import {Component, OnInit, AfterViewInit, ViewChild, ViewChildren, QueryList, Input} from '@angular/core';
+import {
+  Component, OnInit, AfterViewInit, ViewChild, ViewChildren, QueryList, Input, Output,
+  EventEmitter
+} from '@angular/core';
 import {UserTitleComponent} from '../user-title/user-title.component';
 import {UserComponent} from '../user/user.component';
 
@@ -12,14 +15,28 @@ export class UserListComponent implements OnInit, AfterViewInit {
   @ViewChild(UserTitleComponent) userTitle: UserTitleComponent;
   @ViewChildren(UserComponent) users: QueryList<UserComponent>;
 
-  @Input( 'selected-usr' ) selectedInd: number = 1;
+  @Input()
+  selectedInd: number = 1;
+  @Output()
+  selectedIndChange: EventEmitter<number> = new EventEmitter<number> ();
+
+  /*
+  @Output()
+  selectionChg: EventEmitter<number> = new EventEmitter<number> ();
+  */
+
+
 
   constructor() {
   }
 
   clickHdl(selectedIndex: number, evt?: Event) {
     console.info(selectedIndex, evt);
-    this.selectedInd = selectedIndex;
+    if ( selectedIndex !== this.selectedInd ) {
+      this.selectedInd = selectedIndex;
+      //this.selectionChg.emit ( selectedIndex );
+      this.selectedIndChange.emit( selectedIndex );
+    }
   }
 
   makeGreen(): string {

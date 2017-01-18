@@ -1,4 +1,9 @@
 <h1>
-  {{title}}
+  {{title}} # {{selectedInd}}
 </h1>
-<baywa-user-list [selected-usr]="2"></baywa-user-list>
+
+<!--
+<baywa-user-list [selectedInd]="2" (selectionChg)="chg($event)"></baywa-user-list>
+-->
+
+<baywa-user-list [(selectedInd)]="selectedInd"></baywa-user-list>
