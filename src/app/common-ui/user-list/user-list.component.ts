@@ -9,25 +9,27 @@ import {UserComponent} from '../user/user.component';
 })
 export class UserListComponent implements OnInit, AfterViewInit {
 
-  @ViewChild(UserTitleComponent) userTitle : UserTitleComponent;
-  @ViewChildren(UserComponent) users : QueryList<UserComponent>;
+  @ViewChild(UserTitleComponent) userTitle: UserTitleComponent;
+  @ViewChildren(UserComponent) users: QueryList<UserComponent>;
 
-  prop : string = 'Eigenschaft';
+  prop: string = 'Eigenschaft';
+  imgUrl: string = 'https://placekitten.com/g/64/64';
 
-  constructor() { }
+  constructor() {
+  }
 
-  func ( a : number, b : number ) : number {
+  func(a: number, b: number): number {
     return a + b;
   }
 
   ngOnInit() {
-    console.info ( 'hier gibt es userTitle noch nicht');
+    console.info('hier gibt es userTitle noch nicht');
   }
 
-  ngAfterViewInit() : void {
+  ngAfterViewInit(): void {
 
-    console.info ( 'hier gibt es userTitle', this.userTitle );
-    console.info ( this.users );
+    console.info('hier gibt es userTitle', this.userTitle);
+    console.info(this.users);
 
   }
 }
