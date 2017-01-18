@@ -15,10 +15,10 @@ export class AppComponent {
 
   constructor (  ) {
 
-    const observable : Observable<number> = Observable.range ( 1, 5 );
+    const observable : Observable<number> = Observable.of ( 1, 2, 5 );
     const subscription : Subscription = observable
-      //.filter ( val => { return val % 2 === 0; } ) //nur gerade
-      //.map ( item => item += 1 )                   //ungerade machen
+      .filter ( val => { return val % 2 === 0; } ) //nur gerade
+      .map ( item => item += 1 )                   //ungerade machen
       .subscribe(
         next => console.info ( 'next %s', next ),
         error => console.info ( 'error %s', error ),
