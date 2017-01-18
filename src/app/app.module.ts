@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import {CommonUiModule} from './common-ui/common-ui.module';
+import {UserServiceService} from './common-ui/user-service.service';
 
 @NgModule({
   declarations: [
@@ -12,9 +14,10 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    CommonUiModule
   ],
-  providers: [],
+  providers: [ UserServiceService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

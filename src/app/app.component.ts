@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   title = 'app works!';
+  selInd: number = 0;
+
+  indChgHandler ( ind: number ) {
+    this.selInd = ind;
+  }
 
 }
