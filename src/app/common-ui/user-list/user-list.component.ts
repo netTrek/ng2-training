@@ -4,6 +4,18 @@ import {
 } from '@angular/core';
 import {UserTitleComponent} from '../user-title/user-title.component';
 import {UserComponent} from '../user/user.component';
+import {Http} from '@angular/http';
+
+export interface IUser {
+  id: string;
+  firstname: string;
+  lastname: string;
+  birthday: string;
+  street: string;
+  street_no?: any;
+  zip?: any;
+  city?: any;
+}
 
 @Component({
   selector: 'baywa-user-list',
@@ -20,18 +32,17 @@ export class UserListComponent implements OnInit, AfterViewInit {
   @Output()
   selectedIndChange: EventEmitter<number> = new EventEmitter<number>();
 
-  /*
-   @Output()
-   selectionChg: EventEmitter<number> = new EventEmitter<number> ();
-   */
+  userList: IUser[];
 
-  userList: {first: string, last: string}[] = [
-    {first: 'saban', last: 'ünlü'},
-    {first: 'hans', last: 'müller'},
-    {first: 'peter', last: 'meier'}
-  ];
+  constructor( http: Http ) {
 
-  constructor() {
+
+    http.get('http://rest-api.flexlab.de/index.php/api/user/')
+      .subscribe(
+        respone => {
+            this.userList = respone.json();
+        }
+      );
   }
 
   clickHdl(selectedIndex: number, evt?: Event) {

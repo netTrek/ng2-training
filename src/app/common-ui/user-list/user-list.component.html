@@ -3,4 +3,4 @@
 <baywa-user *ngFor="let usr of userList; let i = index"
       [class.underlined]="selectedInd===i"
       baywaItalic="palevioletred"
-      (click)="clickHdl ( i, $event )">{{usr.first | reverse}} {{usr.last}}</baywa-user>
+      (click)="clickHdl ( i, $event )">{{usr.firstname | reverse}} {{usr.lastname}}</baywa-user>
