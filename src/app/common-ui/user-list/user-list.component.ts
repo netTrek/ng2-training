@@ -18,24 +18,24 @@ export class UserListComponent implements OnInit, AfterViewInit {
   @Input()
   selectedInd: number = 1;
   @Output()
-  selectedIndChange: EventEmitter<number> = new EventEmitter<number> ();
+  selectedIndChange: EventEmitter<number> = new EventEmitter<number>();
 
   /*
-  @Output()
-  selectionChg: EventEmitter<number> = new EventEmitter<number> ();
-  */
+   @Output()
+   selectionChg: EventEmitter<number> = new EventEmitter<number> ();
+   */
 
-
+  //imgUrl: string = 'https://placekitten.com/g/96/96';
 
   constructor() {
   }
 
   clickHdl(selectedIndex: number, evt?: Event) {
     console.info(selectedIndex, evt);
-    if ( selectedIndex !== this.selectedInd ) {
+    if (selectedIndex !== this.selectedInd) {
       this.selectedInd = selectedIndex;
       //this.selectionChg.emit ( selectedIndex );
-      this.selectedIndChange.emit( selectedIndex );
+      this.selectedIndChange.emit(selectedIndex);
     }
   }
 

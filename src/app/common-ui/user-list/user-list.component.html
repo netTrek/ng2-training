@@ -1,5 +1,12 @@
 <baywa-user-title>Herr</baywa-user-title>
 
+
+<template [ngIf]="imgUrl" >
+    <img [src]="imgUrl" alt="">
+</template>
+
+<img [src]="imgUrl" *ngIf="imgUrl" alt="" >
+
 <baywa-user [class.underlined]="selectedInd===1" (click)="clickHdl ( 1, $event )">Saban Ünlü1</baywa-user>
 <baywa-user [class.underlined]="selectedInd===2" (click)="clickHdl ( 2, $event )">Saban Ünlü2</baywa-user>
 <baywa-user [class.underlined]="selectedInd===3" (click)="clickHdl ( 3 )">Saban Ünlü3</baywa-user>
