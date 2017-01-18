@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation, HostBinding, HostListener} from '@angular/core';
 
 @Component({
   selector: 'baywa-user',
@@ -13,6 +13,16 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.Emulated
 })
 export class UserComponent implements OnInit {
+
+  @HostBinding ('class.green') over: boolean = false;
+  @HostListener ('mouseover')
+  onOver () {
+    this.over = true;
+  }
+  @HostListener ('mouseout')
+  onOut () {
+    this.over = false;
+  }
 
   constructor() { }
 
