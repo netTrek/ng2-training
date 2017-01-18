@@ -1,6 +1,7 @@
 <h1>
-  {{title}} # {{selectedInd}}
+  {{title | slice : 1 : 5 | uppercase }} # {{selectedInd}}
 </h1>
+{{now | date : 'fullDate'}}
 
 <!--
 <baywa-user-list [selectedInd]="2" (selectionChg)="chg($event)"></baywa-user-list>
