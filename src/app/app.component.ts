@@ -15,7 +15,15 @@ export class AppComponent {
 
   constructor (  ) {
 
-    const observable : Observable<number> = Observable.of ( 1, 2, 5 );
+    const observable : Observable<number> = Observable.create ( observer => {
+      console.info ( 'Subscriber:= ', observer );
+      observer.next( 1 );
+      observer.next( 2 );
+      observer.next( 3 );
+      //observer.error( 'failed' );
+      observer.complete();
+    });
+
     const subscription : Subscription = observable
       .filter ( val => { return val % 2 === 0; } ) //nur gerade
       .map ( item => item += 1 )                   //ungerade machen
@@ -24,6 +32,11 @@ export class AppComponent {
         error => console.info ( 'error %s', error ),
         () => console.info ( 'complete' ),
       );
+
+
+    if ( !!subscription.closed ) {
+      subscription.unsubscribe();
+    }
 
   }
 
