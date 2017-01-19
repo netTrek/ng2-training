@@ -10,6 +10,7 @@ import {RouterModule} from "@angular/router";
 import {UserListComponent} from "./common-ui/user-list/user-list.component";
 import {HomeComponent} from "./common-ui/home/home.component";
 import {UserDetailsComponent} from "./common-ui/user-details/user-details.component";
+import {ResolveService} from "./common-ui/resolve.service";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,10 @@ import {UserDetailsComponent} from "./common-ui/user-details/user-details.compon
       },
       {
         path: 'details/:id',
-        component: UserDetailsComponent
+        component: UserDetailsComponent,
+        resolve: {
+          user: ResolveService
+        }
       },
       {
         path: 'home',
@@ -44,7 +48,7 @@ import {UserDetailsComponent} from "./common-ui/user-details/user-details.compon
       },
     ], {useHash: false})
   ],
-  providers: [ UserService ],
+  providers: [ UserService, ResolveService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

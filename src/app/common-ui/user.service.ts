@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Http} from '@angular/http';
+import {Http, RequestOptionsArgs, URLSearchParams} from '@angular/http';
+
 import 'rxjs/add/operator/map';
+import {Observable} from "rxjs";
 
 export interface IUser {
   id: string;
@@ -17,6 +19,7 @@ export interface IUser {
 export class UserService {
 
   userList: IUser[] = [];
+  user: IUser;
 
   constructor( private http: Http ) { }
 
@@ -26,6 +29,23 @@ export class UserService {
       .subscribe(
         result => this.userList = result
       );
+  }
+
+  getUser ( id: number ): Observable<IUser> {
+
+    return Observable.create ( observer => {
+      this.http.get('http://rest-api.flexlab.de/index.php/api/user/' + id )
+        .map ( response => { return response.json(); } )
+        .subscribe(
+          result => {
+            this.user = result;
+            observer.next( result );
+            observer.complete();
+          }
+        );
+    });
+
+
   }
 
 }
