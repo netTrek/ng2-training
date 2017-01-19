@@ -8,13 +8,16 @@ import { ReversePipe } from './reverse.pipe';
 import { HomeComponent } from './home/home.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import {RouterModule} from "@angular/router";
+import { ContactComponent } from './contact/contact.component';
+import { ContactDetailsComponent } from './contact-details/contact-details.component';
+import { ContactFormsComponent } from './contact-forms/contact-forms.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule
   ],
-  declarations: [UserComponent, UserTitleComponent, UserListComponent, ItalicDirective, ReversePipe, HomeComponent, UserDetailsComponent],
-  exports: [UserComponent, UserTitleComponent, UserListComponent, ItalicDirective, ReversePipe, HomeComponent, UserDetailsComponent]
+  declarations: [UserComponent, UserTitleComponent, UserListComponent, ItalicDirective, ReversePipe, HomeComponent, UserDetailsComponent, ContactComponent, ContactDetailsComponent, ContactFormsComponent],
+  exports: [UserComponent, UserTitleComponent, UserListComponent, ItalicDirective, ReversePipe, HomeComponent, UserDetailsComponent, ContactComponent, ContactDetailsComponent, ContactFormsComponent]
 })
 export class CommonUiModule { }

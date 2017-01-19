@@ -12,6 +12,9 @@ import {HomeComponent} from "./common-ui/home/home.component";
 import {UserDetailsComponent} from "./common-ui/user-details/user-details.component";
 import {ResolveService} from "./common-ui/resolve.service";
 import {CanActiveService} from "./common-ui/can-active.service";
+import {ContactComponent} from "./common-ui/contact/contact.component";
+import {ContactDetailsComponent} from "./common-ui/contact-details/contact-details.component";
+import {ContactFormsComponent} from "./common-ui/contact-forms/contact-forms.component";
 
 @NgModule({
   declarations: [
@@ -43,6 +46,25 @@ import {CanActiveService} from "./common-ui/can-active.service";
         path: 'home',
         component: HomeComponent,
         canActivate: [ CanActiveService ]
+      },
+      {
+        path: 'contact',
+        component: ContactComponent,
+        children: [
+          {
+            path: '',
+            pathMatch: 'full',
+            redirectTo: 'base'
+          },
+          {
+            path: 'base',
+            component: ContactDetailsComponent
+          },
+          {
+            path: 'form',
+            component: ContactFormsComponent
+          }
+        ]
       },
       {
         path: '**',
