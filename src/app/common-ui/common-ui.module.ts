@@ -6,12 +6,15 @@ import { UserListComponent } from './user-list/user-list.component';
 import { ItalicDirective } from './italic.directive';
 import { ReversePipe } from './reverse.pipe';
 import { HomeComponent } from './home/home.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
-  declarations: [UserComponent, UserTitleComponent, UserListComponent, ItalicDirective, ReversePipe, HomeComponent],
-  exports: [UserComponent, UserTitleComponent, UserListComponent, ItalicDirective, ReversePipe, HomeComponent]
+  declarations: [UserComponent, UserTitleComponent, UserListComponent, ItalicDirective, ReversePipe, HomeComponent, UserDetailsComponent],
+  exports: [UserComponent, UserTitleComponent, UserListComponent, ItalicDirective, ReversePipe, HomeComponent, UserDetailsComponent]
 })
 export class CommonUiModule { }

@@ -9,6 +9,7 @@ import {UserService} from "./common-ui/user.service";
 import {RouterModule} from "@angular/router";
 import {UserListComponent} from "./common-ui/user-list/user-list.component";
 import {HomeComponent} from "./common-ui/home/home.component";
+import {UserDetailsComponent} from "./common-ui/user-details/user-details.component";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,10 @@ import {HomeComponent} from "./common-ui/home/home.component";
       {
         path: 'list',
         component: UserListComponent
+      },
+      {
+        path: 'details/:id',
+        component: UserDetailsComponent
       },
       {
         path: 'home',

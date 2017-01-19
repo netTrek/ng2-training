@@ -1,6 +1,16 @@
-<baywa-user-title>Herr</baywa-user-title>
 
+<!--
+<baywa-user-title>Herr</baywa-user-title>
 <baywa-user *ngFor="let usr of $user.userList; let i = index"
       [class.underlined]="selectedInd===i"
       baywaItalic="palevioletred"
       (click)="clickHdl ( i, $event )">{{usr.firstname | reverse}} {{usr.lastname}}</baywa-user>
+-->
+<!--
+  RouterModule in Common-Module einbinden, sonst nicht auflösbar für UserListe
+-->
+<ul>
+  <li *ngFor="let usr of $user.userList;">
+    <a [routerLink]="['/details', usr.id]">{{usr.firstname}} {{usr.lastname}}</a>
+  </li>
+</ul>

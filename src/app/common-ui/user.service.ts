@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
+import 'rxjs/add/operator/map';
 
 export interface IUser {
   id: string;
@@ -21,10 +22,9 @@ export class UserService {
 
   getUsers () {
     this.http.get('http://rest-api.flexlab.de/index.php/api/user/')
+      .map ( response => { return response.json(); } )
       .subscribe(
-        respone => {
-          this.userList = respone.json();
-        }
+        result => this.userList = result
       );
   }
 
