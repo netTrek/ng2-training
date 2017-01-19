@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -12,5 +13,8 @@ export class AppComponent {
   now: number = Date.now();
   selectedInd: number = 0;
 
+  constructor ( router: Router ) {
+    router.events.subscribe( event => console.log (event));
+  }
 
 }
