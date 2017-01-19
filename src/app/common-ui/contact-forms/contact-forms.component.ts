@@ -7,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactFormsComponent implements OnInit {
 
+  formModel: { mail: string, name: string } = {
+    name: '',
+    mail: ''
+  };
+
+  name: string = '';
+  mail: string = '';
+
   constructor() { }
 
   ngOnInit() {

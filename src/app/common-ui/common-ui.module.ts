@@ -11,11 +11,13 @@ import {RouterModule} from "@angular/router";
 import { ContactComponent } from './contact/contact.component';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
 import { ContactFormsComponent } from './contact-forms/contact-forms.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   declarations: [UserComponent, UserTitleComponent, UserListComponent, ItalicDirective, ReversePipe, HomeComponent, UserDetailsComponent, ContactComponent, ContactDetailsComponent, ContactFormsComponent],
   exports: [UserComponent, UserTitleComponent, UserListComponent, ItalicDirective, ReversePipe, HomeComponent, UserDetailsComponent, ContactComponent, ContactDetailsComponent, ContactFormsComponent]

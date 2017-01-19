@@ -1,3 +1,10 @@
-<p>
-  contact-forms works!
-</p>
+
+{{formModel | json}}
+
+<form novalidate>
+
+
+  <input type="text" name="name" [(ngModel)]="formModel.name">
+  <input type="email" name="mail" [(ngModel)]="formModel.mail">
+
+</form>

@@ -48,10 +48,6 @@ import {ContactFormsComponent} from "./common-ui/contact-forms/contact-forms.com
         canActivate: [ CanActiveService ]
       },
       {
-        path        : 'dash',
-        loadChildren: './dash/dash.module#DashModule'
-      },
-      {
         path: 'contact',
         component: ContactComponent,
         children: [
