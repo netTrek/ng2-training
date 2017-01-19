@@ -11,6 +11,7 @@ import {UserListComponent} from "./common-ui/user-list/user-list.component";
 import {HomeComponent} from "./common-ui/home/home.component";
 import {UserDetailsComponent} from "./common-ui/user-details/user-details.component";
 import {ResolveService} from "./common-ui/resolve.service";
+import {CanActiveService} from "./common-ui/can-active.service";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {ResolveService} from "./common-ui/resolve.service";
       },
       {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate: [ CanActiveService ]
       },
       {
         path: '**',
@@ -48,7 +50,7 @@ import {ResolveService} from "./common-ui/resolve.service";
       },
     ], {useHash: false})
   ],
-  providers: [ UserService, ResolveService ],
+  providers: [ UserService, ResolveService, CanActiveService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
