@@ -1,10 +1,12 @@
 
 {{formModel | json}}
 
-<form novalidate>
+<form novalidate (submit)="doSubmit()">
 
 
   <input type="text" name="name" [(ngModel)]="formModel.name">
   <input type="email" name="mail" [(ngModel)]="formModel.mail">
+
+  <button type="submit">submit</button>
 
 </form>

@@ -17,7 +17,16 @@ export class ContactFormsComponent implements OnInit {
 
   constructor() { }
 
+  doSubmit () {
+    
+    console.info ( this.formModel );
+    
+  }
+  
+  
   ngOnInit() {
   }
+  
+  
 
 }
