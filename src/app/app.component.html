@@ -2,8 +2,19 @@
   {{title}} # {{selInd}}
 </h1>
 
+<nav>
+  <a routerLink="home" routerLinkActive="active">home</a>
+  <a routerLink="list" routerLinkActive="active">list</a>
+  <a routerLink="contact" routerLinkActive="active">contact</a>
+</nav>
+<hr>
+<router-outlet></router-outlet>
+
+<!--
 <input type="number" name="ind" [(ngModel)]="selInd" >
 <baywa-user-list [(selectedInd)]="selInd"></baywa-user-list>
+-->
+
 <!--
 <baywa-user-list [selectedInd]="selInd" (indChg)="indChgHandler($event)"></baywa-user-list>
 -->

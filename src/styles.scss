@@ -1,0 +1,11 @@
+.italic {
+  font-style: italic;
+}
+
+
+a {
+  color: burlywood;
+  &.active {
+    color: #94c582;
+  }
+}

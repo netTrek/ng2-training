@@ -52,7 +52,7 @@ export class UserComponent implements OnInit, AfterContentInit {
   }
 
   ngAfterContentInit(): void {
-    console.log ( this.title, this.titles );
+    // console.log ( this.title, this.titles );
     // this.title.prop = 'ng2 Rocks';
     /*
     this.titles.map ( title => {

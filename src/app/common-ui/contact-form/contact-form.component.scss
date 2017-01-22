@@ -1,0 +1,10 @@
+:host {
+  input {
+    &.ng-invalid.ng-dirty{
+      border: solid 1px red;
+    }
+    &.ng-valid.ng-dirty{
+      border: solid 5px green;
+    }
+  }
+}

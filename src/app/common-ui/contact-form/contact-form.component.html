@@ -1,0 +1,15 @@
+
+<p>
+  {{formModel | json }}
+</p>
+
+<form (submit)="submitData()">
+
+  <input type="text" name="name" [(ngModel)]="formModel.name" #name required pattern="[a-zA-Z0-9]{5,10}">
+  <span>{{name.className}}</span>
+
+  <input type="number" name="count" [(ngModel)]="formModel.count" min="0" max="10" >
+
+  <button type="submit">submit</button>
+
+</form>
