@@ -1,16 +1,31 @@
 
 {{formModel | json}}
 
-<form novalidate (submit)="doSubmit()" #myForm>
+<form novalidate (submit)="doSubmit()" #myForm="ngForm">
 
-  <p>
-    <input type="text" name="name" [(ngModel)]="formModel.name" required minlength="4" #name>
-    <span>{{name.className}}</span>
-  </p>
-  <p>
-    <input type="email" name="mail" [(ngModel)]="formModel.mail" required #mail>
-  </p>
+  <div>
+    <input type="text" name="name" [(ngModel)]="formModel.name" required minlength="4" #name="ngModel">
+    <div *ngIf="name.errors && (name.dirty || name.touched)">
+      <div [hidden]="!name.errors.required">
+        Name is required
+      </div>
+      <div [hidden]="!name.errors.minlength">
+        Name must be at least 4 characters long.
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div>
+    <input type="email" name="mail" [(ngModel)]="formModel.mail" required #mail="ngModel">
+  </div>
 
   <button type="submit" >submit</button>
+
+  <p>
+    {{name.dirty | json}}
+    {{name.errors | json}}
+    {{name.valid | json}}
+    {{myForm.valid | json}}
+  </p>
 
 </form>
