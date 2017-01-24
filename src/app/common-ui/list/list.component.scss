@@ -1,5 +1,16 @@
 :host {
   display: block;
-  padding-top: 10px
+  padding-top: 10px;
+
+  avaya-list-item {
+    cursor: pointer;
+    &.selected {
+      text-decoration: underline;
+      cursor: default;
+    }
+  }
+
+
+
 }
 

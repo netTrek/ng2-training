@@ -9,6 +9,11 @@ import {
 })
 export class AppComponent  {
 
+  borderClass: string = 'width-border';
+
+  imgWidth: number = 100;
+  imgUrl: string = '../assets/images/logo.png';
+  html: string = '<strong>Cool oder?</strong>';
 
   title = 'app works!';
 

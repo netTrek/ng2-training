@@ -1,8 +1,24 @@
 <ng-content select="avaya-title"></ng-content>
 
-<div #label>Hello World</div>
+<div #label> {{ getNameAndAge(  ) }} </div>
 
-<avaya-list-item>Saban</avaya-list-item>
-<avaya-list-item>Frank</avaya-list-item>
-<avaya-list-item>Peter</avaya-list-item>
-<avaya-list-item>Hans</avaya-list-item>
+<avaya-list-item
+        [class.selected]="selectedInd===0"
+        (click)="setInd(0, $event)"
+            >Saban 1</avaya-list-item>
+<avaya-list-item
+        [class.selected]="selectedInd===1"
+        (click)="setInd(1, $event)"
+            >Saban 2 </avaya-list-item>
+<avaya-list-item
+        [class.selected]="selectedInd===2"
+        (click)="setInd(2, $event)"
+            >Saban 3 </avaya-list-item>
+<avaya-list-item
+        [class.selected]="selectedInd===3"
+        (click)="setInd(3, $event)"
+            >Saban 4 </avaya-list-item>
+<avaya-list-item
+        [class.selected]="selectedInd===4"
+        (click)="setInd(4, $event)"
+            >Saban 5</avaya-list-item>
