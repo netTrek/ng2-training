@@ -1,38 +1,33 @@
-import { Component,
-          OnInit,
-          ContentChild,
-          AfterContentInit,
-          ContentChildren,
-          QueryList } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild, AfterViewInit, ViewChildren, QueryList, ElementRef
+} from '@angular/core';
 import { ListItemComponent } from './list-item/list-item.component';
 @Component({
   selector: 'avaya-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit, AfterContentInit {
+export class ListComponent implements OnInit, AfterViewInit {
 
-  private _listItems: QueryList<ListItemComponent>;
+  @ViewChild ('label')
+  label: ElementRef;
 
-  @ContentChild(ListItemComponent)
+  @ViewChild (ListItemComponent)
   listItem: ListItemComponent;
 
-  @ContentChildren (ListItemComponent)
-  set listItems ( v: QueryList<ListItemComponent> ) {
-    console.warn ( v );
-    this._listItems = v;
-  }
-
-  get listItems (): QueryList<ListItemComponent> {
-    return this._listItems;
-  }
-
+  @ViewChildren (ListItemComponent)
+  listItems: QueryList<ListItemComponent>;
   constructor() { }
 
   ngOnInit() {
   }
 
-  ngAfterContentInit (): void {
-    console.log ( this.listItem, this.listItems );
+  ngAfterViewInit(): void {
+
+    console.log ( this.listItem, this.listItems, this.label );
+    this.label.nativeElement.innerText = 'rock ....';
+
   }
 }
