@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import './app/app.variables';
+
+body {
+
+  background-color: $maincolor;
+  font-family: $fontFamily;
+
+  h1 {
+    font-size: xx-large;
+
+    &.active {
+      font-style: italic;
+    }
+  }
+
+
+}
