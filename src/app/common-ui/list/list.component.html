@@ -11,18 +11,19 @@
 </div>
 
 <hr>
+<span>{{1234567890 | number}}</span>
+<hr>
 
 <p>
     {{dataProvider | json }}
 </p>
 
 <avaya-list-item
-        avayaItalic="#00ffff"
-        *ngFor="let user of dataProvider"
+        avayaItalic="#0"
+        *ngFor="let user of dataProvider | reverse"
         [isSelected]="selectedUser===user"
         (click)="setSelectedUser(user)">
-
-            {{user.num}} # {{user.name}}
+            {{user.num | reverse | filler : 1 }} # {{user.name |reverse | uppercase | slice : 1 }}
             <button (click)="del(user, $event)">deletet</button>
 
 </avaya-list-item>
