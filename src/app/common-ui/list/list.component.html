@@ -3,22 +3,22 @@
 <div #label> {{ getNameAndAge () }} {{selectedInd}}</div>
 <hr>
 <avaya-list-item
-        [class.selected]="selectedInd===0"
+        [isSelected]="selectedInd===0"
         (click)="setInd(0, $event)"
             >Saban 0</avaya-list-item>
 <avaya-list-item
-        [class.selected]="selectedInd===1"
+        [isSelected]="selectedInd===1"
         (click)="setInd(1, $event)"
             >Saban 1 </avaya-list-item>
 <avaya-list-item
-        [class.selected]="selectedInd===2"
+        [isSelected]="selectedInd===2"
         (click)="setInd(2, $event)"
             >Saban 2 </avaya-list-item>
 <avaya-list-item
-        [class.selected]="selectedInd===3"
+        [isSelected]="selectedInd===3"
         (click)="setInd(3, $event)"
             >Saban 3 </avaya-list-item>
 <avaya-list-item
-        [class.selected]="selectedInd===4"
+        [isSelected]="selectedInd===4"
         (click)="setInd(4, $event)"
             >Saban 4</avaya-list-item>

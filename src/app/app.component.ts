@@ -16,14 +16,20 @@ export class AppComponent  {
 
   html: string = '<strong>Cool oder?</strong>';
 
-  selectedInd: number = 3;
 
   title = 'app works!';
+  selectedInd: number = 3;
+
 
   constructor () {
     const testing = 'test';
     this.title = testing;
       console.log ( testing, this.title );
   }
-
+  /*
+  onListIndexChg ( ind: number ) {
+    console.log ( 'event', ind );
+    this.selectedInd = ind;
+  }
+  */
 }

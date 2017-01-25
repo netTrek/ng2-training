@@ -1,3 +1,7 @@
 :host {
   display: block;
+  &.show-as-italic {
+    font-style: italic;
+  }
 }
+

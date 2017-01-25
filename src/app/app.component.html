@@ -60,11 +60,18 @@
 
 -->
 
+<!--
 
 <div [innerHtml]="html"></div>
 <div [innerText]="10>11?'12':'11'"></div>
+-->
 
-<avaya-list [selectedInd]="selectedInd" >
+<strong>selected index is:= {{selectedInd}}</strong>
+
+
+<avaya-list
+        [(selectedInd)]="selectedInd"
+  >
   <avaya-title></avaya-title>
 </avaya-list>
 
