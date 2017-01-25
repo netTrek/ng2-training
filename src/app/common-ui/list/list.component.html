@@ -1,7 +1,16 @@
 <ng-content select="avaya-title"></ng-content>
 
-<div #label> {{ getNameAndAge () }} {{selectedInd}}</div>
+<template [ngIf]="selectedInd >=2">
+    <div> {{ getNameAndAge () }} Wert >= 2 := {{selectedInd}} </div>
+</template>
+
 <hr>
+<div #label
+     *ngIf="selectedInd < 2"
+    > {{ getNameAndAge () }} Wert < 2 := {{selectedInd}}
+</div>
+<hr>
+
 <avaya-list-item
         [isSelected]="selectedInd===0"
         (click)="setInd(0, $event)"
