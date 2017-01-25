@@ -1,9 +1,13 @@
-import { Directive, HostBinding, ElementRef, HostListener } from '@angular/core';
+import { Directive, HostBinding, ElementRef, HostListener, Input } from '@angular/core';
 
 @Directive({
   selector: '[avayaItalic], .border'
 })
 export class ItalicDirective {
+
+    @Input()
+    @HostBinding ( 'style.color' )
+    avayaItalic: string | number = 'green';
 
     @HostBinding ( 'class.show-as-italic' )
     showAsItalic: boolean = false;
