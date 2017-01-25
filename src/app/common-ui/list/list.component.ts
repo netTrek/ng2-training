@@ -1,7 +1,7 @@
 import {
   Component,
   OnInit,
-  ViewChild, AfterViewInit, ViewChildren, QueryList, ElementRef
+  ViewChild, AfterViewInit, ViewChildren, QueryList, ElementRef, Input
 } from '@angular/core';
 import { ListItemComponent } from './list-item/list-item.component';
 
@@ -16,6 +16,8 @@ export interface IListModel {
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit, AfterViewInit {
+
+  @Input( )
   selectedInd: number = 0;
 
   // model: { num: number, name?: string } = {
@@ -32,6 +34,7 @@ export class ListComponent implements OnInit, AfterViewInit {
 
   @ViewChildren (ListItemComponent)
   listItems: QueryList<ListItemComponent>;
+
   constructor() { }
 
   getNameAndAge( age?: number ): string {
@@ -54,4 +57,5 @@ export class ListComponent implements OnInit, AfterViewInit {
     // this.label.nativeElement.innerText = 'rock ....';
 
   }
+
 }

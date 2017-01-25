@@ -13,7 +13,10 @@ export class AppComponent  {
 
   imgWidth: number = 100;
   imgUrl: string = '../assets/images/logo.png';
+
   html: string = '<strong>Cool oder?</strong>';
+
+  selectedInd: number = 3;
 
   title = 'app works!';
 
