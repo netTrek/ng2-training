@@ -1,3 +1,8 @@
+
+
+import { netTrekBuildInfo } from './enviroments.variables';
+
 export const environment = {
-  production: true
+  production: true,
+  buidInfo: netTrekBuildInfo
 };

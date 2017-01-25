@@ -5,14 +5,15 @@
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "serve": "ng serve",
-    "serve:build": "ng serve --prod",
-    "build": "ng build",
-    "lint": "tslint \"src/**/*.ts\" --project src/tsconfig.json --type-check && tslint \"e2e/**/*.ts\" --project e2e/tsconfig.json --type-check",
-    "test": "ng test",
-    "pree2e": "webdriver-manager update --standalone false --gecko false",
-    "e2e": "protractor"
+    "generate": "node build-scripts/netTrek",
+    "start": "npm run generate & ng serve",
+    "serve": "npm run start",
+    "serve:build": "npm run generate & ng serve --prod",
+    "build": "npm run generate & ng build",
+    "lint": "npm run generate & tslint \"src/**/*.ts\" --project src/tsconfig.json --type-check && tslint \"e2e/**/*.ts\" --project e2e/tsconfig.json --type-check",
+    "test": "npm run generate & ng test",
+    "pree2e": "npm run generate & webdriver-manager update --standalone false --gecko false",
+    "e2e": "npm run generate & protractor"
   },
   "private": true,
   "dependencies": {

@@ -3,6 +3,7 @@ import {
 } from '@angular/core';
 import { IListModel } from './common-ui/list/list.component';
 import { UpperCasePipe } from '@angular/common';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'avaya-root',
@@ -21,6 +22,8 @@ export class AppComponent  {
 
   title = 'app works!';
   selectedInd: number = 3;
+
+  buildInfo = environment.buidInfo;
 
   userList: IListModel[] = [
       {
