@@ -1,6 +1,7 @@
 import {
   Component
 } from '@angular/core';
+import { IListModel } from './common-ui/list/list.component';
 
 @Component({
   selector: 'avaya-root',
@@ -20,6 +21,24 @@ export class AppComponent  {
   title = 'app works!';
   selectedInd: number = 3;
 
+  userList: IListModel[] = [
+      {
+        num: 10,
+        name: 'Saban'
+      },
+      {
+        num: 12,
+        name: 'Peter'
+      },
+      {
+        num: 22,
+        name: 'Frank'
+      },
+      {
+        num: 33,
+        name: 'Hans'
+      }
+  ];
 
   constructor () {
     const testing = 'test';

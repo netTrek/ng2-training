@@ -11,6 +11,7 @@ import {
     EventEmitter } from '@angular/core';
 import { ListItemComponent } from './list-item/list-item.component';
 
+
 export interface IListModel {
   num: number;
   name?: string;
@@ -22,6 +23,9 @@ export interface IListModel {
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit, AfterViewInit {
+
+    @Input()
+    dataProvider: IListModel[] = [];
 
   @Input( )
   selectedInd: number = 0;
@@ -44,15 +48,36 @@ export class ListComponent implements OnInit, AfterViewInit {
   @ViewChildren (ListItemComponent)
   listItems: QueryList<ListItemComponent>;
 
+  selectedUser: IListModel;
+
   constructor() { }
 
 
-    setInd ( ind: number, evt: MouseEvent ) {
+    setInd ( ind: number, evt?: MouseEvent ) {
         if ( this.selectedInd !== ind ) {
             this.selectedInd = ind;
             this.selectedIndChange.emit( this.selectedInd );
         }
     }
+
+    setSelectedUser ( user: IListModel ) {
+
+      if ( this.selectedUser !== user ) {
+        this.setInd( this.dataProvider.indexOf(user) );
+        this.selectedUser = user;
+      }
+
+
+      /*
+        if ( this.selectedInd !== ind ) {
+            this.selectedInd = ind;
+            this.selectedIndChange.emit( this.selectedInd );
+        }
+        */
+    }
+    
+    
+    
 
   getNameAndAge( age?: number ): string {
     age = age || this.model.num;
@@ -61,6 +86,9 @@ export class ListComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+
+      this.selectedUser = this.dataProvider[this.selectedInd];
+
   }
 
   ngAfterViewInit(): void {

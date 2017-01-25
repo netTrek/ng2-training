@@ -9,8 +9,23 @@
      *ngIf="selectedInd < 2"
     > {{ getNameAndAge () }} Wert < 2 := {{selectedInd}}
 </div>
+
 <hr>
 
+<p>
+    {{dataProvider | json }}
+</p>
+
+<avaya-list-item
+        *ngFor="let user of dataProvider"
+        [isSelected]="selectedUser===user"
+        (click)="setSelectedUser(user)">
+            {{user.num}} # {{user.name}} <button>deletet</button>
+
+</avaya-list-item>
+
+
+<!--
 <avaya-list-item
         [isSelected]="selectedInd===0"
         (click)="setInd(0, $event)"
@@ -31,3 +46,4 @@
         [isSelected]="selectedInd===4"
         (click)="setInd(4, $event)"
             >Saban 4</avaya-list-item>
+-->
