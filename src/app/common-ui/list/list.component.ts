@@ -23,40 +23,42 @@ export interface IListModel {
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit, AfterViewInit {
-    
-    
-    private _listItems: QueryList<ListItemComponent>;
-    
-  @Input( )
-  selectedInd: number = 0;
 
-  @Output()
-  selectedIndChange: EventEmitter<number> = new EventEmitter<number> ();
+    private _listItems: QueryList<ListItemComponent>;
+
+    @Input()
+    dataProvider: IListModel[] = [];
+
+    @Input( )
+    selectedInd: number = 0;
+
+    @Output()
+    selectedIndChange: EventEmitter<number> = new EventEmitter<number> ();
 
   // model: { num: number, name?: string } = {
-  model: IListModel = {
+    model: IListModel = {
     name: 'Saban',
     num: 123
   };
 
-  @ViewChild ('label')
-  label: ElementRef;
+    @ViewChild ('label')
+    label: ElementRef;
 
-  @ViewChild (ListItemComponent)
-  listItem: ListItemComponent;
+    @ViewChild (ListItemComponent)
+    listItem: ListItemComponent;
 
-  @ViewChildren (ListItemComponent)
-  public set listItems ( value: QueryList<ListItemComponent> ) {
-      this._listItems = value;
-  }
+    @ViewChildren (ListItemComponent)
+    public set listItems ( value: QueryList<ListItemComponent> ) {
+        this._listItems = value;
+    }
 
-  selectedUser: IListModel;
+    selectedUser: IListModel;
+
+    classes: string = 'red';
 
   constructor() { }
 
 
-    @Input()
-    dataProvider: IListModel[] = [];
 
     setInd ( ind: number, evt?: MouseEvent ) {
         if ( this.selectedInd !== ind ) {
@@ -66,13 +68,10 @@ export class ListComponent implements OnInit, AfterViewInit {
     }
 
     del ( user: IListModel, evt?: MouseEvent ) {
-
         if ( !! evt ) {
             evt.stopPropagation();
             this.dataProvider.splice( this.dataProvider.indexOf(user), 1);
-
         }
-
     }
 
 
