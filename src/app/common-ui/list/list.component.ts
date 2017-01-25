@@ -24,8 +24,6 @@ export interface IListModel {
 })
 export class ListComponent implements OnInit, AfterViewInit {
 
-    @Input()
-    dataProvider: IListModel[] = [];
 
   @Input( )
   selectedInd: number = 0;
@@ -53,6 +51,9 @@ export class ListComponent implements OnInit, AfterViewInit {
   constructor() { }
 
 
+    @Input()
+    dataProvider: IListModel[] = [];
+
     setInd ( ind: number, evt?: MouseEvent ) {
         if ( this.selectedInd !== ind ) {
             this.selectedInd = ind;
@@ -66,8 +67,6 @@ export class ListComponent implements OnInit, AfterViewInit {
         this.setInd( this.dataProvider.indexOf(user) );
         this.selectedUser = user;
       }
-
-
       /*
         if ( this.selectedInd !== ind ) {
             this.selectedInd = ind;
@@ -75,9 +74,6 @@ export class ListComponent implements OnInit, AfterViewInit {
         }
         */
     }
-    
-    
-    
 
   getNameAndAge( age?: number ): string {
     age = age || this.model.num;
@@ -86,16 +82,12 @@ export class ListComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-
       this.selectedUser = this.dataProvider[this.selectedInd];
-
   }
-
   ngAfterViewInit(): void {
 
     console.log ( this.listItem, this.listItems, this.label );
     // this.label.nativeElement.innerText = 'rock ....';
 
   }
-
 }
