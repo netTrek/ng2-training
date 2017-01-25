@@ -18,7 +18,7 @@
 
 <avaya-list-item
         class="border"
-        [ngClass]="{red: selectedUser===user}"
+        [ngStyle]="{width: width+'px'}"
         *ngFor="let user of dataProvider"
         [isSelected]="selectedUser===user"
         (click)="setSelectedUser(user)">

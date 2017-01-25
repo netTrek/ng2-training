@@ -54,7 +54,7 @@ export class ListComponent implements OnInit, AfterViewInit {
 
     selectedUser: IListModel;
 
-    classes: string = 'red';
+    width: number = 100;
 
   constructor() { }
 
