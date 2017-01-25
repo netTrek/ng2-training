@@ -20,7 +20,9 @@
         *ngFor="let user of dataProvider"
         [isSelected]="selectedUser===user"
         (click)="setSelectedUser(user)">
-            {{user.num}} # {{user.name}} <button>deletet</button>
+
+            {{user.num}} # {{user.name}}
+            <button (click)="del(user, $event)">deletet</button>
 
 </avaya-list-item>
 

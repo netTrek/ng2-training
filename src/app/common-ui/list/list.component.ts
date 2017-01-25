@@ -23,8 +23,10 @@ export interface IListModel {
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit, AfterViewInit {
-
-
+    
+    
+    private _listItems: QueryList<ListItemComponent>;
+    
   @Input( )
   selectedInd: number = 0;
 
@@ -44,7 +46,9 @@ export class ListComponent implements OnInit, AfterViewInit {
   listItem: ListItemComponent;
 
   @ViewChildren (ListItemComponent)
-  listItems: QueryList<ListItemComponent>;
+  public set listItems ( value: QueryList<ListItemComponent> ) {
+      this._listItems = value;
+  }
 
   selectedUser: IListModel;
 
@@ -60,6 +64,17 @@ export class ListComponent implements OnInit, AfterViewInit {
             this.selectedIndChange.emit( this.selectedInd );
         }
     }
+
+    del ( user: IListModel, evt?: MouseEvent ) {
+
+        if ( !! evt ) {
+            evt.stopPropagation();
+            this.dataProvider.splice( this.dataProvider.indexOf(user), 1);
+
+        }
+
+    }
+
 
     setSelectedUser ( user: IListModel ) {
 
