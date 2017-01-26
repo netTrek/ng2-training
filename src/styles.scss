@@ -21,3 +21,17 @@ body {
 .show-as-italic {
   font-style: italic;
 }
+
+.active {
+  color: #756be6;
+  font-weight: bolder;
+}
+
+.even {
+  display: block;
+  background-color: #ffe31b;
+}
+.odd {
+  display: block;
+  background-color: #fffffb;
+}

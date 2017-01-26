@@ -15,8 +15,12 @@
 -->
 
 <ul>
-    <li *ngFor="let item of dataProvider">
-        <a [routerLink]="['/detail', item.id]"> {{item.firstname}} {{item.lastname}}</a>
+    <li *ngFor="let item of dataProvider; let e = even; let o = odd">
+        <a [routerLink]="['/detail', item.id]"
+           [class.odd]="o"
+           [class.even]="e">
+            {{item.firstname}} {{item.lastname}}
+        </a>
     </li>
 </ul>
 

@@ -4,6 +4,7 @@ import {
 import { IListModel } from './common-ui/list/list.component';
 import { UpperCasePipe } from '@angular/common';
 import { environment } from '../environments/environment';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'avaya-root',
@@ -44,13 +45,19 @@ export class AppComponent  {
       }
   ];
 
-  constructor (  ) {
+  constructor ( router: Router ) {
 
     const uppercasePipe: UpperCasePipe = new UpperCasePipe ();
 
     const testing = 'test';
     this.title = uppercasePipe.transform( testing );
     console.log ( testing, this.title );
+
+    router.events
+          .filter ( evt => evt instanceof NavigationEnd )
+          .subscribe(
+                evt => console.log( evt )
+          );
 
   }
 

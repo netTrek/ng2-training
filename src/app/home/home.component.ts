@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PermissionService } from '../service/permission.service';
 
 @Component({
   selector: 'avaya-home',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor( private router: Router ) { }
+  constructor( private router: Router, public $permission: PermissionService ) { }
 
   goToList () {
     this.router.navigate( ['list'] );

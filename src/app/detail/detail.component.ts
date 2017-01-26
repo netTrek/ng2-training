@@ -20,18 +20,10 @@ export class DetailComponent implements OnInit {
   ngOnInit() {
 
     this.route
-        .params
-        .map ( params => params['id'] )
+        .data
+        .map ( data => data['user'] )
         .subscribe(
-          // id => console.log ( id )
-            id => {
-
-              this.$user.getUser( id )
-                  .map ( response => response.json() )
-                  .subscribe(
-                    user => this.user = user
-                  );
-            }
+            user => this.user = user
         );
 
 

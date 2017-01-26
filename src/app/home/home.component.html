@@ -2,4 +2,5 @@
   home works!
 </p>
 
-<button (click)="goToList()">go to list</button>
+<button *ngIf="$permission.listPermission" (click)="goToList()">go to list</button>
+<button [attr.disabled]="$permission.listPermission?null:''" (click)="goToList()">go to list</button>

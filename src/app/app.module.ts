@@ -10,13 +10,23 @@ import { UserService } from './service/user/user.service';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { DetailComponent } from './detail/detail.component';
+import { DetailResolverService } from './detail/detail-resolver.service';
+import { DetailCanActiveService } from './detail/detail-can-active.service';
+import { LoginService } from './service/login.service';
+import { ContactComponent } from './contact/contact.component';
+import { ContactDetailsComponent } from './contact/contact-details/contact-details.component';
+import { ContactMapComponent } from './contact/contact-map/contact-map.component';
+import { PermissionService } from './service/permission.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     HomeComponent,
-    DetailComponent
+    DetailComponent,
+    ContactComponent,
+    ContactDetailsComponent,
+    ContactMapComponent
   ],
   imports: [
     BrowserModule,
@@ -38,8 +48,37 @@ import { DetailComponent } from './detail/detail.component';
         component: UserComponent
       },
       {
+        path: 'dash',
+        loadChildren: './dash/dash.module#DashModule'
+      },
+      {
+        path: 'contact',
+        component: ContactComponent,
+        children: [
+          {
+            path: '',
+            pathMatch: 'full',
+            redirectTo: 'detail'
+          },
+          {
+            path: 'detail',
+            component: ContactDetailsComponent
+          },
+          {
+            path: 'map',
+            component: ContactMapComponent
+          }
+        ]
+      },
+      {
         path: 'detail/:id',
-        component: DetailComponent
+        component: DetailComponent,
+        resolve: {
+          user: DetailResolverService
+        },
+        canActivate: [
+          DetailCanActiveService
+        ]
       },
       {
         path: '**',
@@ -47,7 +86,7 @@ import { DetailComponent } from './detail/detail.component';
       }
     ], {useHash: false})
   ],
-  providers: [UserService],
+  providers: [UserService, DetailResolverService, DetailCanActiveService, LoginService, PermissionService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
