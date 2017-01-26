@@ -4,7 +4,7 @@ import {
 import { IListModel } from './common-ui/list/list.component';
 import { UpperCasePipe } from '@angular/common';
 import { environment } from '../environments/environment';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subscription, Subject, BehaviorSubject } from 'rxjs';
 import { count } from 'rxjs/operator/count';
 
 @Component({
@@ -56,7 +56,7 @@ export class AppComponent  {
 
     // const observable: Observable<number> = Observable.range ( 1, 5 );
     // const observable: Observable<string> = Observable.of ( 'saban', 'peter', 'franz' );
-
+/*
     const observable: Observable<number> = Observable.create ( observer => {
         // observer.next( 1 );
         // observer.next( 2 );
@@ -79,18 +79,29 @@ export class AppComponent  {
         }, 500 );
 
     } );
+*/
+
+
+    // const observer: Subject<number> = new Subject<number> ()
+    const observer: BehaviorSubject<number> = new BehaviorSubject<number> ( null );
+    const observable: Observable<number> = observer.asObservable();
+
+    // observer.next( 1 );
+    // observer.next( 2 );
 
 
     const subscription: Subscription = observable
-        .filter ( val => val % 2 === 0 )
+        .filter ( val => val !== null )
         .map ( val => val * 100 )
         .subscribe(
             next => {
                 console.log ( 'next', next );
-                if ( next === 200 ) {
+                /*
+                if ( next === 200 && !subscription.closed) {
                     console.log ( 'stop' );
                     subscription.unsubscribe();
                 }
+                */
             },
 
             error => {
@@ -100,6 +111,10 @@ export class AppComponent  {
                 console.log( 'complete');
             }
         );
+
+
+    // observer.next( 3 );
+    // observer.next( 4 );
 
     console.log ( subscription );
 
