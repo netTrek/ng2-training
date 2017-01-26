@@ -4,6 +4,11 @@ const today = new Date ();
 const dd = today.getDate();
 const mm = today.getMonth()+1;//January is 0!`
 
+var userName = 'anonym';
+try {
+    userName = process.env.USER || process.env['USERPROFILE'].split(path.sep)[2];
+}catch (err) {}
+
 const netTrekBuildInfo = {
 
     branch: execSync('git rev-parse --abbrev-ref HEAD').toString(),
@@ -18,7 +23,7 @@ const netTrekBuildInfo = {
     minor : 2,      //Nebenversionsnummer               zweite Version ( 1.Pilot von Avaya und 2. Pilot netTrek)
     patch : 2,      //Revisionsnummer                   patch zweite Version mit Entrückmeldung
     build : (mm<10?('0'+mm):mm)+(dd<10?('0'+dd):dd),    //Buildnummer
-    buildDev : process.env.USER || process.env['USERPROFILE'].split(path.sep)[2]
+    buildDev : userName
 };
 
 var out = '/** will be generated via node in build-scripts/netTrek.js */ \r' +

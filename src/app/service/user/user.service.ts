@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptions, RequestMethod, Request, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 
 export interface IUser {
@@ -19,6 +19,24 @@ export class UserService {
   constructor( private $http: Http  ) {
   }
   getUsers (): Observable<Response> {
-    return this.$http.request( 'http://rest-api.flexlab.de/index.php/api/user' );
+
+    const reqOpt: RequestOptions = new RequestOptions ();
+    reqOpt.url = 'http://rest-api.flexlab.de/index.php/api/user';
+    reqOpt.method = RequestMethod.Get;
+
+    const searchParams: URLSearchParams = new URLSearchParams ();
+    searchParams.append( 'token', 'netTrek' ) ;
+
+    reqOpt.search = searchParams;
+
+    const req: Request = new Request (reqOpt);
+
+
+    return this.$http.request( req );
+
+  }
+
+  getUser ( id: number ): Observable<Response> {
+    return this.$http.get ( 'http://rest-api.flexlab.de/index.php/api/user/' + id );
   }
 }

@@ -1,5 +1,5 @@
 <ng-content select="avaya-title"></ng-content>
-
+<!--
 <avaya-list-item
         avayaItalic="#0"
         *ngFor="let item of dataProvider"
@@ -12,6 +12,13 @@
             <button (click)="del(item, $event)">deletet</button>
 
 </avaya-list-item>
+-->
+
+<ul>
+    <li *ngFor="let item of dataProvider">
+        <a [routerLink]="['/detail', item.id]"> {{item.firstname}} {{item.lastname}}</a>
+    </li>
+</ul>
 
 
 <!--

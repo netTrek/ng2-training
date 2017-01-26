@@ -8,10 +8,12 @@ import { ItalicDirective } from './italic.directive';
 import { FillerPipe } from './filler.pipe';
 import { ReversePipe } from './reverse.pipe';
 import { HelperService } from './services/HelperService';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+      RouterModule
   ],
   declarations: [TitleComponent, NavigationComponent, ListComponent, ListItemComponent, ItalicDirective, FillerPipe, ReversePipe],
   exports: [TitleComponent, NavigationComponent, ListComponent, ListItemComponent, ItalicDirective, FillerPipe,

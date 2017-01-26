@@ -1,77 +1,10 @@
-<h1>
-  {{title}}
-</h1>
-<!--
+
+<nav>
+  <a routerLink="home" routerLinkActive="active">home</a>
+  <a routerLink="list" routerLinkActive="active">list</a>
+</nav>
 
 
-<h1 class="active">
-  {{title}}
-</h1>
--->
-
-<!--
-<avaya-user></avaya-user>
-<avaya-title></avaya-title>
-<avaya-navigation></avaya-navigation>
--->
-<!--
-<img [attr.src]="imgUrl" alt="logo">
-<img [src]="imgUrl" alt="logo">
--->
-<!--
-
-<img [attr.src]="imgUrl"
-     [style.width]="imgWidth+'px'"
-     alt="logo">
-<img [attr.src]="imgUrl"
-     [style.width.px]="imgWidth"
-     alt="logo">
-<img [attr.src]="imgUrl"
-     [style.width.%]="imgWidth"
-     alt="logo">
-<img [attr.src]="imgUrl"
-     [style.width.em]="imgWidth"
-     alt="logo">
-
--->
-<!--
-
-<img [attr.src]="imgUrl"
-     [style.width.px]="imgWidth"
-     class="width-border"
-     alt="logo">
-
-<img [attr.src]="imgUrl"
-     [style.width.px]="imgWidth"
-     [class]="borderClass"
-     alt="logo">
-
-<img [attr.src]="imgUrl"
-     [style.width.px]="imgWidth"
-     class="width-opacity"
-     [class]="borderClass"
-     alt="logo">
-
-<img [attr.src]="imgUrl"
-     [style.width.px]="imgWidth"
-     class="width-opacity"
-     [class.width-border]="true"
-     alt="logo">
-
--->
-
-<!--
-
-<div [innerHtml]="html"></div>
-<div [innerText]="10>11?'12':'11'"></div>
--->
-
-<!--
-<strong>selected index is:= {{selectedInd}}</strong>
-
--->
-
-<avaya-user></avaya-user>
-
+<router-outlet></router-outlet>
 
 <div [hidden]="true">{{buildInfo | json}}</div>
