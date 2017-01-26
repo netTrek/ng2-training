@@ -24,10 +24,20 @@ export interface IListModel {
 })
 export class ListComponent implements OnInit, AfterViewInit {
 
-    private _listItems: QueryList<ListItemComponent>;
+
+    private _dataProvider: any[] = [];
+
+    @Input ()
+    columns: string[] = [];
 
     @Input()
-    dataProvider: IListModel[] = [];
+    set dataProvider ( value: any[] ) {
+        this._dataProvider = value;
+        this.selectedItem = this.dataProvider[this.selectedInd];
+    }
+    get dataProvider (): any[] {
+        return this._dataProvider;
+    }
 
     @Input( )
     selectedInd: number = 0;
@@ -35,30 +45,9 @@ export class ListComponent implements OnInit, AfterViewInit {
     @Output()
     selectedIndChange: EventEmitter<number> = new EventEmitter<number> ();
 
-  // model: { num: number, name?: string } = {
-    model: IListModel = {
-    name: 'Saban',
-    num: 123
-  };
-
-    @ViewChild ('label')
-    label: ElementRef;
-
-    @ViewChild (ListItemComponent)
-    listItem: ListItemComponent;
-
-    @ViewChildren (ListItemComponent)
-    public set listItems ( value: QueryList<ListItemComponent> ) {
-        this._listItems = value;
-    }
-
-    selectedUser: IListModel;
-
-    width: number = 100;
+    selectedItem: any;
 
   constructor() { }
-
-
 
     setInd ( ind: number, evt?: MouseEvent ) {
         if ( this.selectedInd !== ind ) {
@@ -67,41 +56,25 @@ export class ListComponent implements OnInit, AfterViewInit {
         }
     }
 
-    del ( user: IListModel, evt?: MouseEvent ) {
+    del ( item: any, evt?: MouseEvent ) {
         if ( !! evt ) {
             evt.stopPropagation();
-            this.dataProvider.splice( this.dataProvider.indexOf(user), 1);
+            this.dataProvider.splice( this.dataProvider.indexOf(item), 1);
         }
     }
 
+    setSelectedItem ( item: any ) {
 
-    setSelectedUser ( user: IListModel ) {
-
-      if ( this.selectedUser !== user ) {
-        this.setInd( this.dataProvider.indexOf(user) );
-        this.selectedUser = user;
+      if ( this.selectedItem !== item ) {
+        this.setInd( this.dataProvider.indexOf(item) );
+        this.selectedItem = item;
       }
-      /*
-        if ( this.selectedInd !== ind ) {
-            this.selectedInd = ind;
-            this.selectedIndChange.emit( this.selectedInd );
-        }
-        */
     }
 
-  getNameAndAge( age?: number ): string {
-    age = age || this.model.num;
-    // return this.model.name + ' ist ' + age + ' jahre Alt';
-    return `${this.model.name} ist ${age} Jahre alt`;
-  }
 
   ngOnInit() {
-      this.selectedUser = this.dataProvider[this.selectedInd];
   }
+
   ngAfterViewInit(): void {
-
-    console.log ( this.listItem, this.listItems, this.label );
-    // this.label.nativeElement.innerText = 'rock ....';
-
   }
 }

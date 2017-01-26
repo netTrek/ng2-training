@@ -1,30 +1,15 @@
 <ng-content select="avaya-title"></ng-content>
 
-<template [ngIf]="selectedInd >=2">
-    <div> {{ getNameAndAge () }} Wert >= 2 := {{selectedInd}} </div>
-</template>
-
-<hr>
-<div #label
-     *ngIf="selectedInd < 2"
-    > {{ getNameAndAge () }} Wert < 2 := {{selectedInd}}
-</div>
-
-<hr>
-<span>{{1234567890 | number}}</span>
-<hr>
-
-<p>
-    {{dataProvider | json }}
-</p>
-
 <avaya-list-item
         avayaItalic="#0"
-        *ngFor="let user of dataProvider | reverse"
-        [isSelected]="selectedUser===user"
-        (click)="setSelectedUser(user)">
-            {{user.num | reverse | filler : 1 }} # {{user.name |reverse | uppercase | slice : 1 }}
-            <button (click)="del(user, $event)">deletet</button>
+        *ngFor="let item of dataProvider"
+        [isSelected]="selectedItem===item"
+        (click)="setSelectedItem(item)">
+            <span *ngFor="let col of columns"
+                  [class]="'col-'+col">
+                {{ item[col] }}
+            </span>
+            <button (click)="del(item, $event)">deletet</button>
 
 </avaya-list-item>
 
@@ -50,4 +35,16 @@
         [isSelected]="selectedInd===4"
         (click)="setInd(4, $event)"
             >Saban 4</avaya-list-item>
+-->
+
+
+
+<!--
+
+avaya-list[_ngcontent-hct-5]   avaya-list-item[_ngcontent-hct-5]   span.col-id[_ngcontent-hct-5] {
+  font-size: small; }
+
+avaya-list[_ngcontent-hct-5]   avaya-list-item[_ngcontent-hct-5]   span.col-lastname[_ngcontent-hct-5] {
+  font-weight: bolder; }
+
 -->
