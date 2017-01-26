@@ -1,8 +1,15 @@
 :host {
 
-
+  avaya-list:nth-child(1):nth-child(1) {
+      color: red;
+    &.col-id {
+      color: blue;
+    }
+  }
 
 }
+
+
 
 
 
