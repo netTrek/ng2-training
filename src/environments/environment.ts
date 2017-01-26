@@ -8,5 +8,5 @@ import { netTrekBuildInfo } from './enviroments.variables';
 
 export const environment = {
   production: false,
-  buidInfo: netTrekBuildInfo
+  buildInfo : netTrekBuildInfo
 };

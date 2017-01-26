@@ -25,7 +25,7 @@ export class AppComponent  {
   title = 'app works!';
   selectedInd: number = 3;
 
-  buildInfo = environment.buidInfo;
+  buildInfo = environment.buildInfo;
 
   userList: IListModel[] = [
       {
@@ -83,25 +83,20 @@ export class AppComponent  {
 
 
     // const observer: Subject<number> = new Subject<number> ()
+  /*
     const observer: BehaviorSubject<number> = new BehaviorSubject<number> ( null );
     const observable: Observable<number> = observer.asObservable();
-
+    */
     // observer.next( 1 );
     // observer.next( 2 );
 
-
+    /*
     const subscription: Subscription = observable
         .filter ( val => val !== null )
         .map ( val => val * 100 )
         .subscribe(
             next => {
                 console.log ( 'next', next );
-                /*
-                if ( next === 200 && !subscription.closed) {
-                    console.log ( 'stop' );
-                    subscription.unsubscribe();
-                }
-                */
             },
 
             error => {
@@ -117,12 +112,31 @@ export class AppComponent  {
     // observer.next( 4 );
 
     console.log ( subscription );
+    */
+/*
+    const observable: Observable<MouseEvent> = Observable.fromEvent<MouseEvent> ( document, 'mousemove' );
+    const subscription: Subscription = observable
+        .filter ( evt => evt.clientX <= 100 )
+        .subscribe(
+            next => console.log ( next )
+        );
+
+    */
+    Observable.fromEvent<MouseEvent> ( document, 'click' )
+        .filter ( evt => evt.clientX < 100 && evt.clientY < 100 && evt.altKey )
+        .subscribe(
+            evt => {
+                console.log( environment.buildInfo);
+            }
+        );
+
 
   }
-  /*
+
   onListIndexChg ( ind: number ) {
     console.log ( 'event', ind );
     this.selectedInd = ind;
   }
-  */
+
+
 }
