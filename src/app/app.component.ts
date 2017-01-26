@@ -4,8 +4,6 @@ import {
 import { IListModel } from './common-ui/list/list.component';
 import { UpperCasePipe } from '@angular/common';
 import { environment } from '../environments/environment';
-import { Observable, Subscription, Subject, BehaviorSubject } from 'rxjs';
-import { count } from 'rxjs/operator/count';
 
 @Component({
   selector: 'avaya-root',
@@ -46,90 +44,13 @@ export class AppComponent  {
       }
   ];
 
-  constructor () {
+  constructor (  ) {
 
     const uppercasePipe: UpperCasePipe = new UpperCasePipe ();
 
     const testing = 'test';
     this.title = uppercasePipe.transform( testing );
     console.log ( testing, this.title );
-
-    // const observable: Observable<number> = Observable.range ( 1, 5 );
-    // const observable: Observable<string> = Observable.of ( 'saban', 'peter', 'franz' );
-/*
-    const observable: Observable<number> = Observable.create ( observer => {
-        // observer.next( 1 );
-        // observer.next( 2 );
-        // observer.next( 3 );
-        // observer.next( 4 );
-        // // observer.error( 'geht nicht' );
-        // observer.next( 5 );
-        // observer.next( 6 );
-        // observer.complete();
-
-        let count = 0;
-        let intervalID: number;
-
-        intervalID = window.setInterval( () => {
-            observer.next( count++ );
-            if ( count === 6 ) {
-                observer.complete();
-                window.clearInterval( intervalID );
-            }
-        }, 500 );
-
-    } );
-*/
-
-
-    // const observer: Subject<number> = new Subject<number> ()
-  /*
-    const observer: BehaviorSubject<number> = new BehaviorSubject<number> ( null );
-    const observable: Observable<number> = observer.asObservable();
-    */
-    // observer.next( 1 );
-    // observer.next( 2 );
-
-    /*
-    const subscription: Subscription = observable
-        .filter ( val => val !== null )
-        .map ( val => val * 100 )
-        .subscribe(
-            next => {
-                console.log ( 'next', next );
-            },
-
-            error => {
-                console.error ( 'error', error );
-            },
-            () => {
-                console.log( 'complete');
-            }
-        );
-
-
-    // observer.next( 3 );
-    // observer.next( 4 );
-
-    console.log ( subscription );
-    */
-/*
-    const observable: Observable<MouseEvent> = Observable.fromEvent<MouseEvent> ( document, 'mousemove' );
-    const subscription: Subscription = observable
-        .filter ( evt => evt.clientX <= 100 )
-        .subscribe(
-            next => console.log ( next )
-        );
-
-    */
-    Observable.fromEvent<MouseEvent> ( document, 'click' )
-        .filter ( evt => evt.clientX < 100 && evt.clientY < 100 && evt.altKey )
-        .subscribe(
-            evt => {
-                console.log( environment.buildInfo);
-            }
-        );
-
 
   }
 

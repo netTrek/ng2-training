@@ -7,12 +7,15 @@ import { ListItemComponent } from './list/list-item/list-item.component';
 import { ItalicDirective } from './italic.directive';
 import { FillerPipe } from './filler.pipe';
 import { ReversePipe } from './reverse.pipe';
+import { HelperService } from './services/HelperService';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [TitleComponent, NavigationComponent, ListComponent, ListItemComponent, ItalicDirective, FillerPipe, ReversePipe],
-  exports: [TitleComponent, NavigationComponent, ListComponent, ListItemComponent, ItalicDirective, FillerPipe, ReversePipe]
+  exports: [TitleComponent, NavigationComponent, ListComponent, ListItemComponent, ItalicDirective, FillerPipe,
+    ReversePipe],
+  providers: [HelperService]
 })
 export class CommonUIModule { }

@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { CommonUIModule } from './common-ui/common-ui.module';
+import { UserService } from './service/user/user.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { CommonUIModule } from './common-ui/common-ui.module';
     HttpModule,
     CommonUIModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
