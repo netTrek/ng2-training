@@ -9,6 +9,7 @@ import { UserListComponent } from './user-list/user-list.component';
     CommonModule
   ],
   declarations: [UserComponent, UserTitleComponent, UserListComponent],
+  entryComponents: [UserComponent, UserTitleComponent, UserListComponent],
   exports: [UserComponent, UserTitleComponent, UserListComponent]
 })
 export class CommonUiModule { }
