@@ -6,7 +6,7 @@
     "callable-types": true,
     "class-name": true,
     "comment-format": [
-      true,
+      false,
       "check-space"
     ],
     "curly": true,
@@ -79,11 +79,11 @@
     "typedef-whitespace": [
       true,
       {
-        "call-signature": "nospace",
+        "call-signature": "space",
         "index-signature": "nospace",
-        "parameter": "nospace",
-        "property-declaration": "nospace",
-        "variable-declaration": "nospace"
+        "parameter": "space",
+        "property-declaration": "space",
+        "variable-declaration": "space"
       }
     ],
     "typeof-compare": true,
@@ -98,8 +98,8 @@
       "check-type"
     ],
 
-    "directive-selector": [true, "attribute", "baywa", "camelCase"],
-    "component-selector": [true, "element", "baywa", "kebab-case"],
+    "directive-selector": [true, "attribute", "gfk", "camelCase"],
+    "component-selector": [true, "element", "gfk", "kebab-case"],
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
