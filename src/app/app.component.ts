@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'gfk-root',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  title = 'app works!';
+  constructor ( $http: Http ) {
+    console.log( '$http', $http );
+  }
+
+  title = `Hello world!`;
+
+  onClick () {
+    console.log ("Say :=" , this.title );
+  }
 
 }

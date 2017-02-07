@@ -9,4 +9,5 @@ if (environment.production) {
   enableProdMode();
 }
 
+//static main
 platformBrowserDynamic().bootstrapModule(AppModule);
