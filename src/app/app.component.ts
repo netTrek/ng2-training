@@ -8,11 +8,14 @@ import { Http } from '@angular/http';
 })
 export class AppComponent {
 
+  title = `Hello world!`;
+
+  listTitle: string = 'list title';
+
   constructor ( $http: Http ) {
     console.log( '$http', $http );
   }
 
-  title = `Hello world!`;
 
   onClick () {
     console.log ("Say :=" , this.title );

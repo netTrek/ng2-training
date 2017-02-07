@@ -4,13 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { MyComponentComponent } from './my-component/my-component.component';
 import { CommonUIModule } from './common-ui/common-ui.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MyComponentComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,  //Common
