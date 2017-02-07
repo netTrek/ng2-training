@@ -1,2 +1,23 @@
-<ng-content select="gfk-list-title"></ng-content>
-<ng-content></ng-content>
+<div [innerText]="val1"></div>
+<div [innerText]="'Hello'"></div>
+
+<div [innerText]="sayHello()"></div>
+<div [innerHTML]="sayHello()"></div>
+
+
+<img [attr.src]="imgUrl"
+     [attr.alt]="imgAlt"
+     [attr.aria-label]="imgAlt"
+     width="30%"
+>
+
+<gfk-list-title>Title</gfk-list-title>
+
+<gfk-list-item>{{ val1 }}</gfk-list-item>
+<gfk-list-item>{{ 1+1 }}</gfk-list-item>
+<gfk-list-item>{{ num1+1 }}</gfk-list-item>
+<gfk-list-item>{{sayHello()}}</gfk-list-item>
+
+<div #testwert>Test</div>
+
+
