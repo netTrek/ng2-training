@@ -24,12 +24,11 @@ export class ListComponent implements OnInit, AfterViewInit {
         console.log ( 'set listItems', value );
     }
 
-    valueList : any[] = [
-        'wert 1',
-        'wert 2',
-        'wert 3',
-        'wert 4'
-    ]
+    @Input()
+    valueList : any[];
+
+    @Input()
+    columns : string [];
 
     /*
     @ViewChild ( 'testwert' )

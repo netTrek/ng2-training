@@ -8,5 +8,13 @@
 
 <gfk-list
         [titel]="'Meine Liste'"
+        [valueList]="dataprovider"
+        [columns]="columns"
+        [(selectedUsrInd)]="selectedInd"
+></gfk-list>
+
+<gfk-list
+        [titel]="'Meine Liste'"
+        [valueList]="['saban','peter','frank','klaus']"
         [(selectedUsrInd)]="selectedInd"
 ></gfk-list>
