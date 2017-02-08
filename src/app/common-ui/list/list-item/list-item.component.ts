@@ -1,15 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding, HostListener } from '@angular/core';
 
-@Component({
-  selector: 'gfk-list-item',
-  templateUrl: './list-item.component.html',
-  styleUrls: ['./list-item.component.scss']
-})
+@Component ( {
+    selector   : 'gfk-list-item',
+    templateUrl: './list-item.component.html',
+    styleUrls  : [ './list-item.component.scss' ]
+} )
 export class ListItemComponent implements OnInit {
 
-  constructor() { }
+    @HostBinding ( 'class.underlined' )
+    isUnderlined : boolean = false;
 
-  ngOnInit() {
-  }
+    constructor () {
+    }
+
+    @HostListener ( 'mouseenter', [ '$event' ] )
+    mouseEnter ( evt : MouseEvent ) {
+        console.log ( evt );
+        this.isUnderlined = true;
+    }
+
+    @HostListener ( 'mouseleave' )
+    mouseLeave () {
+        this.isUnderlined = false;
+    }
+
+    ngOnInit () {
+    }
 
 }
