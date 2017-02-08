@@ -1,5 +1,6 @@
 import {
-    Component, OnInit, ViewChild, ViewChildren, QueryList, OnChanges, AfterContentInit, AfterViewInit, ElementRef
+    Component, OnInit, ViewChild, ViewChildren, QueryList, OnChanges, AfterContentInit, AfterViewInit, ElementRef,
+    Input, Output, EventEmitter
 } from '@angular/core';
 import { ListTitleComponent } from './list-title/list-title.component';
 import { ListItemComponent } from './list-item/list-item.component';
@@ -38,7 +39,16 @@ export class ListComponent implements OnInit, AfterViewInit {
 
     selectedClass : string = 'selected';
 
+    @Input ()
     selectedUsrInd : number = 1;
+
+
+    @Output ()
+    selectedUsrIndChange : EventEmitter<number> = new EventEmitter<number> ();
+
+    @Input ()
+    titel : string = 'My List';
+
 
     constructor () {
     }
@@ -48,7 +58,10 @@ export class ListComponent implements OnInit, AfterViewInit {
     }
 
     selectUsr ( usrInd : number ) {
-        this.selectedUsrInd = usrInd;
+        if ( this.selectedUsrInd !== usrInd ) {
+            this.selectedUsrInd = usrInd;
+            this.selectedUsrIndChange.emit( usrInd );
+        }
     }
 
     ngOnInit () {

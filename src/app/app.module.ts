@@ -19,4 +19,8 @@ import { CommonUIModule } from './common-ui/common-ui.module';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  // let nf = new Intl.NumberFormat ():
+
+}

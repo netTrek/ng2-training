@@ -10,10 +10,19 @@ export class AppComponent {
 
   title = `Hello world!`;
 
+  selectedInd : number = 3;
+
+
+
   listTitle: string = 'list title';
 
   constructor ( $http: Http ) {
     console.log( '$http', $http );
+  }
+
+  chgInd ( newInd : number ) {
+    console.log ( 'index changed' , newInd );
+    this.selectedInd = newInd;
   }
 
 

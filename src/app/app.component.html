@@ -2,4 +2,11 @@
   {{title}}
 </h1>
 
-<gfk-list></gfk-list>
+<h2> selcted Ind := {{selectedInd}}</h2>
+
+<input type="number" [(ngModel)]="selectedInd">
+
+<gfk-list
+        [titel]="'Meine Liste'"
+        [(selectedUsrInd)]="selectedInd"
+></gfk-list>
