@@ -15,7 +15,7 @@ export class ListItemComponent implements OnInit {
 
     @HostListener ( 'mouseenter', [ '$event' ] )
     mouseEnter ( evt : MouseEvent ) {
-        console.log ( evt );
+        // console.log ( evt );
         this.isUnderlined = true;
     }
 

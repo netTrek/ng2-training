@@ -38,15 +38,27 @@
 
 
 <gfk-list-title>{{titel}}</gfk-list-title>
+<!--
 
-<h2 *ngIf="selectedUsrInd===1">User mit dem Index 1 ist selektiert</h2>
-<h2 *ngIf="selectedUsrInd===2">User mit dem Index 2 ist selektiert</h2>
-<h2 *ngIf="selectedUsrInd===3">User mit dem Index 3 ist selektiert</h2>
+<p [ngSwitch]="selectedUsrInd">
+    <span *ngSwitchCase="1">User mit dem Index 1 ist selektiert</span>
+    <span *ngSwitchCase="2">User mit dem Index 2 ist selektiert</span>
+    <span *ngSwitchCase="3">User mit dem Index 3 ist selektiert</span>
+    <span *ngSwitchCase="4">User mit dem Index 4 ist selektiert</span>
+    <span *ngSwitchDefault="">Ind liegt nicht zwischen 1-4</span>
+</p>
+-->
+<!--
+// index, first, last, middle, even,
+-->
 
-<template [ngIf]="selectedUsrInd===4">
-    <h2>User mit dem Index 4 ist selektiert</h2>
-</template>
+<gfk-list-item *ngFor="let val of valueList; let i = index"
+               [class.selected]="selectedUsrInd===i"
+               (click)="selectUsr( i )">
+    {{val}}
+</gfk-list-item>
 
+<!--
 <gfk-list-item
         [class.selected]="selectedUsrInd===1"
         (click)="selectUsr( 1 )">wert 1</gfk-list-item>
@@ -59,6 +71,8 @@
 <gfk-list-item
         [class.selected]="selectedUsrInd===4"
         (click)="selectUsr( 4 )">wert 4</gfk-list-item>
+-->
+
 
 <!--
 <div #testwert>Test</div>
