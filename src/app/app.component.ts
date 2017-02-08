@@ -54,8 +54,12 @@ export class AppComponent {
         this.selectedInd = newInd;
     }
 
+    outputGen ( val : IUser ) : string {
+        return val.age + ' ' + val.lastname;
+    }
+
     onClick () {
-        console.log ( "Say :=", this.title );
+        console.log ( 'Say :=', this.title );
     }
 
 }

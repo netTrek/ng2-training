@@ -2,13 +2,17 @@
 
 <gfk-list-title>{{titel}}</gfk-list-title>
 
-<gfk-list-item *ngFor="let val of valueList; let i = index"
-               [class.selected]="selectedUsrInd===i"
+               <!--[ngClass]="getEvenOddClasses( e )"-->
+<gfk-list-item *ngFor="let val of valueList; let i = index, let e = even "
+               [ngClass]="{ selected: selectedUsrInd===i, even : e, odd : !e }"
+               [ngStyle]="{'padding-left': e?0:'3px'}"
                (click)="selectUsr( i )">
 
-    <span *ngIf="columns === undefined">{{val}}</span>
+    <span *ngIf="parse">{{parse(val)}}</span>
 
-    <template [ngIf]="columns">
+    <span *ngIf="parse === undefined && columns === undefined">{{val}}</span>
+
+    <template [ngIf]="parse === undefined && columns">
         <span *ngFor="let col of columns">{{val[col]}} </span>
     </template>
 

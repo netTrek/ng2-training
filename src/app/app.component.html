@@ -9,10 +9,17 @@
 <gfk-list
         [titel]="'Meine Liste'"
         [valueList]="dataprovider"
+        [parse]="outputGen"
+        [(selectedUsrInd)]="selectedInd"
+></gfk-list>
+<hr>
+<gfk-list
+        [titel]="'Meine Liste'"
+        [valueList]="dataprovider"
         [columns]="columns"
         [(selectedUsrInd)]="selectedInd"
 ></gfk-list>
-
+<hr>
 <gfk-list
         [titel]="'Meine Liste'"
         [valueList]="['saban','peter','frank','klaus']"

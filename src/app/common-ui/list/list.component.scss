@@ -10,5 +10,11 @@ gfk-list-item {
   &.selected {
     color: #ff49b8;
   }
+  &.even {
+    background-color: springgreen;
+  }
+  &.odd {
+    background-color: rgb(255, 165, 74);
+  }
 }
 

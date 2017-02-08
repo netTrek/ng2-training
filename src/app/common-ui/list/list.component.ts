@@ -30,6 +30,9 @@ export class ListComponent implements OnInit, AfterViewInit {
     @Input()
     columns : string [];
 
+    @Input()
+    parse : Function;
+
     /*
     @ViewChild ( 'testwert' )
     testKnoten : ElementRef;
@@ -68,6 +71,13 @@ export class ListComponent implements OnInit, AfterViewInit {
             this.selectedUsrInd = usrInd;
             this.selectedUsrIndChange.emit( usrInd );
         }
+    }
+
+    getEvenOddClasses ( isEven : boolean ) : string {
+        if ( isEven ) {
+            return 'even';
+        }
+        return 'odd';
     }
 
     ngOnInit () {
