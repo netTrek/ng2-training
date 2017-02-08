@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -16,11 +16,10 @@ import { CommonUIModule } from './common-ui/common-ui.module';
     HttpModule,
     CommonUIModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'de' },
+    //otherProviders...
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-
-  // let nf = new Intl.NumberFormat ():
-
-}
+export class AppModule {}
