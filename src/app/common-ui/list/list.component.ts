@@ -1,53 +1,62 @@
 import {
-  Component, OnInit, ViewChild, ViewChildren, QueryList, OnChanges, AfterContentInit, AfterViewInit, ElementRef
+    Component, OnInit, ViewChild, ViewChildren, QueryList, OnChanges, AfterContentInit, AfterViewInit, ElementRef
 } from '@angular/core';
 import { ListTitleComponent } from './list-title/list-title.component';
 import { ListItemComponent } from './list-item/list-item.component';
 
-@Component({
-  selector: 'gfk-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
-})
+@Component ( {
+    selector   : 'gfk-list',
+    templateUrl: './list.component.html',
+    styleUrls  : [ './list.component.scss' ]
+} )
 export class ListComponent implements OnInit, AfterViewInit {
 
-  private _listItems: QueryList<ListItemComponent>;
-  
-  @ViewChild( ListTitleComponent )
-  listTitle: ListTitleComponent;
+    private _listItems : QueryList<ListItemComponent>;
 
-  @ViewChildren( ListItemComponent )
-  set listItems ( value : QueryList<ListItemComponent> ) {
-    this._listItems = value;
-    console.log ( 'set listItems', value );
-  }
-
-  @ViewChild ('testwert')
-  testKnoten: ElementRef;
+    @ViewChild ( ListTitleComponent )
+    listTitle : ListTitleComponent;
 
 
-  val1: string = 'Hello world!';
-  num1: number= 111;
+    @ViewChildren ( ListItemComponent )
+    set listItems ( value : QueryList<ListItemComponent> ) {
+        this._listItems = value;
+        console.log ( 'set listItems', value );
+    }
 
-  imgAlt: string = 'cats';
-  imgUrl: string = 'https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/30423_pets-products_january-site-flip_3-cathealth_short-tile_592x304._CB286975940_.jpg';
+    /*
+    @ViewChild ( 'testwert' )
+    testKnoten : ElementRef;
+    */
 
-  constructor() { }
+    val1 : string = 'Hello world!';
+    num1 : number = 111;
 
-  sayHello (): string {
-    return '<strong>say</strong> Hello <script>alert("hello");</script>';
-  }
+    size : number = 30;
 
+    imgAlt : string = 'cats';
+    imgUrl : string = '../../../assets/images/cat.jpg';
 
+    selectedClass : string = 'selected';
 
-  ngOnInit() {
-  }
+    selectedUsrInd : number = 1;
 
+    constructor () {
+    }
 
+    sayHello () : string {
+        return '<strong>say</strong> Hello <script>alert("hello");</script>';
+    }
 
-  ngAfterViewInit () : void {
-    console.log ( this.listTitle, this._listItems );
-    console.log ( 'testKnoten', this.testKnoten, this.testKnoten.nativeElement );
-  }
+    selectUsr ( usrInd : number ) {
+        this.selectedUsrInd = usrInd;
+    }
+
+    ngOnInit () {
+    }
+
+    ngAfterViewInit () : void {
+        console.log ( this.listTitle, this._listItems );
+        // console.log ( 'testKnoten', this.testKnoten, this.testKnoten.nativeElement );
+    }
 
 }

@@ -1,3 +1,4 @@
+<!--
 <div [innerText]="val1"></div>
 <div [innerText]="'Hello'"></div>
 
@@ -10,14 +11,47 @@
      [attr.aria-label]="imgAlt"
      width="30%"
 >
+-->
+<!--
+
+<img src="../../../assets/images/cat.jpg"
+     alt="cat"
+     style="width: 30%">
+
+<img src="../../../assets/images/cat.jpg"
+     alt="cat"
+     [style.width]="size+'%'">
+
+<img src="../../../assets/images/cat.jpg"
+     alt="cat"
+     [style.width.px]="size">
+
+<img [attr.src]="imgUrl"
+     [attr.alt]="imgAlt"
+     [attr.aria-label]="imgAlt"
+     width="30%"
+>
+-->
+
+
 
 <gfk-list-title>Title</gfk-list-title>
 
-<gfk-list-item>{{ val1 }}</gfk-list-item>
-<gfk-list-item>{{ 1+1 }}</gfk-list-item>
-<gfk-list-item>{{ num1+1 }}</gfk-list-item>
-<gfk-list-item>{{sayHello()}}</gfk-list-item>
+<gfk-list-item
+        [class.selected]="selectedUsrInd===1"
+        (click)="selectUsr( 1 )">wert 1</gfk-list-item>
+<gfk-list-item
+        [class.selected]="selectedUsrInd===2"
+        (click)="selectUsr( 2 )">wert 2</gfk-list-item>
+<gfk-list-item
+        [class.selected]="selectedUsrInd===3"
+        (click)="selectUsr( 3 )">wert 3</gfk-list-item>
+<gfk-list-item
+        [class.selected]="selectedUsrInd===4"
+        (click)="selectUsr( 4 )">wert 4</gfk-list-item>
 
+<!--
 <div #testwert>Test</div>
+-->
 
 

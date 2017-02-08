@@ -1,5 +1,17 @@
 :host {
 
-  color: #ff49b8;
+  // color: #ff49b8;
+  margin-left: 5px;
+  margin-right: 5px;
 
 }
+
+gfk-list-item {
+  &.selected {
+    color: #ff49b8;
+  }
+  &.underlined {
+    text-decoration: underline;
+  }
+}
+
