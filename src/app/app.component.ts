@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
+import { ReversePipe } from './common-ui/reverse.pipe';
 
 export interface IUser {
     firstname : string;
@@ -46,7 +47,14 @@ export class AppComponent {
     listTitle : string = 'list title';
 
     constructor ( $http : Http ) {
+
         console.log ( '$http', $http );
+
+        const myReversePipe : ReversePipe = new ReversePipe ();
+        console.log ( myReversePipe.transform( 1230 ) );
+        console.log ( myReversePipe.transform( '123' ) );
+        console.log ( myReversePipe.transform( [1,2,3] ) );
+
     }
 
     chgInd ( newInd : number ) {

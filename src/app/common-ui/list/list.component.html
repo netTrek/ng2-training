@@ -11,7 +11,9 @@
 
     <span *ngIf="parse">{{parse(val)}}</span>
 
-    <span *ngIf="parse === undefined && columns === undefined">{{val}}</span>
+    <span *ngIf="parse === undefined && columns === undefined">
+        {{val}}
+    </span>
 
     <template [ngIf]="parse === undefined && columns">
         <span *ngFor="let col of columns">{{val[col]}} </span>

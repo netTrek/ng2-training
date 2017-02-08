@@ -16,7 +16,7 @@ export class HoverDirective implements OnInit /* OnDestroy*/ {
     isUnderlined : boolean = false;
 
 
-    @HostListener ( 'mouseenter', [ '$event' ] )
+        @HostListener ( 'mouseenter', [ '$event' ] )
     mouseEnter ( evt : MouseEvent ) {
         // console.log ( evt );
         this.isUnderlined = true;

@@ -1,10 +1,37 @@
 <h1 (click)="onClick()">
-  {{title}}
+    {{title}}
 </h1>
 
 <h2 gfkHover=""> selcted Ind := {{selectedInd}}</h2>
 
 <input type="number" [(ngModel)]="selectedInd">
+
+<p>
+
+    <span>{{ 1486568261035 | reverse }}</span>
+    <br>
+    <span>{{ 'toll' | reverse }}</span>
+    <br>
+    <span>{{ [1,2,3] | reverse }}</span>
+    <br>
+    <span>{{1486568261035 | date : 'fullDate'}}</span>
+    <span>{{ 1486568261035 | number }}</span>
+    <br>
+    <br>
+    <span>{{ 1486568261035 | currency }}</span>
+    <br>
+    <span>{{ 'erster Test' | extend }}</span>
+    <br>
+    <span>{{ 'erster Test' | extend : ' - cool oder?' }}</span>
+
+</p>
+
+<!--
+<p>
+  {{ dataprovider | json}}
+</p>
+-->
+
 
 <gfk-list
         [titel]="'Meine Liste'"
