@@ -39,6 +39,14 @@
 
 <gfk-list-title>{{titel}}</gfk-list-title>
 
+<h2 *ngIf="selectedUsrInd===1">User mit dem Index 1 ist selektiert</h2>
+<h2 *ngIf="selectedUsrInd===2">User mit dem Index 2 ist selektiert</h2>
+<h2 *ngIf="selectedUsrInd===3">User mit dem Index 3 ist selektiert</h2>
+
+<template [ngIf]="selectedUsrInd===4">
+    <h2>User mit dem Index 4 ist selektiert</h2>
+</template>
+
 <gfk-list-item
         [class.selected]="selectedUsrInd===1"
         (click)="selectUsr( 1 )">wert 1</gfk-list-item>
