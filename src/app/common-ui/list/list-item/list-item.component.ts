@@ -6,7 +6,7 @@ import { Component, OnInit, HostBinding, HostListener } from '@angular/core';
     styleUrls  : [ './list-item.component.scss' ]
 } )
 export class ListItemComponent implements OnInit {
-
+    /*
     @HostBinding ( 'class.underlined' )
     isUnderlined : boolean = false;
 
@@ -23,6 +23,7 @@ export class ListItemComponent implements OnInit {
     mouseLeave () {
         this.isUnderlined = false;
     }
+    */
 
     ngOnInit () {
     }

@@ -6,6 +6,7 @@
 <gfk-list-item *ngFor="let val of valueList; let i = index, let e = even "
                [ngClass]="{ selected: selectedUsrInd===i, even : e, odd : !e }"
                [ngStyle]="{'padding-left': e?0:'3px'}"
+               [gfkHover]="'green'"
                (click)="selectUsr( i )">
 
     <span *ngIf="parse">{{parse(val)}}</span>
