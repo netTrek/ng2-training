@@ -2,6 +2,10 @@
     {{title}}
 </h1>
 
+<p> {{ users$ | async | json }}</p>
+
+<button (click)="updateStream()">update stream</button>
+
 <h2 gfkHover=""> selcted Ind := {{selectedInd}}</h2>
 
 <input type="number" [(ngModel)]="selectedInd">
