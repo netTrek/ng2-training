@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { CommonUIModule } from './common-ui/common-ui.module';
+import { ServiceModule } from './service/service.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { CommonUIModule } from './common-ui/common-ui.module';
     BrowserModule,  //Common
     FormsModule,
     HttpModule,
+    ServiceModule,
     CommonUIModule
   ],
   providers: [
