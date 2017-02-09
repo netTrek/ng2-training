@@ -19,7 +19,7 @@ export class ListComponent implements OnInit {
     parse : Function;
 
     @Input ()
-    selectedUsrInd : number = 1;
+    selectedUsrInd : number = -1;
 
     @Output ()
     selectedUsrIndChange : EventEmitter<number> = new EventEmitter<number> ();

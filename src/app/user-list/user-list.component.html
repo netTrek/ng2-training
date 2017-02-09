@@ -1,0 +1,7 @@
+
+<gfk-list
+        [titel]="'Meine Liste'"
+        [valueList]="users$ | async | slice : 0 : 5"
+        [parse]="$user.outputGen"
+        (selectedItem)="updateSelectedUser( $event )"
+></gfk-list>

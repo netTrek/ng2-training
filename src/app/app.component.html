@@ -2,14 +2,10 @@
     {{title}}
 </h1>
 
-<gfk-list
-        [titel]="'Meine Liste'"
-        [valueList]="users$ | async | slice : 0 : 5"
-        [parse]="$user.outputGen"
-        [(selectedUsrInd)]="selectedInd"
-        (selectedItem)="updateSelectedUser( $event )"
-></gfk-list>
+<nav>
+    <a routerLink="home" routerLinkActive="active">Home</a>
+    <a routerLink="list" routerLinkActive="active">Userlist</a>
+    <a routerLink="user" routerLinkActive="active">User</a>
+</nav>
 
-<p>
-    {{ selectedUser$ | async | json }}
-</p>
+<router-outlet></router-outlet>
