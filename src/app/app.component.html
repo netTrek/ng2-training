@@ -39,14 +39,14 @@
 
 <gfk-list
         [titel]="'Meine Liste'"
-        [valueList]="dataprovider"
+        [valueList]="dataprovider | slice : 0 : 5"
         [parse]="outputGen"
         [(selectedUsrInd)]="selectedInd"
 ></gfk-list>
 <hr>
 <gfk-list
         [titel]="'Meine Liste'"
-        [valueList]="dataprovider"
+        [valueList]="dataprovider | slice : 0 : 5"
         [columns]="columns"
         [(selectedUsrInd)]="selectedInd"
 ></gfk-list>

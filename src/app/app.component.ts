@@ -1,12 +1,21 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, RequestOptions, RequestMethod, Request, Response } from '@angular/http';
 import { ReversePipe } from './common-ui/reverse.pipe';
 import { Observable, Subscription, Subject, BehaviorSubject } from 'rxjs/RX';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/take';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/catch';
 
 export interface IUser {
+    id : string;
     firstname : string;
     lastname : string;
-    age : number;
+    birthday : string;
+    street : string;
+    street_no : string;
+    zip : string;
+    city : string;
 }
 
 @Component ( {
@@ -20,45 +29,24 @@ export class AppComponent {
 
     selectedInd : number = 3;
 
-    columns : string [] = [ 'age', 'firstname' ];
+    columns : string [] = [ 'id', 'firstname' ];
 
     private usersObserver : BehaviorSubject<any> = new BehaviorSubject<any> ( null );
             users$ : Observable<any>             = this.usersObserver.asObservable ();
 
-    dataprovider : IUser [] = [
-        {
-            firstname: 'saban',
-            lastname : 'ünlü',
-            age      : 43
-        },
-        {
-            firstname: 'peter',
-            lastname : 'müller',
-            age      : 22
-        },
-        {
-            firstname: 'Frank',
-            lastname : 'Mustermann',
-            age      : 12
-        },
-        {
-            firstname: 'Klaus',
-            lastname : 'Klaus',
-            age      : 33
-        }
-    ];
+    dataprovider : IUser [];
 
     listTitle : string = 'list title';
 
     constructor ( $http : Http ) {
         /*
-        const observable : Observable<MouseEvent> = Observable.fromEvent ( document, 'mousemove' );
-        const subscription : Subscription         = observable
-            .filter ( evt => evt.clientX < 100 )
-            .subscribe (
-                next => console.log( 'next mouse event', next )
-            );
-        */
+         const observable : Observable<MouseEvent> = Observable.fromEvent ( document, 'mousemove' );
+         const subscription : Subscription         = observable
+         .filter ( evt => evt.clientX < 100 )
+         .subscribe (
+         next => console.log( 'next mouse event', next )
+         );
+         */
 
         //const observable : Observable<number> = Observable.range ( 1, 5 );
         //const observable : Observable<number> = Observable.of ( 1, 2, 3, 4, 4,  5 );
@@ -112,10 +100,25 @@ export class AppComponent {
 
         this.usersObserver.next ( { username: 'netTrek', age: 12 } );
 
+        const reqOptions : RequestOptions = new RequestOptions ();
+        reqOptions.url                    = 'http://rest-api.flexlab.de/index.php/api/user/';
+        reqOptions.method                 = RequestMethod.Get;
+
+        const observable : Observable<Response> = $http.request ( new Request ( reqOptions ) );
+
+        observable
+            .map ( response => response.json () )
+            .catch ( ( error ) => {
+                return Observable.throw ( 'could not parse body to json' );
+            } )
+            .subscribe (
+                response => this.dataprovider = response,
+                error => console.error ( error )
+            );
+
     }
 
-    chgInd ( newInd : number ) {
-        // console.log ( 'index changed', newInd );
+    chgInd ( newInd : number ) {// console.log ( 'index changed', newInd );
         this.selectedInd = newInd;
     }
 
@@ -124,7 +127,7 @@ export class AppComponent {
     }
 
     outputGen ( val : IUser ) : string {
-        return val.age + ' ' + val.lastname;
+        return val.firstname + ' ' + val.lastname;
     }
 
     onClick () {
