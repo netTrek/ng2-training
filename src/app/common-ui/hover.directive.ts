@@ -18,7 +18,7 @@ export class HoverDirective implements OnInit /* OnDestroy*/ {
 
         @HostListener ( 'mouseenter', [ '$event' ] )
     mouseEnter ( evt : MouseEvent ) {
-        // console.log ( evt );
+        // // console.log ( evt );
         this.isUnderlined = true;
         this.color = this.gfkHover;
     }
@@ -33,13 +33,13 @@ export class HoverDirective implements OnInit /* OnDestroy*/ {
         if ( ! this.gfkHover ) {
             this.gfkHover = 'red';
         }
-        console.log ( this.gfkHover );
+        // console.log ( this.gfkHover );
     }
 
     /*
      constructor( private $element : ElementRef ) {
 
-     console.log ( $element );
+     // console.log ( $element );
 
      this.init ();
 
@@ -50,7 +50,7 @@ export class HoverDirective implements OnInit /* OnDestroy*/ {
 
      private init () {
      this.$element.nativeElement.addEventListener( 'click', () => {
-     console.log ( 'click' );
+     // console.log ( 'click' );
      } );
      }
      */

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, LOCALE_ID } from '@angular/core';
+import { NgModule, LOCALE_ID, Inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -17,9 +17,17 @@ import { CommonUIModule } from './common-ui/common-ui.module';
     CommonUIModule
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'de' },
+    { provide: LOCALE_ID, useValue: 'de' }
     //otherProviders...
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+
+  /*
+  constructor ( @Inject (LOCALE_ID) localId : any ) {
+    console.log ( localId);  //en_US
+  }
+  */
+
+}

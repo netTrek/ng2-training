@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { ReversePipe } from './common-ui/reverse.pipe';
+import { Observable, Subscription } from 'rxjs/RX';
 
 export interface IUser {
     firstname : string;
@@ -48,17 +49,60 @@ export class AppComponent {
 
     constructor ( $http : Http ) {
 
-        console.log ( '$http', $http );
+        //const observable : Observable<number> = Observable.range ( 1, 5 );
+        //const observable : Observable<number> = Observable.of ( 1, 2, 3, 4, 4,  5 );
 
-        const myReversePipe : ReversePipe = new ReversePipe ();
-        console.log ( myReversePipe.transform( 1230 ) );
-        console.log ( myReversePipe.transform( '123' ) );
-        console.log ( myReversePipe.transform( [1,2,3] ) );
+        const observable : Observable<number> = Observable.create (
+            observer => {
+                observer.next ( 1 );
+                observer.next ( 2 );
+                observer.error ( 'so nicht!' );
+                observer.next ( 3 );
+                observer.complete();
+            }
+        );
+        const subscription : Subscription     = observable
+            //.filter ( val => val % 2 === 0 )
+            /*
+             .filter ( (val) => {
+             return val % 2 === 0;
+             })
+             */
+            //.map ( val => val += 1 )
+            /*
+             .map ( (val) => {
+             return val + 1;
+             } )
+             */
+            .subscribe (
+                next => console.log ( 'next', next ),  //next
+                error => console.log ( 'error', error ),  //error
+                /*
+                 ( next ) => {
+                 console.log ( next );
+                 },  //next
+                 ( error ) => {
+                 console.log ( error );
+                 },  //error
+                 */
+                () => {
+                    console.log ( 'complete' );
+                }  //complete
+            );
+
+        // subscription.unsubscribe();
+
+        // console.log ( '$http', $http );
+
+        // const myReversePipe : ReversePipe = new ReversePipe ();
+        // consol#e.log ( myReversePipe.transform( 1230 ) );
+        // console.log ( myReversePipe.transform( '123' ) );
+        // console.log ( myReversePipe.transform( [1,2,3] ) );
 
     }
 
     chgInd ( newInd : number ) {
-        console.log ( 'index changed', newInd );
+        // console.log ( 'index changed', newInd );
         this.selectedInd = newInd;
     }
 
@@ -67,7 +111,7 @@ export class AppComponent {
     }
 
     onClick () {
-        console.log ( 'Say :=', this.title );
+        // console.log ( 'Say :=', this.title );
     }
 
 }

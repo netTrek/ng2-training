@@ -17,26 +17,25 @@ export class ListComponent implements OnInit, AfterViewInit {
     @ViewChild ( ListTitleComponent )
     listTitle : ListTitleComponent;
 
-
     @ViewChildren ( ListItemComponent )
     set listItems ( value : QueryList<ListItemComponent> ) {
         this._listItems = value;
-        console.log ( 'set listItems', value );
+        // // // // // console.log ( 'set listItems', value );
     }
 
-    @Input()
+    @Input ()
     valueList : any[];
 
-    @Input()
+    @Input ()
     columns : string [];
 
-    @Input()
+    @Input ()
     parse : Function;
 
     /*
-    @ViewChild ( 'testwert' )
-    testKnoten : ElementRef;
-    */
+     @ViewChild ( 'testwert' )
+     testKnoten : ElementRef;
+     */
 
     val1 : string = 'Hello world!';
     num1 : number = 111;
@@ -51,13 +50,11 @@ export class ListComponent implements OnInit, AfterViewInit {
     @Input ()
     selectedUsrInd : number = 1;
 
-
     @Output ()
     selectedUsrIndChange : EventEmitter<number> = new EventEmitter<number> ();
 
     @Input ()
     titel : string = 'My List';
-
 
     constructor () {
     }
@@ -69,7 +66,7 @@ export class ListComponent implements OnInit, AfterViewInit {
     selectUsr ( usrInd : number ) {
         if ( this.selectedUsrInd !== usrInd ) {
             this.selectedUsrInd = usrInd;
-            this.selectedUsrIndChange.emit( usrInd );
+            this.selectedUsrIndChange.emit ( usrInd );
         }
     }
 
@@ -84,8 +81,8 @@ export class ListComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit () : void {
-        console.log ( this.listTitle, this._listItems );
-        // console.log ( 'testKnoten', this.testKnoten, this.testKnoten.nativeElement );
+        // // // // // console.log ( this.listTitle, this._listItems );
+        // // // // // // console.log ( 'testKnoten', this.testKnoten, this.testKnoten.nativeElement );
     }
 
 }
