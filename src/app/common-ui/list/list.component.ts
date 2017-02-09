@@ -53,6 +53,9 @@ export class ListComponent implements OnInit, AfterViewInit {
     @Output ()
     selectedUsrIndChange : EventEmitter<number> = new EventEmitter<number> ();
 
+    @Output ()
+    selectedItem : EventEmitter<any> = new EventEmitter<any>();
+
     @Input ()
     titel : string = 'My List';
 
@@ -67,6 +70,7 @@ export class ListComponent implements OnInit, AfterViewInit {
         if ( this.selectedUsrInd !== usrInd ) {
             this.selectedUsrInd = usrInd;
             this.selectedUsrIndChange.emit ( usrInd );
+            this.selectedItem.emit ( this.valueList [usrInd] );
         }
     }
 

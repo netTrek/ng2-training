@@ -16,6 +16,8 @@ export class AppComponent {
 
     users$ : Observable<Array<IUser>>;
 
+    selectedUser$ : Observable<IUser>;
+
     constructor ( public $user : UsersService ) {
 
         /*
@@ -26,7 +28,12 @@ export class AppComponent {
         */
 
         this.users$ = this.$user.getUsers();
+        this.selectedUser$ = this.$user.getUser( 7 );
 
+    }
+
+    updateSelectedUser( user : IUser ) {
+        this.selectedUser$ = this.$user.getUser( user.id );
     }
 
 

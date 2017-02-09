@@ -7,4 +7,9 @@
         [valueList]="users$ | async | slice : 0 : 5"
         [parse]="$user.outputGen"
         [(selectedUsrInd)]="selectedInd"
+        (selectedItem)="updateSelectedUser( $event )"
 ></gfk-list>
+
+<p>
+    {{ selectedUser$ | async | json }}
+</p>

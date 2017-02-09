@@ -7,7 +7,7 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/catch';
 
 export interface IUser {
-    id : string;
+    id : number;
     firstname : string;
     lastname : string;
     birthday : string;
@@ -21,6 +21,32 @@ export interface IUser {
 export class UsersService {
 
     constructor ( private $http : Http ) {
+    }
+
+    getUser ( id : number ) : Observable<IUser> {
+
+        return Observable.create (
+            observer => {
+
+                const observable : Observable<Response> =
+                          this.$http.get ( 'http://rest-api.flexlab.de/index.php/api/user/' + id );
+
+                observable
+                    .map ( response => response.json () )
+                    .catch ( ( error ) => {
+                        return Observable.throw ( 'could not parse body to json' );
+                    } )
+                    .subscribe (
+                        user => {
+                            observer.next ( user );
+                            observer.complete ();
+                        },
+                        error => console.error ( error )
+                    );
+
+            }
+        );
+
     }
 
     getUsers () : Observable<Array<IUser>> {
