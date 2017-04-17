@@ -1,0 +1,10 @@
+.user {
+  display: inline-block;
+  width: 80px;
+  padding: 5px;
+  float: left;
+  background-color: gainsboro;
+  &.even {
+  background-color: burlywood;
+  }
+}

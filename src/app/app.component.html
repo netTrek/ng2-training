@@ -1,4 +1,23 @@
 <h1>
   {{title}}
 </h1>
+
+<nav>
+  <a routerLink="ngForUpdate" routerLinkActive="active">ngFor Update</a>
+  |
+  <a routerLink="ngIfUpdate" routerLinkActive="active">ngIf Update</a>
+  |
+  <a routerLink="ngTemplateUpdate" routerLinkActive="active">ngTemplate Update</a>
+  |
+  <a [routerLink]="['paramMap',123]" routerLinkActive="active">new paramMap</a>
+  |
+  <a routerLink="dynamic" routerLinkActive="active">ngComponentOutlet</a>
+  |
+  <a routerLink="templateDrivenForms" routerLinkActive="active">template driven forms</a>
+  |
+  <a routerLink="reactiveForms" routerLinkActive="active">reactive forms</a>
+  |
+  <a routerLink="dynamicForms" routerLinkActive="active">dynamic forms</a>
+</nav>
+
 <router-outlet></router-outlet>

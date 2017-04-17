@@ -1,0 +1,12 @@
+<p>
+  ng-for works!
+</p>
+<h1>users</h1>
+<ul>
+  <!--<li> {{userObservable | async | json}}</li>-->
+  <li *ngFor="let user of userObservable | async as users; index as i; count as c; even as e; odd as o" [ngClass]="{even: e, odd: o}">
+    {{i}}#{{c}} - {{user.name}} [{{user.age}}]
+  </li>
+  <!--
+  -->
+</ul>
