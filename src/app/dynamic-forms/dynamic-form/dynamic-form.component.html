@@ -1,0 +1,20 @@
+
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+    <div *ngFor="let model of inputModels" class="form-row">
+      <gfk-dynamic-input [inputModel]="model" [form]="form"></gfk-dynamic-input>
+    </div>
+
+    <div class="form-row">
+      <button type="submit" [disabled]="!form.valid">Save</button>
+    </div>
+  </form>
+  <div *ngIf="payLoad" class="form-row">
+    <strong>Saved the following values</strong><br>{{payLoad}}
+  </div>
+</div>
+
+
+<p>{{ this.form.value | json}}</p>
+<p>{{ this.form.valid | json}}</p>

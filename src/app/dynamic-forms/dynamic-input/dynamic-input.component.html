@@ -1,0 +1,17 @@
+<div [formGroup]="form">
+  <label [attr.for]="inputModel.key">{{inputModel.label}}</label>
+  <div [ngSwitch]="inputModel.controlType">
+
+    <input *ngSwitchCase="InputType.TEXT" [formControlName]="inputModel.key"
+           [id]="inputModel.key" [type]="inputModel.type">
+
+    <select [id]="inputModel.key" *ngSwitchCase="InputType.SELECT" [formControlName]="inputModel.key">
+      <option *ngFor="let opt of inputModel.options" [value]="opt.value">{{opt.label}}</option>
+    </select>
+
+  </div>
+  <div class="errorMessage" *ngIf="errors?.required">{{inputModel.label}} is required</div>
+  <div class="errorMessage" *ngIf="errors?.maxlength">{{inputModel.label}} to long</div>
+  <div class="errorMessage" *ngIf="errors?.minlength">{{inputModel.label}} to small</div>
+
+</div>

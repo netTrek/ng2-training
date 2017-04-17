@@ -33,7 +33,7 @@ const routes: Routes = [
   },
   {
     path: 'reactiveForms',
-    loadChildren: './reactive-forms/reactive-forms.module#ReactiveFormsModule'
+    loadChildren: './reactive-forms/reactive-form.module#ReactiveFormModule'
   },
   {
     path: 'dynamicForms',
