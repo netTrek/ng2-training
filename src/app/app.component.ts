@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'HELLO WORLD!';
+
+
+  /*
+  nameChgHandler ( newName: string ) {
+    console.log ('new Name:= ' , newName );
+  }
+  */
+
 }
+
+

@@ -23,5 +23,11 @@
 <audi-car car="bmw" logo="logo.png" ciColor="blue" progress="100"></audi-car>
 -->
 
+<!--
+<audi-user (nameChange)="nameChgHandler($event)"></audi-user>
+-->
 
-<audi-user></audi-user>
+<audi-user [(name)]="title"></audi-user>
+<input type="text" [(ngModel)]="title">
+
+
