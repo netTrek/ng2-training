@@ -32,6 +32,10 @@ export class ListComponent implements OnInit, AfterViewInit, AfterContentInit, O
 
   constructor() { }
 
+  onBtnClick ( evt: MouseEvent ) {
+    console.log ( 'btn clicked', evt );
+  }
+
   ngOnInit() {
     // console.log ( this.users, this.seb );
   }
@@ -50,6 +54,7 @@ export class ListComponent implements OnInit, AfterViewInit, AfterContentInit, O
   }
 
   private addListenerToH2 () {
+
     this.clickHandler = () => {
       console.log( 'h2 clicked ');
     };
