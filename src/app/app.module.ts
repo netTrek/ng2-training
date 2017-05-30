@@ -10,7 +10,7 @@ import { CommonUiModule } from './common-ui/common-ui.module';
 @NgModule({
   declarations: [
     AppComponent,
-      JensComponent
+    JensComponent
 
   ],
   imports: [

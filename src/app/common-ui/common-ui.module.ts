@@ -4,14 +4,15 @@ import { ListComponent } from './list/list.component';
 import { UserComponent } from '../jens/user/user.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { DoHoverDirective } from './do-hover.directive';
 
 @NgModule ( {
   imports     : [
     CommonModule,
     FormsModule
   ],
-  declarations: [ ListComponent, UserComponent ],
-  exports     : [ ListComponent, UserComponent ]
+  declarations: [ ListComponent, UserComponent, DoHoverDirective ],
+  exports     : [ ListComponent, UserComponent, DoHoverDirective ]
 } )
 export class CommonUiModule {
 }
