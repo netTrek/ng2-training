@@ -11,6 +11,7 @@ import { UserComponent } from '../../jens/user/user.component';
 })
 export class ListComponent implements OnInit, AfterViewInit, AfterContentInit, OnDestroy {
 
+  username = 'Saban Ünlü';
 
   /*
   @ContentChildren (UserComponent)

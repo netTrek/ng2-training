@@ -17,7 +17,7 @@ import { CommonUiModule } from './common-ui/common-ui.module';
     BrowserModule,
     FormsModule,
     HttpModule,
-      CommonUiModule
+    CommonUiModule
   ],
   providers: [],
   bootstrap: [AppComponent]
