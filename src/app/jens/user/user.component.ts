@@ -1,11 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnChanges {
+
+  @Output()
+  userNameChange: EventEmitter<string> = new EventEmitter();
 
   @Input()
   get userName (): string {
@@ -16,9 +19,20 @@ export class UserComponent implements OnInit {
   }
   private _userName: string;
 
+
+
   constructor() { }
 
+  chageTheName() {
+    this.userName = 'superman';
+    this.userNameChange.next( this.userName );
+  }
+
   ngOnInit() {
+  }
+
+  ngOnChanges ( changes: SimpleChanges ): void {
+    console.log ( changes );
   }
 
 }

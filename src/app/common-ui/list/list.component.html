@@ -3,8 +3,22 @@
 
 <button (click)="onBtnClick( $event )">click mich</button>
 
-<app-user [userName]="username"></app-user>
+<!--
+
+<app-user (userNameChange)="nameChgHandler( $event )" [userName]="username"></app-user>
+-->
+
+<app-user [(userName)]="username"></app-user>
+
+
+
+<input type="text" name="uname" id="uname" [(ngModel)]="username">
+
+<!--
+<button (click)="username='seb'">chage usernamme</button>
 <app-user userName="Jens"></app-user>
+-->
+
 
 <!--
 <app-user></app-user>

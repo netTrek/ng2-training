@@ -36,6 +36,10 @@ export class ListComponent implements OnInit, AfterViewInit, AfterContentInit, O
   onBtnClick ( evt: MouseEvent ) {
     console.log ( 'btn clicked', evt );
   }
+  
+  nameChgHandler ( newname: string ) {
+    console.log ( 'name changed', newname );
+  }
 
   ngOnInit() {
     // console.log ( this.users, this.seb );
