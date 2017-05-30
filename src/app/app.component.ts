@@ -8,6 +8,8 @@ import { IUser } from './jens/user/iuser';
 } )
 export class AppComponent {
 
+  date: number = Date.now();
+
   newUser: IUser = {};
 
   title = 'saban works!';

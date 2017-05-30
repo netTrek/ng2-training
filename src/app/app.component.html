@@ -1,5 +1,5 @@
 <h1 appDoHover>
-  Hello {{title}}
+  Hello {{title}} {{date | date : 'short' | lowercase}} {{ date | number }} {{date | currency : 'Eur' : true}}
 </h1>
 
 <app-list [(userlist)]="userlist" ></app-list>
