@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, HostBinding, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component ( {
   selector   : 'app-user',
@@ -6,6 +6,10 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
   styleUrls  : [ './user.component.scss' ]
 } )
 export class UserComponent implements OnInit, OnChanges {
+
+  // ([class.red-color]="showRedColor"
+  @HostBinding ('class.red-color')
+  showRedColor = true;
 
   @Output ()
   userNameChange: EventEmitter<string> = new EventEmitter ();

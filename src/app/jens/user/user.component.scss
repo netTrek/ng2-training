@@ -1,7 +1,12 @@
 :host {
+
   color: blue;
   p {
     font-weight: bold;
   }
 
+
+  &.red-color {
+    color: red;
+  }
 }
