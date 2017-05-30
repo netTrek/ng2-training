@@ -10,7 +10,7 @@ export class UserComponent implements OnInit, OnChanges {
   // ([class.red-color]="showRedColor"
   @HostBinding ('class.red-color')
   showRedColor = false;
-
+/*
   // (click)="clickhabndler($event)"
   @HostListener ( 'mouseenter', ['$event']  )
   mouseenter ( evt: MouseEvent) {
@@ -22,6 +22,8 @@ export class UserComponent implements OnInit, OnChanges {
   mouseleave () {
     this.showRedColor = false;
   }
+
+  */
 
   @Output ()
   userNameChange: EventEmitter<string> = new EventEmitter ();
