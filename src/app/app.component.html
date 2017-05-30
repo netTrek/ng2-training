@@ -1,6 +1,23 @@
 <h1>
-  Hello {{title}} {{age + 1}} {{calcBirthYear()}}
+  Hello {{title}}
 </h1>
 
-<app-list ></app-list>
-<button>chg list</button>
+<app-list [(userlist)]="userlist" ></app-list>
+
+<p>
+  {{userlist | json}}
+</p>
+
+<form (ngSubmit)="onSubmit()" >
+
+  <label for="name">username</label>
+  <input type="text" name="name" id="name" placeholder="gib mir deinen namen"
+          [(ngModel)]="newUser.username">
+
+  <label for="age">age</label>
+  <input type="number" name="age" id="age" value="22"
+         [(ngModel)]="newUser.age">
+
+  <button type="submit">add user</button>
+</form>
+

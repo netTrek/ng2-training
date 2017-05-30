@@ -3,6 +3,7 @@
 <ul>
     <app-user
       *ngFor="let user of userlist; let e = even; let o = odd"
+      (delete)="deleteUser( $event )"
       [user]="user"
       [class.odd]="o"
       [class.even]="e"
@@ -15,6 +16,7 @@
   -->
 </ul>
 
+<!--
 
 <ul>
   <ng-template ngFor let-user [ngForOf]="userlist">
@@ -24,3 +26,4 @@
 
 <hr>
 
+-->

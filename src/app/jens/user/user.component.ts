@@ -12,7 +12,15 @@ export class UserComponent implements OnInit, OnChanges {
   @Input ()
   user: IUser;
 
+  @Output()
+  delete: EventEmitter<IUser> = new EventEmitter( );
+
   constructor () {
+  }
+
+  @HostListener ('click')
+  doDel () {
+    this.delete.emit( this.user );
   }
 
 
@@ -20,7 +28,7 @@ export class UserComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges ( changes: SimpleChanges ): void {
-    console.log ( changes );
+    // console.log ( changes );
   }
 
 }

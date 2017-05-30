@@ -1,6 +1,6 @@
 
 import { UserComponent } from '../../jens/user/user.component';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IUser } from '../../jens/user/iuser';
 
 
@@ -13,30 +13,17 @@ export class ListComponent implements OnInit {
 
   username = 'Saban Ünlü';
 
-  // userlist: {username: string, age: number}[] = [
-
   @Input()
-  userlist: IUser[];/* = [
-    {
-      username: 'saban',
-      age: 12
-    },
-    {
-      username: 'peter',
-      age: 14
-    },
-    {
-      username: 'franz',
-      age: 15
-    },
-    {
-      username: 'hans',
-      age: 15
-    }
-  ];*/
+  userlist: IUser[];
+
+  @Output()
+  userlistChange: EventEmitter<Array<IUser>> = new EventEmitter();
 
   constructor() { }
 
+  deleteUser ( user: IUser ) {
+    this.userlist.splice( this.userlist.indexOf( user) , 1 );
+  }
 
   ngOnInit() {
   }
