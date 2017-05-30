@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostBinding, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, HostBinding, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component ( {
   selector   : 'app-user',
@@ -9,7 +9,19 @@ export class UserComponent implements OnInit, OnChanges {
 
   // ([class.red-color]="showRedColor"
   @HostBinding ('class.red-color')
-  showRedColor = true;
+  showRedColor = false;
+
+  // (click)="clickhabndler($event)"
+  @HostListener ( 'mouseenter', ['$event']  )
+  mouseenter ( evt: MouseEvent) {
+    console.log ( evt );
+    this.showRedColor = true;
+  }
+
+  @HostListener ( 'mouseleave' )
+  mouseleave () {
+    this.showRedColor = false;
+  }
 
   @Output ()
   userNameChange: EventEmitter<string> = new EventEmitter ();
