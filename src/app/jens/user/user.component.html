@@ -1,26 +1,5 @@
-<p>
-  ich bin der {{userName}}
-</p>
-<button (click)="chageTheName()">interner Namenswechsel</button>
+<li>
+  <strong>{{user.username}}</strong>
+  <span>{{user.age}}</span>
+</li>
 
-<hr>
-
-<span *ngIf="showRedColor; else elseblock1">(*)</span><input type="checkbox" name="cl" id="cl" [(ngModel)]="showRedColor">
-
-
-<ng-template #elseblock1>
-  ELSE1
-</ng-template>
-
-<hr>
-
-<ng-template [ngIf]="showRedColor" [ngIfElse]="elseblock">
-
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aut blanditiis cumque debitis doloremque eaque facilis illo impedit laborum molestias necessitatibus nisi perferendis quisquam quos, repudiandae, veniam voluptatibus. Alias, modi.</p>
-
-
-</ng-template>
-
-<ng-template #elseblock>
-  ELSE
-</ng-template>

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, HostBinding, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { IUser } from './iuser';
 
 @Component ( {
   selector   : 'app-user',
@@ -7,45 +8,13 @@ import { Component, EventEmitter, HostBinding, HostListener, Input, OnChanges, O
 } )
 export class UserComponent implements OnInit, OnChanges {
 
-  // ([class.red-color]="showRedColor"
-  @HostBinding ('class.red-color')
-  showRedColor = false;
-/*
-  // (click)="clickhabndler($event)"
-  @HostListener ( 'mouseenter', ['$event']  )
-  mouseenter ( evt: MouseEvent) {
-    console.log ( evt );
-    this.showRedColor = true;
-  }
-
-  @HostListener ( 'mouseleave' )
-  mouseleave () {
-    this.showRedColor = false;
-  }
-
-  */
-
-  @Output ()
-  userNameChange: EventEmitter<string> = new EventEmitter ();
 
   @Input ()
-  get userName (): string {
-    return this._userName;
-  }
-
-  set userName ( value: string ) {
-    this._userName = value;
-  }
-
-  private _userName: string;
+  user: IUser;
 
   constructor () {
   }
 
-  chageTheName () {
-    this.userName = 'superman';
-    this.userNameChange.next ( this.userName );
-  }
 
   ngOnInit () {
   }

@@ -1,35 +1,25 @@
-<hr>
 <h2 #userHeader>super liste</h2>
 
-<button (click)="onBtnClick( $event )">click mich</button>
+<ul>
+    <app-user
+      *ngFor="let user of userlist; let e = even; let o = odd"
+      [user]="user"
+      [class.odd]="o"
+      [class.even]="e"
+    ></app-user>
+  <!--
+    <li *ngFor="let user of userlist; let e = even; let o = odd"
+        [class.odd]="o"
+        [class.even]="e"
+    > {{i}} # {{o}} {{user | json}} </li>
+  -->
+</ul>
 
-<!--
-
-<app-user (userNameChange)="nameChgHandler( $event )" [userName]="username"></app-user>
--->
-
-<app-user [(userName)]="username"></app-user>
-
-
-
-<input type="text" name="uname" id="uname" [(ngModel)]="username">
-
-<button [disabled]="!(username && username.length>0)">disbale test</button>
-
-<!--
-<button (click)="username='seb'">chage usernamme</button>
-<app-user userName="Jens"></app-user>
--->
-
-
-<!--
-<app-user></app-user>
--->
 
 <ul>
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
+  <ng-template ngFor let-user [ngForOf]="userlist">
+    <li>{{user | json}}</li>
+  </ng-template>
 </ul>
 
 <hr>

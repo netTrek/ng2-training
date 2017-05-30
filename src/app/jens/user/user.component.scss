@@ -9,4 +9,19 @@
   &.red-color {
     color: red;
   }
+
+  &.odd {
+    li {
+      background-color: #65ff3c;
+    }
+  }
+
+  &.even {
+    li {
+      background-color: #5ee43b;
+    }
+  }
+
+
 }
+

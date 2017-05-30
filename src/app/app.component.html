@@ -2,24 +2,5 @@
   Hello {{title}} {{age + 1}} {{calcBirthYear()}}
 </h1>
 
-<input type="number" name="ager" id="age" [(ngModel)]="age">
-<input type="number" name="ager" id="age2" [attr.value]="age">
-
-<button (click)="chgAge(11)">change age</button>
-<button (click)="age = 99" [style.color]="color">change age</button>
-
-
-<div [style.width]="age+'px'"></div>
-<div [style.width]="age+'%'"></div>
-<div [style.width.px]="age"></div>
-
-<div [class]="cssclass">man du bist</div>
-<div class="blue-box" [class.saban]="showSaban">man du bist</div>
-
-<input type="checkbox" name="ch" id="ch" [(ngModel)]="showSaban">
-
-<img [src]="imageSource" alt="muss have" [attr.aria-label]="label">
-
-
-<app-jens></app-jens>
-<app-list></app-list>
+<app-list ></app-list>
+<button>chg list</button>
