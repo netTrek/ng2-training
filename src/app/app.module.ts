@@ -9,18 +9,24 @@ import { CommonUiModule } from './common-ui/common-ui.module';
 import { CurrencyPipe } from '@angular/common';
 import { PointService } from './point.service';
 import { USER_REST_URL, UserService } from './user.service';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule ( {
   declarations: [
     AppComponent,
-    JensComponent
-
+    JensComponent,
+    HomeComponent,
+    UsersComponent
   ],
   imports     : [
     BrowserModule,
     FormsModule,
     HttpModule,
-    CommonUiModule
+    CommonUiModule,
+    AppRoutingModule
   ],
   bootstrap   : [ AppComponent ],
   providers   : [

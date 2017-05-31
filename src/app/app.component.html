@@ -1,33 +1,10 @@
-<h1 appDoHover>
-  Hello {{title}} {{date | date : 'short' | lowercase}} {{ date | number }} {{date | currency : 'Eur' : true}}
-</h1>
+<h1 appDoHover> Hello App </h1>
 
-<!--
-<input type="number" [(ngModel)]="$point.point">
-<app-list [(userlist)]="userlist" ></app-list>
--->
+<nav>
+  <a routerLink="home" routerLinkActive="active">home</a>
+  |
+  <a routerLink="list" routerLinkActive="active">userlist</a>
+</nav>
 
-<app-list [userlist]="userlist$ | async" ></app-list>
+<router-outlet></router-outlet>
 
-
-
-
-<p>
-  {{userlist | json}}
-</p>
-<!--
-
-<form (ngSubmit)="onSubmit()" >
-
-  <label for="name">username</label>
-  <input type="text" name="name" id="name" placeholder="gib mir deinen namen"
-          [(ngModel)]="newUser.username">
-
-  <label for="age">age</label>
-  <input type="number" name="age" id="age" value="22"
-         [(ngModel)]="newUser.age">
-
-  <button type="submit">add user</button>
-</form>
-
--->
