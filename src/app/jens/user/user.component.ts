@@ -1,5 +1,6 @@
 import { Component, EventEmitter, HostBinding, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { IUser } from './iuser';
+import { PointService } from '../../point.service';
 
 @Component ( {
   selector   : 'app-user',
@@ -15,16 +16,25 @@ export class UserComponent implements OnInit, OnChanges {
   @Output()
   delete: EventEmitter<IUser> = new EventEmitter( );
 
-  constructor () {
+  @Output()
+  select: EventEmitter<string> = new EventEmitter( );
+
+  constructor ( public $point: PointService ) {
   }
 
-  @HostListener ('click')
-  doDel () {
-    this.delete.emit( this.user );
+  @HostListener ('click', ['$event'] )
+  doDel ( $event: MouseEvent ) {
+    if ( $event.altKey ) {
+      this.$point.point ++;
+      this.select.emit( this.user.id );
+    } else {
+      this.delete.emit( this.user );
+    }
   }
 
 
   ngOnInit () {
+    // console.log ( 'user comp', this.$point );
   }
 
   ngOnChanges ( changes: SimpleChanges ): void {

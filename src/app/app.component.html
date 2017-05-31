@@ -3,10 +3,14 @@
 </h1>
 
 <!--
-<app-list [userlist]="userlist$ | userFilter | async" ></app-list>
+<input type="number" [(ngModel)]="$point.point">
+<app-list [(userlist)]="userlist" ></app-list>
 -->
 
-<app-list [(userlist)]="userlist" ></app-list>
+<app-list [userlist]="userlist$ | async" ></app-list>
+
+
+
 
 <p>
   {{userlist | json}}

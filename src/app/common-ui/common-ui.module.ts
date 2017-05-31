@@ -7,14 +7,15 @@ import { DoHoverDirective } from './do-hover.directive';
 import { HastagerPipe } from './hastager.pipe';
 import { ReversePipe } from './reverse.pipe';
 import { UserFilterPipe } from './user-filter.pipe';
+import { NotNullPipe } from './not-null.pipe';
 
 @NgModule ( {
   imports     : [
     CommonModule,
     FormsModule
   ],
-  declarations: [ ListComponent, UserComponent, DoHoverDirective, HastagerPipe, ReversePipe, UserFilterPipe ],
-  exports     : [ ListComponent, UserComponent, DoHoverDirective, HastagerPipe, UserFilterPipe ]
+  declarations: [ ListComponent, UserComponent, DoHoverDirective, HastagerPipe, ReversePipe, UserFilterPipe, NotNullPipe ],
+  exports     : [ ListComponent, UserComponent, DoHoverDirective, HastagerPipe, UserFilterPipe, NotNullPipe ]
 } )
 export class CommonUiModule {
 }

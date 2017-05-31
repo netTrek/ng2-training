@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { JensComponent } from './jens/jens.component';
 import { CommonUiModule } from './common-ui/common-ui.module';
 import { CurrencyPipe } from '@angular/common';
+import { PointService } from './point.service';
+import { USER_REST_URL, UserService } from './user.service';
 
 @NgModule ( {
   declarations: [
@@ -22,7 +24,10 @@ import { CurrencyPipe } from '@angular/common';
   ],
   bootstrap   : [ AppComponent ],
   providers   : [
-    { provide: LOCALE_ID, useValue: 'de' }
+    { provide: LOCALE_ID, useValue: 'de' },
+    { provide: USER_REST_URL, useValue: 'http://rest-api.flexlab.de/index.php/api/user' },
+    PointService,
+    UserService
   ]
 } )
 export class AppModule {

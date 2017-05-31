@@ -4,6 +4,7 @@
     <app-user
       *ngFor="let user of userlist; let e = even; let o = odd"
       (delete)="deleteUser( $event )"
+      (select)="selectUser( $event )"
       [user]="user"
       [ngClass]="{odd: o, even: e}"
     ></app-user>
@@ -15,6 +16,10 @@
     > {{i}} # {{o}} {{user | json}} </li>
   -->
 </ul>
+
+<p>
+  {{ selected$ | notNull | async | json }}
+</p>
 
 
 <p>
