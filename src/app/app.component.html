@@ -2,6 +2,10 @@
   Hello {{title}} {{date | date : 'short' | lowercase}} {{ date | number }} {{date | currency : 'Eur' : true}}
 </h1>
 
+<!--
+<app-list [userlist]="userlist$ | userFilter | async" ></app-list>
+-->
+
 <app-list [(userlist)]="userlist" ></app-list>
 
 <p>

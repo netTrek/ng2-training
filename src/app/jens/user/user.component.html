@@ -1,5 +1,5 @@
 <li>
-  <strong>{{user.username}}</strong>
-  <span>{{user.age}}</span>
+  <strong>{{user.username | hastager :'@' | reverse }}</strong>
+  <span>{{user.age | reverse}}</span>
 </li>
 

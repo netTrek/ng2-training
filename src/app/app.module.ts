@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { JensComponent } from './jens/jens.component';
 import { CommonUiModule } from './common-ui/common-ui.module';
+import { CurrencyPipe } from '@angular/common';
 
 @NgModule ( {
   declarations: [
@@ -25,4 +26,10 @@ import { CommonUiModule } from './common-ui/common-ui.module';
   ]
 } )
 export class AppModule {
+
+  constructor () {
+    const currPipe: CurrencyPipe = new CurrencyPipe ( 'de' );
+    console.log ( currPipe.transform( 123.44 , 'Eur', true ) );
+  }
+
 }

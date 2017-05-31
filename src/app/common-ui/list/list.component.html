@@ -7,6 +7,7 @@
       [user]="user"
       [ngClass]="{odd: o, even: e}"
     ></app-user>
+
   <!--
     <li *ngFor="let user of userlist; let e = even; let o = odd"
         [class.odd]="o"
@@ -15,10 +16,15 @@
   -->
 </ul>
 
+
+<p>
+  {{ [1,2,3] | reverse }}
+</p>
+
 <!--
 
-<ul>
-  <ng-template ngFor let-user [ngForOf]="userlist">
+<section class="users">
+  <ng-template ngFor let-user [ngForOf]="userlist" let-i="index">
     <li>{{user | json}}</li>
   </ng-template>
 </ul>
