@@ -3,16 +3,17 @@ import { IUser } from './jens/user/iuser';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/observable/range';
+import 'rxjs/add/observable/throw';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/fromEvent';
 
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
-import { Subscription } from 'rxjs/Subscription';
-import { Subject } from 'rxjs/Subject';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
+import { Http, RequestOptions, Request, RequestMethod, URLSearchParams } from '@angular/http';
 
 @Component ( {
   selector   : 'app-root',
@@ -23,106 +24,49 @@ export class AppComponent {
 
   date: number = Date.now ();
 
-  newUser: IUser = {};
+  // newUser: IUser = {};
 
   title = 'saban works!';
 
-  userlist: IUser[] = [
-    {
-      username: 'saban',
-      age     : 12
-    },
-    {
-      username: 'peter',
-      age     : 14
-    },
-    {
-      username: 'franz',
-      age     : 15
-    },
-    {
-      username: 'hans',
-      age     : 15
-    }
-  ];
-  userlist$: Observable<Array<IUser>> = Observable.of ( this.userlist );
+  userlist: IUser[];
 
-  constructor () {
+  constructor ( private $http: Http ) {
 
-    // const observable: Observable<number> = Observable.range ( 1, 5 );
-    // const subscription: Subscription = Observable.merge ( observable, Observable.range (6, 5 ) )
-
-    /*
-    const observable: Observable<Array<IUser>> = Observable.of ( this.userlist, [...this.userlist, <IUser>{ username: 'obi', age: 999 } ] )
-  */
+    const reqOpt: RequestOptions = new RequestOptions ();
+    reqOpt.url = 'http://rest-api.flexlab.de/index.php/api/user';
+    reqOpt.method = RequestMethod.Get;
 
 
-    const observable: Observable<MouseEvent> = Observable.fromEvent ( document, 'mousemove' );
-    observable
-      .filter ( evt => evt.clientX < 100 )
-      .subscribe( next => console.log ( next ) );
+    const searchParams: URLSearchParams = new URLSearchParams ();
+    searchParams.append( 'token', 'saban ünlü');
 
-    /*
-    const observable: Observable<number> = Observable.create (
-        subject => {
-          subject.next( Math.random() );
-      }
-    );
-    observable.subscribe( next => console.log ( next ) );
-    observable.subscribe( next => console.log ( next ) );
-    */
+    reqOpt.search = searchParams;
 
-    const subject: BehaviorSubject<number> = new BehaviorSubject ( 2 );
-    // subject.next( 2 );
+    const req: Request = new Request ( reqOpt );
 
-    const subscription: Subscription = subject
-         .filter (
-           val => val % 2 === 0
-         )
-         .map (
-           val => val * 10
-         )
+    $http.request( req )
+         .map ( res => res.json () )
+         .catch ( error => {
+           console.log ( error );
+           return Observable.throw ( new Error ( error ) );
+         } )
          .subscribe (
-           nextVal => {
-             console.log ( 'newVal', nextVal );
-           }             ,
-           error => console.log ( 'error', error ),
-           () => {
-             console.log ( 'ich habe fertig' );
-           }
-           /*
-            (newVal: number) => { // next value
-            console.log ( 'newVal', newVal );
-            },
-            ( err ) => { // Fehlerbehandlung
-            console.log ( 'error', err );
-            },
-            () => {
-            console.log ( 'ich habe fertig' );
-            }
-            */
+           user => this.userlist = user
          );
-
 /*
-    console.log ( subscription );
-
-    subject.next( 1 );
-    subject.next( 2 );
-    subject.next( 3 / 0 );
-*/
-
-    // subject.error( 'ups .... ' );
-
-    // subscription.unsubscribe ();
-/*
-    subject.complete();
-
-    subject.next( 4 );
-    subject.next( 5 );
+    $http.get ( 'http://rest-api.flexlab.de/index.php/api/user/28' )
+         .map ( res => res.json () )
+         .catch ( error => {
+           console.log ( error );
+           return Observable.throw ( new Error ( error ) );
+         } )
+         .subscribe (
+           user => console.log ( user )
+         );
 */
   }
 
   onSubmit () {
-    this.userlist.push ( { ...this.newUser } );
+    // this.userlist.push ( { ...this.newUser } );
   }
 }
