@@ -8,3 +8,14 @@
   background-color: burlywood;
   }
 }
+
+.cars {
+  display: inline-block;
+  width: 100px;
+  padding: 10px;
+  float: left;
+  background-color: #dcb31a;
+  &.even {
+    background-color: #deb887;
+  }
+}

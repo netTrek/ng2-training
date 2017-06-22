@@ -32,9 +32,10 @@ export class DynamicFormLoaderComponent implements OnInit {
         maxLength: 8
       }),
       new TextModel ( {
-        key: 'lastName',
-        label: 'Nachname',
-        value: 'Ünlü',
+        key: 'password',
+        label: 'Password',
+        value: '',
+        options: {type: 'password'},
         required: true,
         minLength: 4,
         maxLength: 8

@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
     <p>
       param-map Works! ID:= {{this.param_id}}
     </p>
+    <a [routerLink]="['/paramMap', 456]">next</a>
   `,
   styles: []
 })
@@ -22,8 +23,8 @@ export class ParamMapComponent implements OnInit, OnDestroy {
 
   ngOnInit () {
     this.subscription = this.route.paramMap
-        .map ( paramMap => paramMap.get ('id') || 'None' )
-        .subscribe( id => this.param_id = id );
+                            .map ( paramMap => paramMap.get ('id') || 'None' )
+                            .subscribe( id => this.param_id = id );
   }
 
   ngOnDestroy (): void {

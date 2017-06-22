@@ -1,6 +1,18 @@
 # Setup
 ng new gfk-update --prefix=gfk --style=scss --routing=true
 
+# vendor einbinden
+npm i font-awesome --save
+npm i primeng --save
+
+-- erweiterung des cli setups um Style informationen des vendors
+"styles": [
+        "styles.scss",
+        "../node_modules/font-awesome/scss/font-awesome.scss",
+        "../node_modules/primeng/resources/primeng.min.css",
+        "../node_modules/primeng/resources/themes/omega/theme.scss"
+      ],
+
 # Update Package JSON Scripts
 
     "start:dev": "ng serve --hmr -o - w -H 0.0.0.0",

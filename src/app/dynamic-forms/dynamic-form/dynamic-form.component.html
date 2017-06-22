@@ -10,11 +10,13 @@
       <button type="submit" [disabled]="!form.valid">Save</button>
     </div>
   </form>
-  <div *ngIf="payLoad" class="form-row">
-    <strong>Saved the following values</strong><br>{{payLoad}}
+  <div *ngIf="payload" class="form-row">
+    <strong>Saved the following values</strong><br>{{payload}}
   </div>
 </div>
 
 
 <p>{{ this.form.value | json}}</p>
 <p>{{ this.form.valid | json}}</p>
+
+<button (click)="testChg()">Change Valie of Controller</button>

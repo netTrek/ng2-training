@@ -33,10 +33,10 @@ import { Component, OnInit } from '@angular/core';
             <label for="username">#usrname="ngModel"</label>
             <input type="text"
                    name="username"
-                   id="username"
-                   size="30" pInputText
                    ngModel
                    #usrname="ngModel"
+                   id="username"
+                   size="30" pInputText
                    placeholder="your name"
                    required
                    minlength="4"
@@ -59,6 +59,9 @@ import { Component, OnInit } from '@angular/core';
 
     </form>
 
+    <button (click)="log(usrname)">#f</button>
+    
+    
     <p>
         f.value <br>
         {{ f.value | json }}
@@ -84,6 +87,9 @@ export class TempDrivenFormComponent implements OnInit {
 
   constructor() { }
 
+  log( f: any ) {
+    console.log ( f );
+  }
 
   ngOnInit() {
   }

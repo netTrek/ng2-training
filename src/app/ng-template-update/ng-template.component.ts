@@ -17,8 +17,17 @@ export class NgTemplateComponent implements OnInit {
     { name: 'hansi', age: 44 }
   ] );
 
+  private carsSub: BehaviorSubject<{ vin: string, type: string }[]> = new BehaviorSubject ( [
+    { vin: '5172653', type: 'A3' },
+    { vin: '123', type: '42' },
+    { vin: '123', type: '43' },
+    { vin: '123', type: '44' }
+  ] );
+
 
   public userObservable: Observable<{ name: string, age: number }[]> = this.userSub.asObservable();
+
+  public carsObservable: Observable<{ vin: string, type: string }[]> = this.carsSub.asObservable();
 
   constructor() { }
 

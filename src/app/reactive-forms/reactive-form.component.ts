@@ -15,8 +15,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
                    id="username"
                    size="30" pInputText
                    placeholder="your name"
-                   required
-                   minlength="4"
                    formControlName="username"
             >
 
@@ -24,9 +22,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
             
             <div *ngIf="( ( usrname.dirty || usrname.touched) && usrname.errors )"
                  class="ui-messages ui-widget ui-corner-all ui-messages-error" style="display: block">
-                <span *ngIf="usrname.errors?.required" class="ui-messages-summary">Fehler: </span>
+                <span *ngIf="usrname.errors" class="ui-messages-summary">Fehler: </span>
                 <span *ngIf="usrname.errors?.required" class="ui-messages-detail">Bitte trage einen Wert für den Benutzernamen ein!</span>
-                <span *ngIf="!usrname.errors?.required && usrname.invalid" class="ui-messages-detail">Bitte trage min 4 Zeichen ein!</span>
+                <span *ngIf="usrname.errors?.minlength" class="ui-messages-detail">Bitte trage min 4 Zeichen ein!</span>
             </div>
             
             
@@ -41,12 +39,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
         </div>
         <label>
             formControlName="userbirthdate" <br>
-            <p-calendar formControlName="userbirthdate"></p-calendar>
+            <p-calendar formControlName="userbirthdate" dateFormat="dd.mm.yy"></p-calendar>
         </label>
     </form>
 
     <p>{{ user.value | json}}</p>
     <p>{{ user.valid | json}}</p>
+    <p>{{usrname.errors | json}}</p>
   `,
   styles: [
       `label {
@@ -63,12 +62,14 @@ export class ReactiveFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.usrname = new FormControl('', Validators.required );
-    this.user = new FormGroup({
-      account: new FormGroup({
-        username: this.usrname,
-        usermail: new FormControl('')
-      }),
+    this.usrname = new FormControl('', [Validators.required, Validators.minLength(4)] );
+    this.user = new FormGroup(
+        {
+        account: new FormGroup({
+          username: this.usrname,
+          usermail: new FormControl('')
+        }
+      ),
       userbirthdate: new FormControl(''),
     });
   }

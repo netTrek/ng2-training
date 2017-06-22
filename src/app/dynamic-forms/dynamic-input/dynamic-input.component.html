@@ -1,17 +1,28 @@
 <div [formGroup]="form">
+
   <label [attr.for]="inputModel.key">{{inputModel.label}}</label>
   <div [ngSwitch]="inputModel.controlType">
 
-    <input *ngSwitchCase="InputType.TEXT" [formControlName]="inputModel.key"
+    <input *ngSwitchCase="InputType.TEXT" [formControlName]="inputModel.key" pInputText
            [id]="inputModel.key" [type]="inputModel.type">
 
+
+
+    <!--
     <select [id]="inputModel.key" *ngSwitchCase="InputType.SELECT" [formControlName]="inputModel.key">
       <option *ngFor="let opt of inputModel.options" [value]="opt.value">{{opt.label}}</option>
     </select>
 
+    -->
+    <p-dropdown [id]="inputModel.key" *ngSwitchCase="InputType.SELECT" [options]="inputModel.options" [formControlName]="inputModel.key" [(ngModel)]="inputModel.value"></p-dropdown>
+
+
   </div>
-  <div class="errorMessage" *ngIf="errors?.required">{{inputModel.label}} is required</div>
-  <div class="errorMessage" *ngIf="errors?.maxlength">{{inputModel.label}} to long</div>
-  <div class="errorMessage" *ngIf="errors?.minlength">{{inputModel.label}} to small</div>
+  <div *ngIf=" ( touched || dirty ) && errors" class="ui-messages ui-widget ui-corner-all ui-messages-error" style="display: block">
+    <div class="ui-messages-detail" *ngIf="errors?.required">{{inputModel.label}} is required</div>
+    <div class="ui-messages-detail" *ngIf="errors?.maxlength">{{inputModel.label}} to long</div>
+    <div class="ui-messages-detail" *ngIf="errors?.minlength">{{inputModel.label}} to small</div>
+  </div>
 
 </div>
+

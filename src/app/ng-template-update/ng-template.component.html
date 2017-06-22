@@ -1,6 +1,10 @@
 <p>
   ng-template works!
 </p>
+
+<hr>
+<br>
+
 <gfk-grid [dataProvider]="userObservable | async">
   <ng-template let-user let-e="even">
     <div class="user" [ngClass]="{even:e}">
@@ -9,4 +13,20 @@
     </div>
   </ng-template>
 </gfk-grid>
+
+<hr>
+<br>
+
+<gfk-grid [dataProvider]="carsObservable | async">
+  <ng-template let-car let-e="even">
+    <div class="cars" [ngClass]="{even:e}">
+      <h1>{{car.vin}}</h1>
+      <h2>{{car.type}}</h2>
+    </div>
+  </ng-template>
+</gfk-grid>
+
+<hr>
+<br>
+
 <button (click)="update()">update</button>

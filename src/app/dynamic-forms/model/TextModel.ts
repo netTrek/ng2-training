@@ -12,6 +12,12 @@ export class TextModel extends InputBaseModel<string> {
 
     constructor ( options: IInputBaseModel<string> = <IInputBaseModel<string>>{} ) {
         super ( options );
-        this.type = options['type'];
+        console.log ( options );
+        if ( options.options && options.options['type'] ) {
+            this.type = options.options['type'];
+        } else {
+            this.type = 'text';
+        }
+        console.log ( this.type );
     }
 }

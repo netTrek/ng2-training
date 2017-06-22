@@ -1,13 +1,17 @@
 <p>
-  ng-if works!
+  ng-if works! {{isWoman}}
 </p>
 <label for="gender">Bist du eine Frau</label>
 <input type="checkbox" name="gender" id="gender" [(ngModel)]="isWoman">
 <br>
 
-
 <h2 *ngIf="isWoman; else manSelected">Du bist eine Frau</h2>
-<ng-template #manSelected><h2>Du bist ein Man</h2></ng-template>
+<ng-template #manSelected>
+  <h2>Du bist ein Man</h2>
+</ng-template>
+
+
+
 <!-- ; then womanSelected
 <ng-template #womanSelected><aside>Eine Frau wurde gewählt</aside></ng-template>
 -->

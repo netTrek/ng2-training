@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { InputControlService } from '../input-control.service';
 import { InputBaseModel } from '../model/InputBaseModel';
-import { FormGroup } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'gfk-dynamic-form',
@@ -22,6 +22,27 @@ export class DynamicFormComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.ics.toFormGroup( this.inputModels );
+
+    /**
+     * noch zu optimieren!
+     * @type {FormControl}
+     */
+    const firstNameControl: FormControl = <FormControl>this.form.get('firstName');
+    firstNameControl.registerOnChange ( ( ...args ) => {
+      console.log ( args, 'chage' );
+    });
+  }
+
+  /**
+   * mock - später löschen
+   */
+  testChg () {
+    /**
+     * falsche stelle
+     * @type {FormControl}
+     */
+    const firstNameControl: FormControl = <FormControl>this.form.get('firstName');
+    firstNameControl.setValue( 'Test' );
   }
 
   onSubmit () {

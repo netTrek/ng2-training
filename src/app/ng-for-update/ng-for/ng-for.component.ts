@@ -18,6 +18,7 @@ export class NgForComponent implements OnInit {
 
     public userObservable: Observable<{ name: string, age: number }[]> = this.userSub.asObservable();
 
+
     constructor () {
     }
 

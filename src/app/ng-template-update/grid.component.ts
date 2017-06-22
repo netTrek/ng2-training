@@ -7,14 +7,17 @@ import { Component, ContentChild, Input, OnInit, TemplateRef } from '@angular/co
                 [ngForOf]="dataProvider"
                 [ngForTemplate]="itemTemplate"></ng-template>
   `,
-  styles: []
+  styles: [`:host {
+      display: inline-block;
+  }`]
 })
 export class GridComponent implements OnInit {
 
   @Input()
   dataProvider: any[];
 
-  @ContentChild(TemplateRef) itemTemplate: TemplateRef<any>;
+  @ContentChild(TemplateRef)
+  itemTemplate: TemplateRef<any>;
 
   constructor() { }
 
