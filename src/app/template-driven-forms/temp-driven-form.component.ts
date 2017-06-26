@@ -56,10 +56,11 @@ import { Component, OnInit } from '@angular/core';
         <label for="userbirthdate">#usrdate="ngModel"</label>
         <input type="date" name="userbirthdate" id="userbirthdate" ngModel #usrdate="ngModel" placeholder="your birthdate" pInputText>
 
-
+      <input type="submit" [disabled]="f.invalid">
     </form>
 
-    <button (click)="log(usrname)">#f</button>
+    <button (click)="log(f)">#f</button>
+    <button (click)="log(usrname)">#usrname</button>
     
     
     <p>
