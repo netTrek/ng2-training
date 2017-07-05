@@ -1,0 +1,19 @@
+class Mensch {
+
+  name: string;
+  readonly value = 'wert';
+
+  constructor( private color: number = 123, ...rest : boolean[] ) {
+    this.name = "Saban";
+  }
+
+  sayHello(): string {
+    console.log('hello world');
+    return 'hello world';
+  }
+
+  private nichtPrivate() {
+
+  }
+
+}

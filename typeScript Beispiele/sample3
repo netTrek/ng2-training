@@ -1,0 +1,32 @@
+
+class SendBtn {
+
+  private elm: HTMLButtonElement;
+
+  constructor( private id: string) {
+    this.init();
+  }
+
+  private clickHandler( evt?: Event) {
+    console.log(this);
+  }
+
+  private init() {
+    this.elm = <HTMLButtonElement>document.getElementById(this.id);
+    /** old school
+    const that: SendBtn = this;
+    this.elm.addEventListener('click', function () {
+      that.clickHandler ()
+    } );
+     */
+    /*
+    this.elm.addEventListener('click', () => {
+      this.clickHandler();
+    });
+    */
+    this.elm.addEventListener('click',
+      evt => this.clickHandler(evt) );
+  }
+}
+
+let sendBtn: SendBtn = new SendBtn('sendBtn');

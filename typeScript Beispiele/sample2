@@ -1,0 +1,33 @@
+
+class Mensch {
+
+  name: string;
+  readonly value = 'wert';
+
+  constructor( private color: number = 123, ...rest : any[] ) {
+    this.name = "Saban";
+  }
+
+  sayHello(): string {
+    console.log('hello world');
+    return 'hello world';
+  }
+
+  private nichtPrivate() {
+
+  }
+
+}
+
+class Frau extends Mensch {
+  constructor(  color: number, ...rest: any[] ) {
+    super( color, ...rest );
+  }
+
+  sayHello(): string {
+    return super.sayHello();
+  }
+
+}
+
+new Frau ( 123, 1,23,2,323,23,23)
