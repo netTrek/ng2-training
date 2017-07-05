@@ -38,7 +38,13 @@ describe('MyCompComponent', () => {
   });
 
 
-  it('should render name in a h2 tag', async(() => {
+  it(`should have as user.name '${mockData.name}'`, async(() => {
+    fixture = TestBed.createComponent(MyCompComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.userService.name).toEqual( mockData.name );
+  }));
+
+  it(`should render user.name '${mockData.name}' in a h2 tag`, async(() => {
     fixture = TestBed.createComponent(MyCompComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;

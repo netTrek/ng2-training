@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { MyCompComponent } from './my-comp/my-comp.component';
 import { HelloWorldComponent } from './hello-world/hello-world.component';
 import { ServiceModule } from './service/service.module';
+import { HttpModule } from '@angular/http';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -14,7 +15,8 @@ describe('AppComponent', () => {
         HelloWorldComponent
       ],
       imports: [
-        ServiceModule
+        ServiceModule,
+        HttpModule
       ]
     }).compileComponents();
   }));
