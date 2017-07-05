@@ -1,0 +1,14 @@
+<h1>
+  hello-world Comp
+</h1>
+<!--
+<div class="saban"></div>
+-->
+<h2>{{userService.name}}</h2>
+<div *ngIf=" num < 15 " [ngClass]="getClassName()">
+  name := {{name | uppercase }} # {{ 1+2 }} # {{ num + 3 }}
+  <hr>
+  Zahl := {{getCountWithName()}}
+</div>
+<hr>
+<button (click)="countUp()">hochzählen</button>
