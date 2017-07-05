@@ -3,6 +3,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { MyCompComponent } from './my-comp/my-comp.component';
 import { HelloWorldComponent } from './hello-world/hello-world.component';
+import { ServiceModule } from './service/service.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -12,6 +13,9 @@ describe('AppComponent', () => {
         MyCompComponent,
         HelloWorldComponent
       ],
+      imports: [
+        ServiceModule
+      ]
     }).compileComponents();
   }));
 

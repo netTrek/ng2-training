@@ -9,8 +9,8 @@ import { UserService } from '../service/user.service';
 })
 export class MyCompComponent implements OnInit {
 
-  constructor( private http: Http, public userService: UserService ) {
-    console.log ( http, userService );
+  constructor( /*private http: Http, */public userService: UserService ) {
+    console.log ( /*http,*/ userService );
 
   }
 

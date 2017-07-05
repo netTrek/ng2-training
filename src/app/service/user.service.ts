@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
+export interface IUserService {
+  name: string;
+}
+
 @Injectable()
-export class UserService {
+export class UserService implements IUserService{
 
   name = 'Peter';
   age = 41;
@@ -10,7 +14,7 @@ export class UserService {
 
   private uid: number = Date.now();
 
-  constructor( public http: Http ) {
+  constructor( /*public http: Http*/ ) {
     console.log ( this.uid );
   }
 
