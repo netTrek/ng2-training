@@ -6,6 +6,13 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "start:dev": "ng serve -o - w -H 0.0.0.0",
+    "start:dev:hmr": "ng serve --hmr -o - w -H 0.0.0.0",
+    "start:prod": "ng serve --prod -o -w -H 0.0.0.0",
+    "start:prod:aot": "ng serve --prod --aot -o -w -H 0.0.0.0",
+    "build:prod": "ng build --prod",
+    "build:prod:aot": "ng build --prod --aot -op dist-aot",
+    "build:prod:aot:bh": "ng build --prod --aot -op dist-aot -bh /aot-test/dist-aot/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

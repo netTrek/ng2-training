@@ -6,7 +6,7 @@ export interface IUserService {
 }
 
 @Injectable()
-export class UserService implements IUserService{
+export class UserService implements IUserService {
 
   name = 'Peter';
   age = 41;

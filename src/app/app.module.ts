@@ -8,6 +8,7 @@ import { HelloWorldComponent } from './hello-world/hello-world.component';
 import { MyCompComponent } from './my-comp/my-comp.component';
 import { UserService } from './service/user.service';
 import { ServiceModule } from './service/service.module';
+import { CommonUiModule } from './common-ui/common-ui.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ServiceModule } from './service/service.module';
     BrowserModule,
     FormsModule,
     HttpModule,
-    ServiceModule
+    ServiceModule,
+    CommonUiModule
   ],
   providers: [  ],
   bootstrap: [AppComponent]
