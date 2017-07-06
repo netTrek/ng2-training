@@ -21,6 +21,7 @@ export class UserComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log ( '#### user comp init' );
   }
 
 }
