@@ -7,6 +7,11 @@
 <div #subheader [innerText]="zumSpielen"></div>
 <div [innerHTML]="zumSpielenHTML"></div>
 
+<div [innerHTML]="zumSpielenHTML"
+     [style.color]="fontcolor"
+     [style.width]="breite"
+></div>
+
 <img [src]="bildQuelle" width="30px" alt="">
 
 <img [attr.src]="bildQuelle" width="30px" [attr.alt]="bildInfo">

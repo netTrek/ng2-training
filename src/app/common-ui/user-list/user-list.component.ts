@@ -17,6 +17,9 @@ export class UserListComponent implements OnInit, AfterContentInit, AfterViewIni
 
   bildQuelle = './assets/images/logo-gross.png';
   bildInfo = 'logo von netTrek';
+
+  breite = 300;
+
   /*
    @ContentChild ( UserComponent )
    user: UserComponent | undefined;
@@ -31,6 +34,8 @@ export class UserListComponent implements OnInit, AfterContentInit, AfterViewIni
   @ViewChild ('subheader')
   subheader: ElementRef;
 
+  fontcolor = 'red';
+
   constructor () {
   }
 
@@ -42,7 +47,7 @@ export class UserListComponent implements OnInit, AfterContentInit, AfterViewIni
     console.log ( 'user list view init' );
     console.log ( this.header );
     console.log ( this.subheader );
-    this.subheader.nativeElement.style.color = 'red';
+    this.subheader.nativeElement.style.color = this.fontcolor;
   }
 
   ngAfterContentInit (): void {
