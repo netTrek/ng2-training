@@ -15,11 +15,21 @@
   <pta-my-comp></pta-my-comp>
 </pta-user-list>
 -->
-
+<!--
 <pta-countdown></pta-countdown>
+-->
+<!--
 
-<pta-user-list>
-  <pta-user></pta-user>
-  <pta-user></pta-user>
+<hr>
+{{wahr}}
+<hr>
+<pta-user-list [class]="listClassInfo" class="showblue">
+  <pta-user [class.showred]="wahr" [class.showblue]="!wahr"></pta-user>
+  <pta-user gaga [class.showred]="wahr" [class.showblue]="!wahr"></pta-user>
 </pta-user-list>
 
+<button (click)="wahr = !wahr">toggle wahr</button>
+-->
+
+
+<pta-user-list></pta-user-list>

@@ -4,6 +4,7 @@
 <div #subheader>{{zumSpielen}}</div>
 -->
 
+<!--
 <div #subheader [innerText]="zumSpielen"></div>
 <div [innerHTML]="zumSpielenHTML"></div>
 
@@ -15,8 +16,24 @@
 <img [src]="bildQuelle" width="30px" alt="">
 
 <img [attr.src]="bildQuelle" width="30px" [attr.alt]="bildInfo">
+-->
 
+<!--
 <hr>
 <pta-user></pta-user>
 <ng-content></ng-content>
 <hr>
+-->
+
+<pta-user [username]="crrUserName"
+          (nameChg)="handelNameChg($event)"
+></pta-user>
+<!--
+<pta-user username="saban"></pta-user>
+<pta-user username="franz"></pta-user>
+<pta-user username="hans"></pta-user>
+-->
+
+<button (click)="userClick($event)">testin</button>
+
+<button (click)="crrUserName='paula'">chg first username</button>
