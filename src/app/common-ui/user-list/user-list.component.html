@@ -30,6 +30,7 @@
 
 
 <pta-user *ngFor="let user of users; index as i; even as e; odd as o"
+          ptaDoHover="blue"
           [username]="user"
           [ngClass]="{evenclass: e, oddclass: o}"
           (usernameChange)="updateSelection($event)"
