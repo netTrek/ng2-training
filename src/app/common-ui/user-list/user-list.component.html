@@ -6,7 +6,6 @@
   <header *ngIf="selectedUser; else elseBlock">selected user:= {{selectedUser}}</header>
 </section>
 
-
 <!--
 <ng-template [ngIf]="selectedUser">
     <section>
@@ -16,8 +15,23 @@
 </ng-template>
 -->
 
-<pta-user *ngFor="let user of users"
+
+<!--
+
+<pta-user *ngFor="let user of users; index as i; even as e; odd as o"
           [username]="user"
+          [class.evenclass]="e"
+          [class.oddclass]="o"
+          (usernameChange)="updateSelection($event)"
+          (usernameDel)="delUser($event)"
+          [selected]="user===selectedUser"
+></pta-user>
+-->
+
+
+<pta-user *ngFor="let user of users; index as i; even as e; odd as o"
+          [username]="user"
+          [ngClass]="{evenclass: e, oddclass: o}"
           (usernameChange)="updateSelection($event)"
           (usernameDel)="delUser($event)"
           [selected]="user===selectedUser"

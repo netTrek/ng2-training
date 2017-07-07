@@ -7,24 +7,32 @@ import {
   selector: 'pta-user',
   templateUrl: './user.component.html',
   styles: [`
-    :host {  
+    :host {
       display: block;
-      background-color: #ffe31b;
       cursor: pointer;
     }
+
     :host.selected {
-      text-decoration: underline;  
+      text-decoration: underline;
     }
-    
+
+    :host.evenclass {
+      background-color: #fffb0d;
+    }
+
+    :host.oddclass {
+      background-color: #deda0d;
+    }
+
     .spielen {
       color: black;
     }
-    
+
     button {
       position: absolute;
       right: 0;
     }
-    
+
   `]
 })
 export class UserComponent implements OnInit  {
