@@ -2,10 +2,18 @@
 
 
 
-
+<!--
 <pta-user-list
   header="meine super liste"
   userName1="saban"
   userName2="heike"
   [(selectedUser)]="selectedUser"
 ></pta-user-list>
+-->
+
+<pta-user-list
+  header="meine super liste"
+  [users]="usersList"
+  [(selectedUser)]="selectedUser"
+></pta-user-list>
+

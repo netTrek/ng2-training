@@ -19,6 +19,12 @@ import {
     .spielen {
       color: black;
     }
+    
+    button {
+      position: absolute;
+      right: 0;
+    }
+    
   `]
 })
 export class UserComponent implements OnInit  {
@@ -29,6 +35,9 @@ export class UserComponent implements OnInit  {
   @Output()
   usernameChange: EventEmitter<string> = new EventEmitter();
 
+  @Output()
+  usernameDel: EventEmitter<string> = new EventEmitter();
+
   @Input()
   @HostBinding ('class.selected')
   selected = false;
@@ -38,6 +47,12 @@ export class UserComponent implements OnInit  {
   @HostListener ( 'click', ['$event'] )
   chgUsername( mouseEvt?: MouseEvent ) {
     this.usernameChange.emit( this.username );
+  }
+
+  del ( evt: MouseEvent ) {
+    evt.stopImmediatePropagation();
+    evt.preventDefault();
+    this.usernameDel.emit( this.username );
   }
 
   ngOnInit() {

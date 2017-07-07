@@ -3,9 +3,27 @@
 <pta-user-list-header *ngIf="header" [title]="header"></pta-user-list-header>
 
 <section>
-  <header *ngIf="selectedUser">selected user:= {{selectedUser}}</header>
+  <header *ngIf="selectedUser; else elseBlock">selected user:= {{selectedUser}}</header>
 </section>
 
+
+<!--
+<ng-template [ngIf]="selectedUser">
+    <section>
+      <header>hier kommt ein unser</header>
+      <article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis deleniti eaque fugiat maiores minus quidem rerum suscipit ut? Cumque, dignissimos, perspiciatis. Cum, explicabo illo iste perspiciatis praesentium quae similique vitae.</article>
+    </section>
+</ng-template>
+-->
+
+<pta-user *ngFor="let user of users"
+          [username]="user"
+          (usernameChange)="updateSelection($event)"
+          (usernameDel)="delUser($event)"
+          [selected]="user===selectedUser"
+></pta-user>
+
+<!--
 <pta-user [username]="userName1"
           (usernameChange)="updateSelection($event)"
           [selected]="userName1===selectedUser"
@@ -16,5 +34,9 @@
           (usernameChange)="updateSelection($event)"
           [selected]="userName2===selectedUser"
 ></pta-user>
+-->
 
 
+<ng-template #elseBlock>
+  <header>no selected user</header>
+</ng-template>

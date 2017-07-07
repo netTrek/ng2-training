@@ -9,30 +9,39 @@ import {
 } )
 export class UserListComponent implements OnInit {
 
-  @Input()
-  selectedUser: string|undefined;
+  @Input ()
+  selectedUser: string | undefined;
 
-  @Output()
-  selectedUserChange: EventEmitter<string> = new EventEmitter();
+  @Output ()
+  selectedUserChange: EventEmitter<string> = new EventEmitter ();
 
-  @Input()
-  userName1 = 'John Doo';
+  @Input ()
+  users: string[];
 
-  @Input()
-  userName2: string|undefined;
+  /*
+   @Input()
+   userName1 = 'John Doo';
 
-  @Input()
-  header: string|undefined;
+   @Input()
+   userName2: string|undefined;
+   */
+
+  @Input ()
+  header: string | undefined;
 
   constructor () {
   }
 
   updateSelection ( name: string ) {
     this.selectedUser = name;
-    this.selectedUserChange.emit( this.selectedUser);
+    this.selectedUserChange.emit ( this.selectedUser );
   }
 
-  ngOnInit() {
+  delUser ( name: string ) {
+    this.users.splice( this.users.indexOf(name), 1 );
+  }
+
+  ngOnInit () {
   }
 
 }
