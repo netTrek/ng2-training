@@ -13,7 +13,8 @@
 
 <pta-user-list
   header="meine super liste"
-  [users]="usersList"
+  [users]="usersList | async"
   [(selectedUser)]="selectedUser"
 ></pta-user-list>
 
+<button (click)="replaceUsers()">replace</button>

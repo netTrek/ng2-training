@@ -5,6 +5,17 @@ export interface IUserService {
   name: string;
 }
 
+export interface IUSer {
+  id: string;
+  firstname: string;
+  lastname: string;
+  birthday: string;
+  street: string;
+  street_no: string;
+  zip: string;
+  city: string;
+}
+
 @Injectable()
 export class UserService implements IUserService {
 

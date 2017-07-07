@@ -6,12 +6,13 @@ import { UserListHeaderComponent } from './user-list-header/user-list-header.com
 import { CountdownComponent } from './countdown/countdown.component';
 import { FormsModule } from '@angular/forms';
 import { DoHoverDirective } from './do-hover.directive';
+import { ReversePipe } from './reverse.pipe';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [UserComponent, UserListComponent, UserListHeaderComponent, CountdownComponent, DoHoverDirective],
-  exports: [UserComponent, UserListComponent, UserListHeaderComponent, CountdownComponent, DoHoverDirective]
+  declarations: [UserComponent, UserListComponent, UserListHeaderComponent, CountdownComponent, DoHoverDirective, ReversePipe],
+  exports: [UserComponent, UserListComponent, UserListHeaderComponent, CountdownComponent, DoHoverDirective, ReversePipe]
 })
 export class CommonUiModule { }
