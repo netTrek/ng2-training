@@ -1,5 +1,5 @@
 import {
-  AfterContentInit, AfterViewInit, Component, ContentChild, ContentChildren, ElementRef, OnInit, QueryList,
+  AfterContentInit, AfterViewInit, Component, ContentChild, ContentChildren, DoCheck, ElementRef, HostListener, OnInit, QueryList,
   ViewChild
 } from '@angular/core';
 import { UserComponent } from '../user/user.component';
@@ -10,14 +10,20 @@ import { UserListHeaderComponent } from '../user-list-header/user-list-header.co
   templateUrl: './user-list.component.html',
   styleUrls  : [ './user-list.component.css' ]
 } )
-export class UserListComponent implements OnInit {
+export class UserListComponent implements OnInit, DoCheck {
 
   crrUserName = 'Heike';
+  fontColor = 'red';
 
   constructor () {
   }
 
-  ngOnInit () {
+  ngOnInit() {
+    console.log ( '#### user list init' );
+  }
+
+  ngDoCheck (): void {
+    console.log ( '#### user list do check' );
   }
 
   userClick( mouseEvt: MouseEvent ) {

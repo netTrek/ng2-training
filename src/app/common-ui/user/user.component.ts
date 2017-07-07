@@ -1,40 +1,77 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import {
+  Component, DoCheck, EventEmitter, HostBinding, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges,
+  ViewEncapsulation
+} from '@angular/core';
 
 @Component({
   selector: 'pta-user',
   templateUrl: './user.component.html',
   styles: [`
-    :host {
+    :host {  
       display: inline-block;
       background-color: #ffe31b;
-      color: red;
+      cursor: pointer;
     }
+    :host.selected {
+      text-decoration: underline;  
+    }
+    
     .spielen {
       color: black;
     }
   `]
 })
 export class UserComponent implements OnInit,
-OnChanges {
+OnChanges, DoCheck {
 
   @Input()
   username = 'Peter Müller';
 
   @Output()
-  nameChg: EventEmitter<string> = new EventEmitter();
+  usernameChange: EventEmitter<string> = new EventEmitter();
+
+  @HostBinding ('class.selected')
+  selected = false;
+
+  @Input()
+  @HostBinding ('style.color')
+  fontColor = 'blue';
 
   constructor() { }
 
-  chgUsername() {
+  @HostListener ( 'window:resize' , ['$event'] )
+  winResize ( evt: Event ) {
+    console.log ( evt );
+  }
+
+  @HostListener ('mouseover')
+  mouseOverComp () {
+    this.fontColor = 'red';
+  }
+
+  @HostListener ('mouseout')
+  mouseOutComp () {
+    this.fontColor = 'blue';
+  }
+
+  @HostListener ( 'click', ['$event'] )
+  chgUsername( mouseEvt?: MouseEvent ) {
+    console.log ( mouseEvt );
     this.username = 'test';
-    this.nameChg.emit( this.username );
+    this.usernameChange.emit( this.username );
+    this.selected = true;
   }
 
   ngOnInit() {
-    console.log ( '#### user comp init' );
+    console.log ( '### user comp init' );
   }
 
   ngOnChanges ( changes: SimpleChanges ): void {
-     console.log ( 'chg', changes );
+     console.log ( '### user comp changes', changes );
+  }
+
+
+  ngDoCheck (): void {
+    console.log ( '### user comp do check' );
   }
 }

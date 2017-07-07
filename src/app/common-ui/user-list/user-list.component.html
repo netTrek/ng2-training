@@ -1,3 +1,4 @@
+
 <pta-user-list-header></pta-user-list-header>
 
 <!--
@@ -24,10 +25,9 @@
 <ng-content></ng-content>
 <hr>
 -->
-
-<pta-user [username]="crrUserName"
-          (nameChg)="handelNameChg($event)"
-></pta-user>
+{{crrUserName}}
+<pta-user [(username)]="crrUserName" ></pta-user>
+<pta-user username="test" ></pta-user>
 <!--
 <pta-user username="saban"></pta-user>
 <pta-user username="franz"></pta-user>
@@ -37,3 +37,5 @@
 <button (click)="userClick($event)">testin</button>
 
 <button (click)="crrUserName='paula'">chg first username</button>
+
+
