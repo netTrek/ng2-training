@@ -4,6 +4,7 @@ import { UserComponent } from './user/user.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserListHeaderComponent } from './user-list-header/user-list-header.component';
 import { CountdownComponent } from './countdown/countdown.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [

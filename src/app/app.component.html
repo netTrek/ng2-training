@@ -1,43 +1,11 @@
+<input type="text" [(ngModel)]="selectedUser" >
+
+
+
+
 <pta-user-list
-  header="meine UserLiut"
-  username1="saban"
-  username2="heike"
-  selectedUser="saban"
+  header="meine super liste"
+  userName1="saban"
+  userName2="heike"
+  [(selectedUser)]="selectedUser"
 ></pta-user-list>
-
-
-
-<!--
-<h1>
-  {{title}}
-</h1>
-<pta-hello-world></pta-hello-world>
-<pta-my-comp></pta-my-comp>
--->
-<!--
-
-<pta-user-list>
-  <pta-user></pta-user>
-  <pta-my-comp></pta-my-comp>
-  <pta-my-comp></pta-my-comp>
-  <pta-my-comp></pta-my-comp>
-  <pta-my-comp></pta-my-comp>
-</pta-user-list>
--->
-<!--
-<pta-countdown></pta-countdown>
--->
-<!--
-
-<hr>
-{{wahr}}
-<hr>
-<pta-user-list [class]="listClassInfo" class="showblue">
-  <pta-user [class.showred]="wahr" [class.showblue]="!wahr"></pta-user>
-  <pta-user gaga [class.showred]="wahr" [class.showblue]="!wahr"></pta-user>
-</pta-user-list>
-
-<button (click)="wahr = !wahr">toggle wahr</button>
--->
-
-

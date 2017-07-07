@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, DoCheck, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'pta-user-list-header',
@@ -7,6 +7,7 @@ import { Component, DoCheck, OnInit } from '@angular/core';
 })
 export class UserListHeaderComponent implements OnInit, DoCheck {
 
+  @Input()
   title = 'Mega Liste für User';
 
   constructor() { }
