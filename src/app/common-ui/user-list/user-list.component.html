@@ -31,7 +31,7 @@
 
 <pta-user *ngFor="let user of users | reverse ; index as i; even as e; odd as o"
           ptaDoHover="blue"
-          [username]="user | uppercase | reverse | reverse"
+          [username]="user.firstname"
           [ngClass]="{evenclass: e, oddclass: o}"
           (usernameChange)="updateSelection($event)"
           (usernameDel)="delUser($event)"

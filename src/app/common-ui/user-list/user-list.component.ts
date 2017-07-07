@@ -1,6 +1,7 @@
 import {
   Component, EventEmitter, Input, OnInit, Output
 } from '@angular/core';
+import { IUser } from '../../service/user.service';
 
 @Component ( {
   selector   : 'pta-user-list',
@@ -16,7 +17,7 @@ export class UserListComponent implements OnInit {
   selectedUserChange: EventEmitter<string> = new EventEmitter ();
 
   @Input ()
-  users: string[];
+  users: IUser[];
 
   /*
    @Input()
@@ -36,10 +37,11 @@ export class UserListComponent implements OnInit {
     this.selectedUser = name;
     this.selectedUserChange.emit ( this.selectedUser );
   }
-
+/*
   delUser ( name: string ) {
     this.users.splice( this.users.indexOf(name), 1 );
   }
+  */
 
   ngOnInit () {
   }

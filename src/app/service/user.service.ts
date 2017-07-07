@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
 export interface IUserService {
   name: string;
 }
 
-export interface IUSer {
+export interface IUser {
   id: string;
   firstname: string;
   lastname: string;
@@ -16,17 +17,29 @@ export interface IUSer {
   city: string;
 }
 
-@Injectable()
+@Injectable ()
 export class UserService implements IUserService {
 
   name = 'Peter';
-  age = 41;
+  age  = 41;
 
+  private uid: number = Date.now ();
 
-  private uid: number = Date.now();
+  constructor ( public $http: Http ) {
+    // console.log ( this.uid, http  );
+  }
 
-  constructor( /*public http: Http*/ ) {
-    console.log ( this.uid );
+  getUsers (): Observable<IUser[]> {
+    return Observable.create ( observer => {
+      this.$http.get ( 'http://rest-api.flexlab.de/index.php/api/user/' )
+          .subscribe (
+            response => {
+              observer.next ( response.json () );
+              observer.complete ();
+            }
+          );
+    } );
+
   }
 
   getAge (): number {
