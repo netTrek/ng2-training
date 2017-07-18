@@ -3,18 +3,60 @@
   {{title}}
 </h1>
 
+<ng-template [ngIf]="showCountdown">
+<hr>
+<h4>{{rest}}</h4>
 
-<button (click)="updateTitle( $event )">change title</button>
+<app-countdown [totalTime]="totalTime"
+               (restTime)="updateRestTime($event)"></app-countdown>
+
 
 <hr>
+</ng-template>
+
+<h2 *ngIf="showCountdown; else elseBlock">countdown visible</h2>
+
+<ng-template #elseBlock>
+  <h2>countdown invisible</h2>
+</ng-template>
+
+
+<button (click)="showCountdown=!showCountdown">toggle countdown</button>
+
+
+
+<!--
+<button (click)="updateTitle( $event )">change title</button>
+<button (click)="updateTotalTime()">change totalTime</button>
+
+<hr>
+<h4>username in AppComp = {{username}}</h4>
+<app-user-name [(username)]="username"></app-user-name>
+
+<app-user-name [username]="username"
+  (chgUserName)="usrNameUpdated ($event)"
+></app-user-name>
+-->
+
+
+<!--
+<hr>
+
 <app-countdown (restTime)="updateRestTime($event)"></app-countdown>
 <hr>
 <h4>{{rest}}</h4>
 <hr>
-<app-countdown totalTime="20"></app-countdown>
+
+<app-countdown [totalTime]="totalTime"
+               (restTime)="updateRestTime($event)"></app-countdown>
 <hr>
+-->
+
+<!--
 <app-countdown totalTime="100"></app-countdown>
 <hr>
+-->
+
 
 <!--
 AppComp-username {{username}}

@@ -1,19 +1,51 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostBinding, HostListener, Input, OnInit, Output } from '@angular/core';
 
-@Component({
-  selector: 'app-user-name',
+@Component ( {
+  selector   : 'app-user-name',
   templateUrl: './user-name.component.html',
-  styleUrls: ['./user-name.component.css']
-})
+  styleUrls  : [ './user-name.component.css' ]
+} )
 export class UserNameComponent implements OnInit {
 
-
-  @Input()
+  @Input ()
   username = 'peter müller';
 
-  constructor() { }
+  @Output ()
+  usernameChange: EventEmitter<string> = new EventEmitter ();
 
-  ngOnInit() {
+  @HostBinding ('style.color')
+  fontcolor = 'black';
+
+
+  constructor () {
   }
+
+  ngOnInit () {
+  }
+
+  @HostListener ( 'click', ['$event'] )
+  chgUsrName (mouseEvt: MouseEvent) {
+    this.username = 'frank';
+    this.usernameChange.emit ( this.username );
+    // console.log ( mouseEvt );
+    this.fontcolor = 'red';
+
+  }
+
+
+  /*
+  @HostListener ('document:mousemove', ['$event.clientX'] )
+  mouseMove ( xpos: number ) {
+    console.log ( xpos );
+  }
+
+  @HostListener ('window:resize', ['$event'] )
+  resize ( evt: Event) {
+    console.log ( evt );
+  }
+  */
+
+
+
 
 }

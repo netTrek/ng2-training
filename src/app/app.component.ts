@@ -9,6 +9,8 @@ export class AppComponent {
 
   title = 'app works!';
   rest: number;
+  showCountdown = true;
+  totalTime = 22;
 
   username = 'saban';
 
@@ -34,5 +36,15 @@ export class AppComponent {
     console.log ( 'restTime triggered', time );
     this.rest = time;
   }
+
+  updateTotalTime () {
+    this.totalTime = 33;
+  }
+/*
+  usrNameUpdated ( newUsername : string ) {
+    console.log ( 'new user name is := ' , newUsername );
+    this.username = newUsername;
+  }
+  */
 
 }

@@ -1,11 +1,12 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component ( {
   selector   : 'app-countdown',
   templateUrl: './countdown.component.html',
   styleUrls  : [ './countdown.component.css' ]
 } )
-export class CountdownComponent implements OnInit, OnDestroy {
+export class CountdownComponent implements OnInit, OnDestroy, OnChanges {
+
 
   get totalTime (): number {
     return this._totalTime;
@@ -26,6 +27,10 @@ export class CountdownComponent implements OnInit, OnDestroy {
   private _totalTime                  = 10;
 
   constructor () {
+  }
+
+  ngOnChanges ( changes: SimpleChanges ): void {
+    console.log ( changes );
   }
 
   ngOnInit () {
