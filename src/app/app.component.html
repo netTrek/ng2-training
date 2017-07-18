@@ -7,7 +7,9 @@
 <button (click)="updateTitle( $event )">change title</button>
 
 <hr>
-<app-countdown></app-countdown>
+<app-countdown (restTime)="updateRestTime($event)"></app-countdown>
+<hr>
+<h4>{{rest}}</h4>
 <hr>
 <app-countdown totalTime="20"></app-countdown>
 <hr>

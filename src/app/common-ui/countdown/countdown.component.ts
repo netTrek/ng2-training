@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 
 @Component ( {
   selector   : 'app-countdown',
@@ -7,22 +7,23 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 } )
 export class CountdownComponent implements OnInit, OnDestroy {
 
-
   get totalTime (): number {
     return this._totalTime;
   }
 
-  @Input()
+  @Input ()
   set totalTime ( value: number ) {
-    this._totalTime = Number (value);
+    this._totalTime = Number ( value );
   }
 
+  @Output()
+  restTime: EventEmitter<number> = new EventEmitter ();
 
   percent = 100;
 
   private crrTime                     = 0;
   private intervalID: any | undefined = undefined;
-  private _totalTime = 10;
+  private _totalTime                  = 10;
 
   constructor () {
   }
@@ -34,20 +35,22 @@ export class CountdownComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy (): void {
-    this.disposeInterval();
+    this.disposeInterval ();
   }
 
   private countDown () {
     this.crrTime ++;
-    this.percent = Math.floor( 100 - (this.crrTime / this.totalTime * 100) );
+    this.percent = Math.floor ( 100 - (this.crrTime / this.totalTime * 100) );
     if ( this.crrTime === this.totalTime ) {
-      this.disposeInterval();
+      this.disposeInterval ();
+    } else {
+      this.restTime.emit( this.totalTime - this.crrTime );
     }
   }
 
   private disposeInterval () {
-    if ( !! this.intervalID ) {
-      clearInterval( this.intervalID );
+    if ( ! ! this.intervalID ) {
+      clearInterval ( this.intervalID );
       this.intervalID = undefined;
     }
   }

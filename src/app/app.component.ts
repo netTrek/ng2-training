@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   title = 'app works!';
+  rest: number;
 
   username = 'saban';
 
@@ -27,6 +28,11 @@ export class AppComponent {
   updateTitle ( mouseEvt: MouseEvent ) {
     console.log ( mouseEvt );
     this.title = 'saban ünlü ' + mouseEvt.clientX;
+  }
+
+  updateRestTime ( time: number ) {
+    console.log ( 'restTime triggered', time );
+    this.rest = time;
   }
 
 }
