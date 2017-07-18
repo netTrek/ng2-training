@@ -3,11 +3,15 @@
   {{title}}
 </h1>
 
-
 <hr>
 {{list | json}}
 <hr>
-<app-user [(userList)]="list"></app-user>
+
+<app-user [(userList)]="list" ></app-user>
+
+<ul>
+  <li *ngFor="let usr of userVOs" class="saban" [ngClass]="className" appHelloWorld="green">{{usr.lastname}} {{usr.fistname}} {{usr.age}}</li>
+</ul>
 
 <!--
 

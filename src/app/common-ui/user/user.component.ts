@@ -2,6 +2,7 @@ import {
   AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, QueryList, ViewChild,
   ViewChildren
 } from '@angular/core';
+
 import { UserHeaderComponent } from './user-header/user-header.component';
 import { UserNameComponent } from './user-name/user-name.component';
 
@@ -20,7 +21,6 @@ export class UserComponent implements OnInit, AfterViewInit  {
   set userList ( value: string[] ) {
     this._userList = [...value];
   }
-
 
   @Output()
   userListChange: EventEmitter<Array<string>> = new EventEmitter();
@@ -48,6 +48,12 @@ export class UserComponent implements OnInit, AfterViewInit  {
 
   deleteUsr ( usrName: string ) {
     this.userList.splice( this.userList.indexOf( usrName ), 1 );
+    this.userListChange.emit( [...this.userList] );
+  }
+
+  deleteUsrByIndex ( ind: number ) {
+    console.log ( 'index des users: ', ind );
+    this.userList.splice( ind, 1 );
     this.userListChange.emit( [...this.userList] );
   }
 
