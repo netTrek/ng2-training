@@ -1,9 +1,32 @@
+<!--
+
 <p #title>
   user works!
 </p>
+
+-->
+
+
+<!--
+
 <app-user-header></app-user-header>
-<app-user-name></app-user-name>
-<app-user-name></app-user-name>
-<app-user-name></app-user-name>
-<app-user-name></app-user-name>
-<app-user-name></app-user-name>
+-->
+<!--
+<app-user-name username="hans"></app-user-name>
+<app-user-name username="peter"></app-user-name>
+<app-user-name username="frank"></app-user-name>
+<app-user-name username="heike"></app-user-name>
+-->
+
+<app-user-name
+  *ngFor="let usrname of userList"
+  [username]="usrname"
+></app-user-name>
+
+<!--
+
+<ng-template ngFor [ngForOf]="userList" let-usrname>
+  <app-user-name [username]="usrname"></app-user-name>
+</ng-template>
+
+-->

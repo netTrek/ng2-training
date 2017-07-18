@@ -9,6 +9,13 @@ import { UserNameComponent } from './user-name/user-name.component';
 } )
 export class UserComponent implements OnInit, AfterViewInit  {
 
+  userList: string[] = ['peter', 'hans', 'saban', 'heike'];
+
+
+
+
+  /*
+
   @ViewChild ( UserHeaderComponent )
   header: UserHeaderComponent;
 
@@ -20,18 +27,27 @@ export class UserComponent implements OnInit, AfterViewInit  {
 
   @ViewChildren ( UserNameComponent )
   names: QueryList<UserNameComponent>;
+*/
+
 
   constructor () {
   }
 
   ngOnInit () {
+    /*
+    setTimeout( ()=> {
+        this.userList = ['frank','heinz'];
+    }, 6000 );
+    */
   }
 
   ngAfterViewInit (): void {
+    /*
     console.log ( this.header, this.name );
     console.log ( this.names.toArray() );
     console.log ( this.title );
     this.title.nativeElement.style.color = 'red';
+    */
   }
 
 }

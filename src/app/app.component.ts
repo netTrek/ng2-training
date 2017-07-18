@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   title = 'app works!';
+  /*
   rest: number;
   showCountdown = true;
   totalTime = 22;
@@ -40,7 +41,7 @@ export class AppComponent {
   updateTotalTime () {
     this.totalTime = 33;
   }
-/*
+
   usrNameUpdated ( newUsername : string ) {
     console.log ( 'new user name is := ' , newUsername );
     this.username = newUsername;

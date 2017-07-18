@@ -7,6 +7,7 @@ import { Component, EventEmitter, HostBinding, HostListener, Input, OnInit, Outp
 } )
 export class UserNameComponent implements OnInit {
 
+
   @Input ()
   username = 'peter müller';
 
