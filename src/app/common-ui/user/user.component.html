@@ -21,6 +21,7 @@
 <app-user-name
   *ngFor="let usrname of userList"
   [username]="usrname"
+  (selectedUsr)="deleteUsr($event)"
 ></app-user-name>
 
 <!--

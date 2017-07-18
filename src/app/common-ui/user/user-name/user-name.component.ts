@@ -7,15 +7,21 @@ import { Component, EventEmitter, HostBinding, HostListener, Input, OnInit, Outp
 } )
 export class UserNameComponent implements OnInit {
 
+/*
 
-  @Input ()
-  username = 'peter müller';
 
   @Output ()
   usernameChange: EventEmitter<string> = new EventEmitter ();
 
   @HostBinding ('style.color')
   fontcolor = 'black';
+  */
+
+  @Input ()
+  username = 'john doo';
+
+  @Output ()
+  selectedUsr: EventEmitter<string> = new EventEmitter ();
 
 
   constructor () {
@@ -24,6 +30,12 @@ export class UserNameComponent implements OnInit {
   ngOnInit () {
   }
 
+  @HostListener ( 'click' )
+  private select () {
+    this.selectedUsr.emit( this.username );
+  }
+
+  /*
   @HostListener ( 'click', ['$event'] )
   chgUsrName (mouseEvt: MouseEvent) {
     this.username = 'frank';
@@ -34,7 +46,6 @@ export class UserNameComponent implements OnInit {
   }
 
 
-  /*
   @HostListener ('document:mousemove', ['$event.clientX'] )
   mouseMove ( xpos: number ) {
     console.log ( xpos );

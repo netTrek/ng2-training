@@ -8,6 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   title = 'app works!';
+
+  list: string[] = ['peter', 'hans', 'saban', 'heike'];
+
+
   /*
   rest: number;
   showCountdown = true;

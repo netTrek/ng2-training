@@ -1,4 +1,7 @@
-import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import {
+  AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, QueryList, ViewChild,
+  ViewChildren
+} from '@angular/core';
 import { UserHeaderComponent } from './user-header/user-header.component';
 import { UserNameComponent } from './user-name/user-name.component';
 
@@ -9,10 +12,20 @@ import { UserNameComponent } from './user-name/user-name.component';
 } )
 export class UserComponent implements OnInit, AfterViewInit  {
 
-  userList: string[] = ['peter', 'hans', 'saban', 'heike'];
+  get userList (): string[] {
+    return this._userList;
+  }
+
+  @Input()
+  set userList ( value: string[] ) {
+    this._userList = [...value];
+  }
 
 
+  @Output()
+  userListChange: EventEmitter<Array<string>> = new EventEmitter();
 
+  private _userList: string[] = [];
 
   /*
 
@@ -31,6 +44,11 @@ export class UserComponent implements OnInit, AfterViewInit  {
 
 
   constructor () {
+  }
+
+  deleteUsr ( usrName: string ) {
+    this.userList.splice( this.userList.indexOf( usrName ), 1 );
+    this.userListChange.emit( [...this.userList] );
   }
 
   ngOnInit () {
