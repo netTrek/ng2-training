@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 
 @Component ( {
   selector   : 'app-countdown',
@@ -7,11 +7,22 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 } )
 export class CountdownComponent implements OnInit, OnDestroy {
 
+
+  get totalTime (): number {
+    return this._totalTime;
+  }
+
+  @Input()
+  set totalTime ( value: number ) {
+    this._totalTime = Number (value);
+  }
+
+
   percent = 100;
 
   private crrTime                     = 0;
-  private readonly totalTime          = 500;
   private intervalID: any | undefined = undefined;
+  private _totalTime = 10;
 
   constructor () {
   }

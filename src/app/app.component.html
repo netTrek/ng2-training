@@ -3,13 +3,27 @@
   {{title}}
 </h1>
 
+
+<button (click)="updateTitle( $event )">change title</button>
+
+<hr>
 <app-countdown></app-countdown>
+<hr>
+<app-countdown totalTime="20"></app-countdown>
+<hr>
+<app-countdown totalTime="100"></app-countdown>
+<hr>
+
+<!--
+AppComp-username {{username}}
+
+<app-user-name [username]="username"></app-user-name>
 
 
+<app-user-name username="wert"></app-user-name>
 
 
-
-
+<app-countdown></app-countdown>
 
 <hr>
 <div [innerHTML]="htmlBindung"
@@ -40,3 +54,5 @@
 
 
 <app-user></app-user>
+
+-->
