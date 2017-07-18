@@ -1,18 +1,25 @@
-import { AfterContentInit, Component, ContentChild, ContentChildren, OnInit, QueryList } from '@angular/core';
-import { LoginComponent } from '../login/login.component';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { UserHeaderComponent } from './user-header/user-header.component';
+import { UserNameComponent } from './user-name/user-name.component';
 
 @Component ( {
   selector   : 'app-user',
   templateUrl: './user.component.html',
   styleUrls  : [ './user.component.css' ]
 } )
-export class UserComponent implements OnInit, AfterContentInit {
+export class UserComponent implements OnInit, AfterViewInit  {
 
-  @ContentChild ( LoginComponent )
-  loginComp: LoginComponent | undefined;
+  @ViewChild ( UserHeaderComponent )
+  header: UserHeaderComponent;
 
-  @ContentChildren ( LoginComponent )
-  loginComps: QueryList<LoginComponent>;
+  @ViewChild ( UserNameComponent )
+  name: UserNameComponent;
+
+  @ViewChild ( 'title' )
+  title: ElementRef;
+
+  @ViewChildren ( UserNameComponent )
+  names: QueryList<UserNameComponent>;
 
   constructor () {
   }
@@ -20,24 +27,11 @@ export class UserComponent implements OnInit, AfterContentInit {
   ngOnInit () {
   }
 
-  ngAfterContentInit (): void {
-
-    console.log ( this.loginComps );
-
-    const logins: LoginComponent[] = this.loginComps.toArray ();
-
-    /*
-     console.log ( 'loginComp', this.loginComp );
-
-     if ( ! this.loginComp ) {
-     throw new Error ( 'Login Comp required' );
-     }
-
-     const old            = this.loginComp.label;
-     this.loginComp.label = 'Rock\'n Roll';
-     console.log ( `old:= [${old}] new := [${this.loginComp.label}]` );
-
-     */
-
+  ngAfterViewInit (): void {
+    console.log ( this.header, this.name );
+    console.log ( this.names.toArray() );
+    console.log ( this.title );
+    this.title.nativeElement.style.color = 'red';
   }
+
 }
