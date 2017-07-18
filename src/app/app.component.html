@@ -1,4 +1,42 @@
-<h1>
+
+<h1 [style.color]="fontColor">
   {{title}}
 </h1>
+
+<app-countdown></app-countdown>
+
+
+
+
+
+
+
+<hr>
+<div [innerHTML]="htmlBindung"
+     [style.width]="divWidth+'px'"
+></div>
+<hr>
+<div [innerText]="getTitle()"
+     [style.width.px]="divWidth"></div>
+<hr>
+
+<div [attr.aria-label]="title">
+  aria-label sample
+</div>
+
+<img src="../assets/images/logo-gross.png" alt="logo" width="10%">
+
+<img [src]="imgUrl" alt="logo" width="10%">
+
+<img [attr.src]="imgUrl" alt="logo" width="10%">
+
+
+
+<ul>
+  <li>{{1+2}}</li>
+  <li>{{'mein Titel ist:=' + title}}</li>
+  <li>{{getTitle()}}</li>
+</ul>
+
+
 <app-user></app-user>
