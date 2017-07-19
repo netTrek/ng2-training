@@ -6,6 +6,11 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { CommonUIModule } from './common-ui/common-ui.module';
 import { Saban } from './common-ui/saban.service';
+import { RouterModule } from '@angular/router';
+import { UserListComponent } from './user-route/user-list/user-list.component';
+import { UserRouteModule } from './user-route/user-route.module';
+import { HomeComponent } from './home/home/home.component';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +20,28 @@ import { Saban } from './common-ui/saban.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    CommonUIModule
+    CommonUIModule,
+    UserRouteModule,
+    HomeModule,
+    RouterModule.forRoot( [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'home'
+      },
+      {
+        path: 'list',
+        component: UserListComponent
+      },
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
+        path: '**',
+        redirectTo: 'home'
+      }
+    ])
   ],
   providers: [ Saban ],
   bootstrap: [AppComponent]

@@ -29,12 +29,12 @@ export class AppComponent {
 
   className = 'cssclasse';
 
-  userOb: Observable<Array<IUser>>;
 
-  constructor ( public saban: Saban, public $user: UserService  ) {
 
-    console.log ( saban, $user );
-    this.userOb = $user.getUserList();
+  constructor ( public saban: Saban  ) {
+
+    console.log ( saban );
+
 
   }
 

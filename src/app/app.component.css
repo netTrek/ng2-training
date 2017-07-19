@@ -4,3 +4,11 @@ div {
   display: inline-block;
   background-color: red;
 }
+
+.active {
+
+  font-weight: bold;
+  text-decoration: underline;
+  color: red;
+
+}
