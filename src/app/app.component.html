@@ -4,7 +4,22 @@
 </h1>
 
 <hr>
+{{now | date}}
+<br>
+{{now}}
+<br>
+{{now| reverse}}
+<hr>
+{{now | firstPipe}}
+<hr>
 {{list | json}}
+<br>
+{{list | reverse | json}}
+<hr>
+<hr>
+title:= {{title}}
+<br>
+title:= {{title | reverse}}
 <hr>
 
 <app-user [(userList)]="list" ></app-user>

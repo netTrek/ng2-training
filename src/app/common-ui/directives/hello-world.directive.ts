@@ -1,9 +1,10 @@
-import { Directive, ElementRef, HostBinding, HostListener, Input } from '@angular/core';
+import { Directive, ElementRef, HostBinding, HostListener, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Directive ( {
   selector: '[appHelloWorld]'
 } )
-export class HelloWorldDirective {
+export class HelloWorldDirective implements OnChanges {
+
 
   get appHelloWorld (): string {
     return this._appHelloWorld;
@@ -34,6 +35,10 @@ export class HelloWorldDirective {
   @HostListener ( 'mouseleave' )
   private leave () {
     this.color = null;
+  }
+
+  ngOnChanges ( changes: SimpleChanges ): void {
+    // console.log ( changes );
   }
 
 }

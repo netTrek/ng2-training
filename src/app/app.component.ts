@@ -1,4 +1,11 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
+import 'rxjs/add/observable/range';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/filter';
+import { Subscription } from 'rxjs/Subscription';
 
 export interface IUser {
   fistname: string;
@@ -14,6 +21,8 @@ export interface IUser {
 export class AppComponent {
 
   title = 'app works!';
+
+  now = Date.now();
 
   list: string[] = [ 'peter', 'hans', 'saban', 'heike' ];
 
@@ -31,6 +40,58 @@ export class AppComponent {
       age     : 12
     }
   ];
+
+  constructor () {
+
+    // const observable: Observable<number> = Observable.of ( 1, 2, 3, 4, 5, 66 );
+
+
+    const observable: Observable<number> = Observable.create ( observer => {
+      /*
+      observer.next( 1 );
+      observer.next( 2 );
+      observer.next( 3 );
+      observer.error( 'ups ....');
+      observer.next( 66 );
+      observer.complete();
+      observer.next( 88 );
+      */
+
+      let count = 0;
+      const intervalID = setInterval ( () => {
+        count++;
+        observer.next( count );
+        if ( count === 10 ) {
+          clearInterval( intervalID );
+          observer.complete();
+        }
+      }, 500 );
+
+    } );
+
+    const subscription: Subscription = observable
+      .filter ( crrVal => crrVal % 2 === 0 )
+      .map ( crrVal => crrVal * 10 )
+      .subscribe(
+            (nextVal) => {
+              console.log ( 'wert', nextVal );
+            },
+            (error) => {
+              console.log ( 'fehler', error );
+            },
+            () => {
+              console.log ( 'fertig' );
+            }
+          );
+
+    observable.subscribe(
+      next => console.log ('zweitre sub', next ),
+      error => console.log ('zweitre error', error )
+    );
+
+
+  }
+
 
   /*
    rest: number;

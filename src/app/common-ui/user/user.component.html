@@ -19,7 +19,7 @@
 -->
 <app-user-name
   *ngFor="let usrname of userList; index as usrIndex; odd as oddBool; even as evenBool"
-  [username]="usrname"
+  [username]="usrname | uppercase | slice:3:9 | firstPipe : '?'"
   appHelloWorld
   [ngClass]="{oddclass: oddBool, evenclass: evenBool}"
   (selectedUsr)="deleteUsrByIndex( usrIndex )"
