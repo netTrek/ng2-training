@@ -27,12 +27,17 @@ title:= {{title | reverse}}
 
 -->
 
+<!--
 {{saban.name}}
-
 <app-countdown (restTime)="checkRest($event)"></app-countdown>
+-->
 
 <ul>
-  <li *ngFor="let usr of userOb | async" class="saban" [ngClass]="className" appHelloWorld="green">{{usr.lastname}} {{usr.fistname}} {{usr.age}}</li>
+  <li *ngFor="let usr of userOb | async"
+      class="saban"
+      [ngClass]="className"
+      appHelloWorld="green"
+  >{{usr.lastname}} {{usr.fistname}} {{usr.age}}</li>
 </ul>
 
 <!--

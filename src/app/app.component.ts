@@ -11,13 +11,7 @@ import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Saban } from './common-ui/saban.service';
 import { isNumber } from 'util';
-import { UserService } from './common-ui/services/user.service';
-
-export interface IUser {
-  fistname: string;
-  lastname: string;
-  age: number;
-}
+import { IUser, UserService } from './common-ui/services/user.service';
 
 @Component ( {
   selector   : 'app-root',
@@ -33,8 +27,6 @@ export class AppComponent {
   list: string[] = [ 'peter', 'hans', 'saban', 'heike' ];
 
   className = 'cssclasse';
-
-  userVOs: IUser[];
 
   userOb: Observable<Array<IUser>>;
 
