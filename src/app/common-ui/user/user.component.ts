@@ -8,6 +8,7 @@ import { UserNameComponent } from './user-name/user-name.component';
 import { IUser } from '../services/iuser';
 import { Observable } from 'rxjs/Observable';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component ( {
   selector   : 'app-user',
@@ -50,12 +51,13 @@ export class UserComponent implements OnInit, AfterViewInit  {
 */
 
 
-  constructor ( private $user: UserService )  {
+  constructor ( private $user: UserService, private router: Router )  {
   }
 
   selectedUsr ( usr: IUser ) {
     // console.log ( 'selected usr is', usr );
-    this.user = this.$user.getUserbyID( usr.id );
+    // this.user = this.$user.getUserbyID( usr.id );
+    this.router.navigate( ['detail', usr.id ] );
   }
 
 /*

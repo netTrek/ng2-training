@@ -11,6 +11,8 @@ import { UserListComponent } from './user-route/user-list/user-list.component';
 import { UserRouteModule } from './user-route/user-route.module';
 import { HomeComponent } from './home/home/home.component';
 import { HomeModule } from './home/home.module';
+import { UserDetailRouteModule } from './user-detail-route/user-detail-route.module';
+import { UserDetailsComponent } from './user-detail-route/user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { HomeModule } from './home/home.module';
     CommonUIModule,
     UserRouteModule,
     HomeModule,
+    UserDetailRouteModule,
     RouterModule.forRoot( [
       {
         path: '',
@@ -36,6 +39,10 @@ import { HomeModule } from './home/home.module';
       {
         path: 'home',
         component: HomeComponent
+      },
+      {
+        path: 'detail/:id',
+        component: UserDetailsComponent
       },
       {
         path: '**',
