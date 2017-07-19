@@ -2,6 +2,11 @@
 <h1 [style.color]="fontColor">
   {{title}}
 </h1>
+
+
+<app-user [userList]="userOb | async"></app-user>
+
+
 <!--
 
 <hr>
@@ -32,6 +37,7 @@ title:= {{title | reverse}}
 <app-countdown (restTime)="checkRest($event)"></app-countdown>
 -->
 
+<!--
 <ul>
   <li *ngFor="let usr of userOb | async"
       class="saban"
@@ -39,6 +45,8 @@ title:= {{title | reverse}}
       appHelloWorld="green"
   >{{usr.lastname}} {{usr.fistname}} {{usr.age}}</li>
 </ul>
+-->
+
 
 <!--
 

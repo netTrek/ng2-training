@@ -18,12 +18,20 @@
 <app-user-name username="heike"></app-user-name>
 -->
 <app-user-name
-  *ngFor="let usrname of userList; index as usrIndex; odd as oddBool; even as evenBool"
-  [username]="usrname | uppercase | slice:3:9 | firstPipe : '?'"
+  *ngFor="let user of userList; index as usrIndex; odd as oddBool; even as evenBool"
+  [usr]="user"
   appHelloWorld
   [ngClass]="{oddclass: oddBool, evenclass: evenBool}"
-  (selectedUsr)="deleteUsrByIndex( usrIndex )"
+  (selectedUsr)="selectedUsr ( $event )"
 ></app-user-name>
+
+<section *ngIf="user">
+  <header>Selected</header>
+  <article>
+    {{ user | async | json }}
+  </article>
+</section>
+
 <!--
 <app-user-name
   *ngFor="let usrname of userList; index as usrIndex; odd as oddBool; even as evenBool"

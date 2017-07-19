@@ -5,6 +5,9 @@ import {
 
 import { UserHeaderComponent } from './user-header/user-header.component';
 import { UserNameComponent } from './user-name/user-name.component';
+import { IUser } from '../services/iuser';
+import { Observable } from 'rxjs/Observable';
+import { UserService } from '../services/user.service';
 
 @Component ( {
   selector   : 'app-user',
@@ -13,19 +16,23 @@ import { UserNameComponent } from './user-name/user-name.component';
 } )
 export class UserComponent implements OnInit, AfterViewInit  {
 
-  get userList (): string[] {
+  get userList (): IUser[] {
     return this._userList;
   }
 
   @Input()
-  set userList ( value: string[] ) {
-    this._userList = [...value];
+  set userList ( value: IUser[] ) {
+    if ( !! value && value.length > 0 ) {
+      this._userList = [...value];
+    }
   }
 
   @Output()
   userListChange: EventEmitter<Array<string>> = new EventEmitter();
 
-  private _userList: string[] = [];
+  user: Observable<IUser>;
+
+  private _userList: IUser[] = [];
 
   /*
 
@@ -43,9 +50,15 @@ export class UserComponent implements OnInit, AfterViewInit  {
 */
 
 
-  constructor () {
+  constructor ( private $user: UserService )  {
   }
 
+  selectedUsr ( usr: IUser ) {
+    // console.log ( 'selected usr is', usr );
+    this.user = this.$user.getUserbyID( usr.id );
+  }
+
+/*
   deleteUsr ( usrName: string ) {
     this.userList.splice( this.userList.indexOf( usrName ), 1 );
     this.userListChange.emit( [...this.userList] );
@@ -56,6 +69,7 @@ export class UserComponent implements OnInit, AfterViewInit  {
     this.userList.splice( ind, 1 );
     this.userListChange.emit( [...this.userList] );
   }
+  */
 
   ngOnInit () {
     /*

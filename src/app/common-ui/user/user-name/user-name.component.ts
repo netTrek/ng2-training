@@ -1,4 +1,5 @@
 import { Component, EventEmitter, HostBinding, HostListener, Input, OnInit, Output } from '@angular/core';
+import { IUser } from '../../services/iuser';
 
 @Component ( {
   selector   : 'app-user-name',
@@ -18,10 +19,10 @@ export class UserNameComponent implements OnInit {
   */
 
   @Input ()
-  username = 'john doo';
+  usr: IUser;
 
   @Output ()
-  selectedUsr: EventEmitter<string> = new EventEmitter ();
+  selectedUsr: EventEmitter<IUser> = new EventEmitter ();
 
 
   constructor () {
@@ -32,7 +33,7 @@ export class UserNameComponent implements OnInit {
 
   @HostListener ( 'click' )
   private select () {
-    this.selectedUsr.emit( this.username );
+    this.selectedUsr.emit( this.usr );
   }
 
   /*

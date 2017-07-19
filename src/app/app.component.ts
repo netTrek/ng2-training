@@ -11,7 +11,8 @@ import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Saban } from './common-ui/saban.service';
 import { isNumber } from 'util';
-import { IUser, UserService } from './common-ui/services/user.service';
+import { UserService } from './common-ui/services/user.service';
+import { IUser } from './common-ui/services/iuser';
 
 @Component ( {
   selector   : 'app-root',
