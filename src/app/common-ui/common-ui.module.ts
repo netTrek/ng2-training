@@ -8,13 +8,28 @@ import { CountdownComponent } from './countdown/countdown.component';
 import { HelloWorldDirective } from './directives/hello-world.directive';
 import { FirstPipePipe } from './pipes/first-pipe.pipe';
 import { ReversePipe } from './pipes/reverse.pipe';
+import { UserService } from './services/user.service';
 
 @NgModule ( {
   imports     : [
     CommonModule
   ],
-  declarations: [ LoginComponent, UserComponent, UserHeaderComponent, UserNameComponent, CountdownComponent, HelloWorldDirective, FirstPipePipe, ReversePipe ],
-  exports     : [ LoginComponent, UserComponent, UserHeaderComponent, UserNameComponent, CountdownComponent, HelloWorldDirective, FirstPipePipe, ReversePipe ]
+  declarations: [ LoginComponent,
+    UserComponent,
+    UserHeaderComponent,
+    UserNameComponent,
+    CountdownComponent,
+    HelloWorldDirective,
+    FirstPipePipe,
+    ReversePipe ],
+  exports     : [ LoginComponent,
+    UserComponent,
+    UserHeaderComponent,
+    UserNameComponent,
+    CountdownComponent,
+    HelloWorldDirective,
+    FirstPipePipe, ReversePipe ],
+  providers: [UserService]
 } )
 export class CommonUIModule {
 }

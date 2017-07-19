@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Saban } from '../saban.service';
 
 @Component ( {
   selector   : 'app-countdown',
@@ -26,7 +27,8 @@ export class CountdownComponent implements OnInit, OnDestroy, OnChanges {
   private intervalID: any | undefined = undefined;
   private _totalTime                  = 10;
 
-  constructor () {
+  constructor ( public saban: Saban ) {
+    console.log ( saban );
   }
 
   ngOnChanges ( changes: SimpleChanges ): void {

@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { CommonUIModule } from './common-ui/common-ui.module';
+import { Saban } from './common-ui/saban.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { CommonUIModule } from './common-ui/common-ui.module';
     HttpModule,
     CommonUIModule
   ],
-  providers: [],
+  providers: [ Saban ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
