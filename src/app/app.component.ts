@@ -11,7 +11,8 @@ export class AppComponent {
   fontColor = 'red';
   imgUrl    = '../assets/img/logo-klein.png';
 
-  width = 150;
+  width = 160;
+  selected = false;
 
   html = '<strong>saban</strong> ünlü <script>alert("you are hacked");</script>';
 

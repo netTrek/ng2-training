@@ -19,14 +19,16 @@
 -->
 <hr>
 <hb-countdown></hb-countdown>
-<hb-countdown></hb-countdown>
-<hb-countdown></hb-countdown>
-<hb-countdown></hb-countdown>
-<hb-countdown></hb-countdown>
+<hb-countdown time="5"></hb-countdown>
+<hb-countdown time="15"></hb-countdown>
 <hr>
 <div [style.color]="fontColor"
      [style.width.px]="width"
+     [class.underline]="selected"
+     [class.italic]="!selected"
 >{{title}}</div>
+
+<button (click)="selected=!selected">toggle selection</button>
 
 <!--
 <div [innerHTML]="html"></div>

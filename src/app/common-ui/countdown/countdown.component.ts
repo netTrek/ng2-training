@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
 
 @Component ( {
   selector   : 'hb-countdown',
@@ -7,7 +7,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 } )
 export class CountdownComponent implements OnInit, OnDestroy {
 
-  private time  = 10; // zeit bis ablauf
+  private _time = 10; // zeit bis ablauf
+
   private count = 0; // abgelaufen zeit
   private intervalID; // ref. zum Intervsal
 
@@ -15,7 +16,16 @@ export class CountdownComponent implements OnInit, OnDestroy {
     if ( this.count === 0 ) {
       return 100;
     }
-    return (this.time - this.count) * 10;
+    return 100 - ( this.count / this._time ) * 100;
+  }
+
+  get time (): number {
+    return this._time;
+  }
+
+  @Input()
+  set time ( value: number ) {
+    this._time = Number (value);
   }
 
   constructor () {
@@ -23,7 +33,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
 
   ngOnInit () {
     this.intervalID = setInterval ( () => {
-      if ( ++ this.count === this.time ) {
+      if ( ++ this.count === this._time ) {
         this.dispose ();
       }
     }, 1000 );
