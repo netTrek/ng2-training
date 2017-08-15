@@ -8,6 +8,9 @@ import { UserDto } from './model/user-dto';
 } )
 export class AppComponent {
 
+  firstname = 'saban';
+
+
   selectedUserDto: UserDto;
 
   title     = 'hb';

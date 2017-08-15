@@ -4,6 +4,13 @@
     Welcome to {{title}}!
 </h1>
 
+<h1>{{firstname}}</h1>
+<hb-user-first-name [(firstname)]="firstname"></hb-user-first-name>
+<!--
+<hb-user-first-name [firstname]="firstname" (firstnameChange)="firstname=$event"></hb-user-first-name>
+<hb-user-first-name [firstname]="firstname" (nameChg)="firstname=$event"></hb-user-first-name>
+-->
+
 <hb-user [user]="userList[0]"
          (selectUsr)="selectUser ( $event )"
          [class.selected]="selectedUserDto===userList[0]"
