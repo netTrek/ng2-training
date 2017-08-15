@@ -1,8 +1,9 @@
 import {
-  AfterViewInit, /*AfterContentInit,*/ Component, ElementRef, /*ContentChild, ContentChildren, ElementRef,*/ OnInit,
+  AfterViewInit, /*AfterContentInit,*/ Component, ElementRef, Input, /*ContentChild, ContentChildren, ElementRef,*/ OnInit,
   QueryList, ViewChild
 } from '@angular/core';
 import { UserNameComponent } from './user-name/user-name.component';
+import { UserDto } from '../model/user-dto';
 
 @Component({
   selector: 'hb-user',
@@ -27,6 +28,9 @@ export class UserComponent implements OnInit/*, AfterContentInit*/ , AfterViewIn
     elem.nativeElement.getElementsByTagName( 'hb-user-name' );
   }
 */
+
+  @Input()
+  user: UserDto;
 
   @ViewChild ( UserNameComponent )
   userName: UserNameComponent;

@@ -4,6 +4,8 @@
     Welcome to {{title}}!
 </h1>
 
+<hb-user [user]="user"></hb-user>
+
 <!--
 
 <img id="bild" [src]="imgUrl"
@@ -17,6 +19,8 @@
      width="50%"
 >
 -->
+<!--
+
 <hr>
 <hb-countdown></hb-countdown>
 <hb-countdown time="5"></hb-countdown>
@@ -29,6 +33,7 @@
 >{{title}}</div>
 
 <button (click)="selected=!selected">toggle selection</button>
+-->
 
 <!--
 <div [innerHTML]="html"></div>
@@ -37,15 +42,15 @@
 <h2>{{getTitle()}}</h2>
 -->
 <hr>
-
+<!--
 <button (click)="onClick( 'peter', $event )">click me</button>
 
 
 <button (click)="title='saban'">chg title</button>
 
 <hb-hello-world></hb-hello-world>
-<!--app.component.html-->
-<hb-user>
+
+<hb-user>-->
   <!--
   <hb-user-name>SABAN</hb-user-name>
   <hb-user-name>SABAN</hb-user-name>
@@ -53,7 +58,9 @@
   <hb-user-name>SABAN</hb-user-name>
   <hb-user-name>SABAN</hb-user-name>
   -->
+<!--
 </hb-user>
+-->
 
 
 <router-outlet></router-outlet>

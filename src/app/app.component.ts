@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserDto } from './model/user-dto';
 
 @Component ( {
   selector   : 'hb-root',
@@ -10,6 +11,12 @@ export class AppComponent {
   title     = 'hb';
   fontColor = 'red';
   imgUrl    = '../assets/img/logo-klein.png';
+
+  user: UserDto = <UserDto>{
+    firstname: 'Saban',
+    lastname: 'Ünlü',
+    phone: '02362 999 4444'
+  };
 
   width = 160;
   selected = false;
