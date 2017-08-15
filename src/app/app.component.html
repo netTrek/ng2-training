@@ -3,6 +3,44 @@
 <h1>
     Welcome to {{title}}!
 </h1>
+
+<!--
+
+<img id="bild" [src]="imgUrl"
+     alt="kleines logo"
+     width="50%"
+>
+
+
+<img [attr.src]="imgUrl"
+     alt="kleines logo"
+     width="50%"
+>
+-->
+<hr>
+<hb-countdown></hb-countdown>
+<hb-countdown></hb-countdown>
+<hb-countdown></hb-countdown>
+<hb-countdown></hb-countdown>
+<hb-countdown></hb-countdown>
+<hr>
+<div [style.color]="fontColor"
+     [style.width.px]="width"
+>{{title}}</div>
+
+<!--
+<div [innerHTML]="html"></div>
+
+<h1 [innerText]="title"></h1>
+<h2>{{getTitle()}}</h2>
+-->
+<hr>
+
+<button (click)="onClick( 'peter', $event )">click me</button>
+
+
+<button (click)="title='saban'">chg title</button>
+
 <hb-hello-world></hb-hello-world>
 <!--app.component.html-->
 <hb-user>

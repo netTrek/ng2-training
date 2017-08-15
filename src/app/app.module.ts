@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HelloWorldComponent } from './hello-world/hello-world.component';
 import { UserModule } from './user/user.module';
+import { CommonUIModule } from './common-ui/common-ui.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { UserModule } from './user/user.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UserModule
+    UserModule,
+    CommonUIModule
   ],
   providers: [],
   bootstrap: [AppComponent]
