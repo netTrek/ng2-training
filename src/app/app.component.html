@@ -4,7 +4,16 @@
     Welcome to {{title}}!
 </h1>
 
-<hb-user [user]="user"></hb-user>
+<hb-user [user]="userList[0]"
+         (selectUsr)="selectUser ( $event )"
+         [class.selected]="selectedUserDto===userList[0]"
+></hb-user>
+<hb-user [user]="userList[1]"
+         (selectUsr)="selectUser ( $event )"
+         [class.selected]="selectedUserDto===userList[1]"
+></hb-user>
+
+<button (click)="chgUser()">chg user</button>
 
 <!--
 

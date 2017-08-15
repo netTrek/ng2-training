@@ -8,6 +8,8 @@ import { UserDto } from './model/user-dto';
 } )
 export class AppComponent {
 
+  selectedUserDto: UserDto;
+
   title     = 'hb';
   fontColor = 'red';
   imgUrl    = '../assets/img/logo-klein.png';
@@ -17,6 +19,19 @@ export class AppComponent {
     lastname: 'Ünlü',
     phone: '02362 999 4444'
   };
+
+  userList: UserDto[] = [
+    {
+      firstname: 'usr1',
+      lastname: 'u1',
+      phone: 'u1 number'
+    },
+    {
+      firstname: 'usr2',
+      lastname: 'u2',
+      phone: 'u2 number'
+    }
+  ];
 
   width = 160;
   selected = false;
@@ -33,6 +48,21 @@ export class AppComponent {
       }
     }, 1000 );
     */
+  }
+
+  selectUser ( userDto: UserDto ) {
+    console.log ( 'user selected', userDto );
+    this.selectedUserDto = userDto;
+  }
+
+
+
+  chgUser() {
+    this.user = <UserDto>{
+      firstname: 'Peter',
+      lastname: 'Müller',
+      phone: '4711'
+    };
   }
 
   onClick ( title?: string, evt?: MouseEvent ) {

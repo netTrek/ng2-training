@@ -1,4 +1,7 @@
+<!--
 <h4 #usrheader>User</h4>
+-->
+
 <!--
 
 <ng-content select="hb-user-name"></ng-content>
@@ -6,4 +9,5 @@
 -->
 <hb-user-name>{{user.firstname}} {{user.lastname}}</hb-user-name>
 <hb-user-phone>{{user.phone}}</hb-user-phone>
+<button (click)="setAsSelected()">select</button>
 <hr>
