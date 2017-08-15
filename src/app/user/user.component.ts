@@ -1,4 +1,7 @@
-import { AfterContentInit, Component, ContentChild, ContentChildren, ElementRef, OnInit, QueryList } from '@angular/core';
+import {
+  AfterViewInit, /*AfterContentInit,*/ Component, ElementRef, /*ContentChild, ContentChildren, ElementRef,*/ OnInit,
+  QueryList, ViewChild
+} from '@angular/core';
 import { UserNameComponent } from './user-name/user-name.component';
 
 @Component({
@@ -6,13 +9,17 @@ import { UserNameComponent } from './user-name/user-name.component';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
-export class UserComponent implements OnInit, AfterContentInit {
+export class UserComponent implements OnInit/*, AfterContentInit*/ , AfterViewInit {
 
-  @ContentChild ( UserNameComponent )
-  userName: UserNameComponent;
+  /*
 
-  @ContentChildren ( UserNameComponent )
-  userNames: QueryList<UserNameComponent>;
+    @ContentChild ( UserNameComponent )
+    userName: UserNameComponent;
+
+    @ContentChildren ( UserNameComponent )
+    userNames: QueryList<UserNameComponent>;
+  */
+
 /*
   !!!!!! SO NIE !!!!!!
   constructor( elem: ElementRef ) {
@@ -21,12 +28,25 @@ export class UserComponent implements OnInit, AfterContentInit {
   }
 */
 
+  @ViewChild ( UserNameComponent )
+  userName: UserNameComponent;
+
+  @ViewChild ( 'usrheader' )
+  userHeader: ElementRef;
+
   constructor () {}
 
   ngOnInit() {
   }
-
+/*
   ngAfterContentInit (): void {
     console.log( 'alle content inhalte init', this.userName, this.userNames );
+  }
+  */
+
+  ngAfterViewInit (): void {
+    console.log( 'alle template-inhalte init', this.userName/*, this.userNames*/ );
+    console.log ( this.userHeader );
+    this.userHeader.nativeElement.style.color = 'red';
   }
 }
