@@ -1,10 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
 <h1 hbHover="blue">
-  Welcome to {{title}}!
+  Welcome to {{title | addChar }}!
 </h1>
 
-<h1 hbHover>{{firstname}}</h1>
+
+<p>{{now | date : 'fullDate' | lowercase }}</p>
+<p>{{ 1234 | reverse }}</p>
+<p>{{ 'Saban' | reverse }}</p>
+<p>{{ [1,2,4,68,9,true] | reverse | json }}</p>
+<p>{{ true | reverse  }}</p>
+<p>{{ false | reverse }}</p>
+
+
+<h1 hbHover> #### {{firstname | lowercase | addChar : 'S'}}</h1>
 <hb-user-first-name hbHover [(firstname)]="firstname"></hb-user-first-name>
 <!--
 <hb-user-first-name [firstname]="firstname" (firstnameChange)="firstname=$event"></hb-user-first-name>
@@ -23,7 +32,14 @@
   (deleteUsr)="deleteUser ( i )"
   class="blink"
   [ngClass]="getClass (e, user)"
-> INDEX:= {{i}} # {{f}} # {{e}} # {{o}}</hb-user>
+>
+  <!--
+  INDEX:= {{ i * 10000 | number : '1.5-5' }} # {{f}} # {{e}} # {{o}}
+  -->
+
+  INDEX:= {{ i * 10000 | currency : 'EUR' : true }} # {{f}} # {{e}} # {{o}}
+
+</hb-user>
 <!--
   unschön
   [ngClass]="{even: e && selectedUserDto!==user, odd:o && selectedUserDto!==user, selected: selectedUserDto===user}"

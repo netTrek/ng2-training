@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 import { UserNameComponent } from './user-name/user-name.component';
 import { UserDto } from '../model/user-dto';
+import { DeviceService } from '../common-ui/service/device.service';
 
 @Component ( {
   selector   : 'hb-user',
@@ -54,7 +55,13 @@ export class UserComponent implements OnInit/*, AfterContentInit*/, AfterViewIni
     userHeader: ElementRef;
   */
 
-  constructor () {
+  width: number;
+
+  constructor ( public $device: DeviceService ) {
+    // console.log ( $device );
+    $device.resize$.subscribe(
+      evt => this.width = (<Window>evt.target).innerWidth
+    );
   }
 
   @HostListener ( 'click', [ '$event' ] ) // <hb-user (click)="methode($event)"
@@ -62,6 +69,7 @@ export class UserComponent implements OnInit/*, AfterContentInit*/, AfterViewIni
     console.log ( evt );
     // console.log ( 'set this user', this.user, 'as selected' );
     this.selectUsr.next ( this.user );
+    this.$device.uuid = this.user.firstname;
   }
 
   @HostListener ( 'dblclick', [ '$event' ] )
@@ -70,7 +78,7 @@ export class UserComponent implements OnInit/*, AfterContentInit*/, AfterViewIni
   }
 
   ngOnChanges ( changes: SimpleChanges ): void {
-    console.log ( changes );
+    // console.log ( changes );
   }
 
   ngOnInit () {

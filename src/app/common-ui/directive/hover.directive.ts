@@ -1,14 +1,11 @@
-import { Directive, ElementRef, HostBinding, HostListener, Input } from '@angular/core';
+import { Directive, HostBinding, HostListener, Input } from '@angular/core';
 
 @Directive({
   selector: '[hbHover]'
 })
 export class HoverDirective {
 
-  constructor( elemRef: ElementRef ) {
-
-    console.log ( elemRef.nativeElement );
-
+  constructor( ) {
   }
 
   // [style.color]="color"
