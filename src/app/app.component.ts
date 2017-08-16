@@ -16,7 +16,7 @@ export class AppComponent {
   title     = 'hb';
   fontColor = 'red';
   imgUrl    = '../assets/img/logo-klein.png';
-
+  showImg   = true;
   user: UserDto = <UserDto>{
     firstname: 'Saban',
     lastname: 'Ünlü',

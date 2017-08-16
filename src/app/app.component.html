@@ -1,7 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
 <h1>
-    Welcome to {{title}}!
+  Welcome to {{title}}!
 </h1>
 
 <h1>{{firstname}}</h1>
@@ -21,6 +21,36 @@
 ></hb-user>
 
 <button (click)="chgUser()">chg user</button>
+
+<!--
+<div *ngIf="showImg">
+  <img [src]="imgUrl"
+       alt="kleines logo"
+       width="50%">
+  <aside>Bildunterschrift</aside>
+</div>
+-->
+
+<!--
+
+<ng-template [ngIf]="showImg">
+  <img [src]="imgUrl"
+       alt="kleines logo"
+       width="50%">
+  <aside>Bildunterschrift</aside>
+</ng-template>
+-->
+
+<img  *ngIf="showImg; else noImg"
+      [src]="imgUrl"
+      alt="kleines logo"
+      width="50%">
+
+<ng-template #noImg>
+  <h4>bild nicht aktiv</h4>
+</ng-template>
+
+<button (click)="showImg = !showImg">toggle img</button>
 
 <!--
 
@@ -67,13 +97,13 @@
 <hb-hello-world></hb-hello-world>
 
 <hb-user>-->
-  <!--
-  <hb-user-name>SABAN</hb-user-name>
-  <hb-user-name>SABAN</hb-user-name>
-  <hb-user-name>SABAN</hb-user-name>
-  <hb-user-name>SABAN</hb-user-name>
-  <hb-user-name>SABAN</hb-user-name>
-  -->
+<!--
+<hb-user-name>SABAN</hb-user-name>
+<hb-user-name>SABAN</hb-user-name>
+<hb-user-name>SABAN</hb-user-name>
+<hb-user-name>SABAN</hb-user-name>
+<hb-user-name>SABAN</hb-user-name>
+-->
 <!--
 </hb-user>
 -->
