@@ -38,6 +38,9 @@ export class UserComponent implements OnInit/*, AfterContentInit*/, AfterViewIni
   @Output ()
   selectUsr: EventEmitter<UserDto> = new EventEmitter ();
 
+  @Output ()
+  deleteUsr: EventEmitter<UserDto> = new EventEmitter ();
+
   @ViewChild ( UserNameComponent )
   userName: UserNameComponent;
 
@@ -76,6 +79,11 @@ export class UserComponent implements OnInit/*, AfterContentInit*/, AfterViewIni
     console.log ( evt );
     // console.log ( 'set this user', this.user, 'as selected' );
     this.selectUsr.next ( this.user );
+  }
+
+  @HostListener ( 'dblclick', [ '$event' ] )
+  delUst ( evt?: MouseEvent ) {
+    this.deleteUsr.next ( this.user );
   }
 
   ngOnChanges ( changes: SimpleChanges ): void {

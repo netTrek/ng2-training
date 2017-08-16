@@ -10,38 +10,36 @@ export class AppComponent {
 
   firstname = 'saban';
 
-
   selectedUserDto: UserDto;
 
-  title     = 'hb';
-  fontColor = 'red';
-  imgUrl    = '../assets/img/logo-klein.png';
-  showImg   = true;
+  title         = 'hb';
+  fontColor     = 'red';
+  imgUrl        = '../assets/img/logo-klein.png';
+  showImg       = true;
   user: UserDto = <UserDto>{
     firstname: 'Saban',
-    lastname: 'Ünlü',
-    phone: '02362 999 4444'
+    lastname : 'Ünlü',
+    phone    : '02362 999 4444'
   };
 
-  userList: UserDto[] = [
-    {
-      firstname: 'usr1',
-      lastname: 'u1',
-      phone: 'u1 number'
-    },
-    {
-      firstname: 'usr2',
-      lastname: 'u2',
-      phone: 'u2 number'
-    }
-  ];
-
-  width = 160;
+  width    = 160;
   selected = false;
 
   html = '<strong>saban</strong> ünlü <script>alert("you are hacked");</script>';
 
+  userList: UserDto[] = [];
+
   constructor () {
+
+    for ( let i = 0; i < 10; i ++ ) {
+      const userDTO: UserDto = <UserDto>{
+        firstname: `Vorname ${i}`,
+        lastname : `Nachname ${i}`,
+        phone    : `02362 999 444 - ${i}`
+      };
+      this.userList.push ( userDTO );
+    }
+
     /*
     let num = 0;
     const intervalID = setInterval ( () => {
@@ -58,13 +56,27 @@ export class AppComponent {
     this.selectedUserDto = userDto;
   }
 
+  deleteUser ( ind: number ) {
+    if ( confirm( 'Willst du den User wirklich löschen ') ) {
+      this.userList.splice( ind, 1 );
+      this.selectedUserDto = null;
+    }
+  }
 
+  getClass ( even: boolean, user: UserDto ): string {
+    if ( user === this.selectedUserDto ) {
+      return 'selected';
+    } else if ( even === true ) {
+      return 'even';
+    }
+    return 'odd';
+  }
 
-  chgUser() {
+  chgUser () {
     this.user = <UserDto>{
       firstname: 'Peter',
-      lastname: 'Müller',
-      phone: '4711'
+      lastname : 'Müller',
+      phone    : '4711'
     };
   }
 

@@ -11,6 +11,31 @@
 <hb-user-first-name [firstname]="firstname" (nameChg)="firstname=$event"></hb-user-first-name>
 -->
 
+<!--
+<p>{{userList | json}}</p>
+-->
+
+<hb-user
+  *ngFor="let user of userList; index as i; first as f; even as e; odd as o"
+  [user]="user"
+  (selectUsr)="selectUser ( $event )"
+  (deleteUsr)="deleteUser ( i )"
+  class="blink"
+  [ngClass]="getClass (e, user)"
+> INDEX:= {{i}} # {{f}} # {{e}} # {{o}}</hb-user>
+<!--
+  unschön
+  [ngClass]="{even: e && selectedUserDto!==user, odd:o && selectedUserDto!==user, selected: selectedUserDto===user}"
+-->
+
+<!-- statt dessen ngClass
+[class.even]="e && selectedUserDto!==user"
+  [class.odd]="o && selectedUserDto!==user"
+  [class.selected]="selectedUserDto===user"
+  -->
+
+<!--
+
 <hb-user [user]="userList[0]"
          (selectUsr)="selectUser ( $event )"
          [class.selected]="selectedUserDto===userList[0]"
@@ -21,6 +46,7 @@
 ></hb-user>
 
 <button (click)="chgUser()">chg user</button>
+-->
 
 <!--
 <div *ngIf="showImg">
@@ -40,6 +66,7 @@
   <aside>Bildunterschrift</aside>
 </ng-template>
 -->
+<!--
 
 <img  *ngIf="showImg; else noImg"
       [src]="imgUrl"
@@ -51,6 +78,7 @@
 </ng-template>
 
 <button (click)="showImg = !showImg">toggle img</button>
+-->
 
 <!--
 

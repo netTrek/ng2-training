@@ -1,5 +1,16 @@
 // user.com
 :host {
   display: block;
-  background-color: darkturquoise;
+  padding: 5px;
+  margin: 0;
+  &.even {
+    background-color: darkturquoise;
+  }
+  &.odd {
+    background-color: #00e8eb;
+  }
+  &.blink {
+    // text-decoration: blink;
+    // color: #deda0d;
+  }
 }
