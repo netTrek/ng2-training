@@ -1,11 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<h1>
+<h1 hbHover="blue">
   Welcome to {{title}}!
 </h1>
 
-<h1>{{firstname}}</h1>
-<hb-user-first-name [(firstname)]="firstname"></hb-user-first-name>
+<h1 hbHover>{{firstname}}</h1>
+<hb-user-first-name hbHover [(firstname)]="firstname"></hb-user-first-name>
 <!--
 <hb-user-first-name [firstname]="firstname" (firstnameChange)="firstname=$event"></hb-user-first-name>
 <hb-user-first-name [firstname]="firstname" (nameChg)="firstname=$event"></hb-user-first-name>
@@ -16,6 +16,7 @@
 -->
 
 <hb-user
+  hbHover="aqua"
   *ngFor="let user of userList; index as i; first as f; even as e; odd as o"
   [user]="user"
   (selectUsr)="selectUser ( $event )"

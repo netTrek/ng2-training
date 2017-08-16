@@ -1,9 +1,14 @@
 import {
-  AfterViewInit, /*AfterContentInit,*/ Component, ElementRef, EventEmitter, HostBinding, HostListener, Input,
-  OnChanges, /*ContentChild, ContentChildren, ElementRef,*/
+  AfterViewInit,
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnChanges,
   OnInit,
   Output,
-  QueryList, SimpleChanges, ViewChild
+  SimpleChanges,
+  ViewChild
 } from '@angular/core';
 import { UserNameComponent } from './user-name/user-name.component';
 import { UserDto } from '../model/user-dto';
@@ -50,28 +55,6 @@ export class UserComponent implements OnInit/*, AfterContentInit*/, AfterViewIni
   */
 
   constructor () {
-  }
-
-  // [style.color]="color"
-  @HostBinding ( 'style.color' )
-  color = undefined;
-
-  // [style.background-color]="color"
-  @HostBinding ( 'style.backgroundColor' )
-  bgcolor = undefined;
-
-  // (mouseenter)="enter()"
-  @HostListener ( 'mouseenter' )
-  enter ( evt?: Event ) {
-    this.color   = 'red';
-    this.bgcolor = 'yellow';
-  }
-
-  // (mouseleave)="leave()"
-  @HostListener ( 'mouseleave' )
-  leave ( evt?: Event ) {
-    this.color   = undefined;
-    this.bgcolor = undefined;
   }
 
   @HostListener ( 'click', [ '$event' ] ) // <hb-user (click)="methode($event)"
