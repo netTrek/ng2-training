@@ -8,6 +8,8 @@ import { UserModule } from './user/user.module';
 import { CommonUIModule } from './common-ui/common-ui.module';
 import { DeviceService } from './common-ui/service/device.service';
 import { HttpModule } from '@angular/http';
+import { HomeModule } from './home/home.module';
+import { ContactModule } from './contact/contact.module';
 
 @NgModule ( {
   declarations: [
@@ -16,9 +18,11 @@ import { HttpModule } from '@angular/http';
   ],
   imports     : [
     BrowserModule,
+    HomeModule,
     AppRoutingModule,
     HttpModule,
     UserModule,
+    ContactModule,
     CommonUIModule
   ],
   providers   : [

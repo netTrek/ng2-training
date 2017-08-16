@@ -1,0 +1,9 @@
+
+<hb-user
+  hbHover="aqua"
+  *ngFor="let user of userList; index as i; first as f; even as e; odd as o"
+  [user]="user"
+  (selectUsr)="selectUser ( $event )"
+  (deleteUsr)="deleteUser ( i )"
+  class="blink"
+  [ngClass]="getClass (e, user)"></hb-user>

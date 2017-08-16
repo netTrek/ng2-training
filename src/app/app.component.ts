@@ -43,11 +43,9 @@ export class AppComponent {
 
   constructor ( $userService: UserService ) {
 
-    $userService.getUsers()
-      .subscribe(
-        users => this.userList = users
-      );
 
+
+/*
 
     $userService.getUser( 30 )
       .subscribe(
@@ -58,7 +56,9 @@ export class AppComponent {
           alert( err );
         }
       );
+*/
 
+/*
 
     $userService.addUser( <UserDto>{
       firstname: 'sabanü',
@@ -77,6 +77,7 @@ export class AppComponent {
           alert( err );
         }
       );
+*/
 
 
 /*                            !!!!!! COLD
@@ -174,6 +175,7 @@ export class AppComponent {
         }, 1000 );
         */
   }
+/*
 
   selectUser ( userDto: UserDto ) {
     console.log ( 'user selected', userDto );
@@ -195,6 +197,7 @@ export class AppComponent {
     }
     return 'odd';
   }
+*/
 
   chgUser () {
     this.user = <UserDto>{
