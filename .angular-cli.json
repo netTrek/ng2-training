@@ -19,9 +19,16 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/angularjs-toaster/toaster.scss"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/angular/angular.js",
+        "../node_modules/angular-animate/angular-animate.js",
+        "../node_modules/angularjs-toaster/toaster.js",
+        "../ng1/module/Model.js",
+        "../ng1/App.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
