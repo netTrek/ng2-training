@@ -1,3 +1,5 @@
+/* tslint:disable */
+
 class Adresse {
   constructor ( public city: string ) {
 
@@ -61,7 +63,7 @@ class Man extends Mensch {
         console.log ( i );
       }
     }
-    console.log ( i );
+    // console.log ( i );
 
     return super.wieAltBisDu () - 10;
   }
