@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component ( {
   selector   : 'msg-user',
@@ -12,16 +12,8 @@ import { Component, ElementRef, OnInit } from '@angular/core';
   // encapsulation: ViewEncapsulation.None
 } )
 export class UserComponent implements OnInit {
-
-  constructor ( private elemRef: ElementRef ) {
-
-    // console.log ( elemRef );
-    // console.log ( elemRef.nativeElement );
-
+  constructor () {
   }
-
   ngOnInit () {
   }
-
-
 }
