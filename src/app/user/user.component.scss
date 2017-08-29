@@ -3,6 +3,10 @@
   background-color: yellow;
 }
 
+.selected {
+  color: red;
+}
+
 // mit deep def. d.h. ohne Attribute Zusatz
 /deep/ h2 {
   color: red;

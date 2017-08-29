@@ -1,1 +1,3 @@
-<i class="fa fa-eye"></i> <ng-content></ng-content>
+<div (click)="onClick()" [class.selected]="selectedUsrInd===usrInd">
+  <i class="fa fa-eye"></i> <ng-content></ng-content>
+</div>

@@ -1,6 +1,24 @@
 <msg-user-header>Benutzernamen:</msg-user-header>
 <hr #line>
-<msg-user>Saban</msg-user>
-<msg-user>Peter</msg-user>
-<msg-user>Frank</msg-user>
-<msg-user>Heike</msg-user>
+
+<!--
+<msg-user usrId="123" (setSelectedInd)="updateInd($event)" [isSelected]></msg-user>
+-->
+
+<msg-user
+  usrInd="1"
+  [selectedUsrInd]="selectedIUserInd"
+  (setAsSelected)="updateSelectedInd($event)"
+>Saban 1</msg-user>
+
+<msg-user
+  usrInd="2"
+  [selectedUsrInd]="selectedIUserInd"
+  (setAsSelected)="updateSelectedInd($event)"
+>Saban 2</msg-user>
+
+<msg-user
+  usrInd="3"
+  [selectedUsrInd]="selectedIUserInd"
+  (setAsSelected)="updateSelectedInd($event)"
+>Saban 3</msg-user>

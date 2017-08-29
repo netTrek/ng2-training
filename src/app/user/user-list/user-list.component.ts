@@ -1,17 +1,26 @@
 import {
-  AfterContentInit, AfterViewInit, Component, ContentChild, ContentChildren, ElementRef, OnInit, QueryList, ViewChild,
+  AfterContentInit, AfterViewInit, Component, ContentChild, ContentChildren, ElementRef, Input, OnInit, QueryList, ViewChild,
   ViewChildren
 } from '@angular/core';
 import { UserHeaderComponent } from '../user-header/user-header.component';
 import { UserComponent } from '../user.component';
 
-@Component({
-  selector: 'msg-user-list',
+@Component ( {
+  selector   : 'msg-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.scss']
-})
+  styleUrls  : [ './user-list.component.scss' ]
+} )
 export class UserListComponent implements OnInit, AfterViewInit {
+  get disabled (): boolean {
+    return this._disabled;
+  }
 
+  @Input ()
+  set disabled ( value: boolean ) {
+    this._disabled = value.toString ()
+                          .toLowerCase ()
+                          .trim () === 'true';
+  }
 
   @ViewChild ( 'line' )
   lineRef: ElementRef;
@@ -22,9 +31,22 @@ export class UserListComponent implements OnInit, AfterViewInit {
   @ViewChildren ( UserComponent )
   users: QueryList<UserComponent>;
 
-  constructor() {}
+  selectedIUserInd: number | null = null;
+  private _disabled               = false;
 
-  ngOnInit() {
+  updateSelectedInd ( ind: number ) {
+
+    if ( ! this.disabled ) {
+      if ( this.selectedIUserInd === ind ) {
+        this.selectedIUserInd = null;
+      } else {
+        this.selectedIUserInd = ind;
+      }
+    }
+
+  }
+
+  ngOnInit () {
 
   }
 

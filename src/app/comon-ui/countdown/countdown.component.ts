@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 
 @Component ( {
   selector   : 'msg-countdown',
@@ -6,8 +6,20 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
   styleUrls  : [ './countdown.component.scss' ]
 } )
 export class CountdownComponent implements OnInit, OnDestroy {
+  get time (): number {
+    return this._time;
+  }
+
+  @Input()
+  set time ( value: number ) {
+    this._time = Number (value);
+  }
 
   progress = 100;
+
+  @Input ()
+  unit = '%';
+
 
   private _time                      = 10;
   private _intervalID: number | null = null;
@@ -16,6 +28,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit () {
+
     let count        = 0;
     this._intervalID = window.setInterval ( () => {
       this.progress = 100 - ( (++ count) / this._time * 100 );
@@ -26,6 +39,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy (): void {
+    this.dispose ();
   }
 
   private dispose () {

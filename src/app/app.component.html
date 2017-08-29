@@ -1,35 +1,27 @@
+<div class="supercool superfett">
+  Hallo
+</div>
+
+<div [class]="className">
+  hallo
+</div>
+
+<div
+  [class.superfett]="isFett"
+  [class.supercool]="isUnderlined"
+>
+  hallo
+</div>
+
+<button (click)="toggleFett()">toggle Fett</button>
+<button (click)="toggleUnderlined()">toggle Underlined</button>
+
+<input type="text" (keydown)="keyDown($event)">
 
 <msg-countdown></msg-countdown>
 
-
-<img [attr.src]="imgUrl" alt="img" width="100%" [attr.aria-label]="imgInfo">
-<p [innerText]="title"></p>
-<span style="color: red">Hello</span>
-<div [innerHTML]="desc"></div>
-
-<h1>
-  {{title}}
-</h1>
-<h1>{{title + '***'}}</h1>
-<h1>{{ title==='msg'?'isMsg':'isNotMsg'}}</h1>
-
-<h1>{{user | json}}</h1>
-<h1>{{user.age}}</h1>
-
-<h1>{{validate()}}</h1>
-<h1>{{validate('netTrek')}}</h1>
-
-<img src="../assets/images/logo-alpha-klein.png" alt="test">
-
-<h1 aria-label="überschrift">Hello</h1>
-
-
-<!--
-<msg-user>
-  <h1>Saban Ünlü</h1>
-  <h2>netTrek</h2>
-</msg-user>
--->
-
-<msg-user-list>
+<msg-user-list [disabled]="disableList">
 </msg-user-list>
+
+
+<button (click)="disableList = !disableList">toggle disable</button>
