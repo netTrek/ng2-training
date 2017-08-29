@@ -1,0 +1,18 @@
+:host {
+  color: darkturquoise;
+  background-color: yellow;
+}
+
+// mit deep def. d.h. ohne Attribute Zusatz
+/deep/ h2 {
+  color: red;
+}
+
+h2 {
+  color: blue;
+}
+
+.supercool {
+  text-decoration: none;
+  font-style: italic;
+}
