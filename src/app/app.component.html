@@ -20,8 +20,10 @@
 
 <msg-countdown></msg-countdown>
 
-<msg-user-list [disabled]="disableList">
+<!--<msg-user-list [disabled]="disableList" (disabledChange)="disableList = $event">-->
+<msg-user-list [(disabled)]="disableList">
 </msg-user-list>
 
+<p>Value of disableList in AppComponent:= {{disableList}}</p>
 
 <button (click)="disableList = !disableList">toggle disable</button>

@@ -1,5 +1,6 @@
 import {
-  AfterContentInit, AfterViewInit, Component, ContentChild, ContentChildren, ElementRef, Input, OnInit, QueryList, ViewChild,
+  AfterContentInit, AfterViewInit, Component, ContentChild, ContentChildren, ElementRef, EventEmitter, Input, OnInit, Output, QueryList,
+  ViewChild,
   ViewChildren
 } from '@angular/core';
 import { UserHeaderComponent } from '../user-header/user-header.component';
@@ -11,6 +12,10 @@ import { UserComponent } from '../user.component';
   styleUrls  : [ './user-list.component.scss' ]
 } )
 export class UserListComponent implements OnInit, AfterViewInit {
+
+  @Output()
+  disabledChange: EventEmitter<boolean> = new EventEmitter();
+
   get disabled (): boolean {
     return this._disabled;
   }
@@ -20,6 +25,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
     this._disabled = value.toString ()
                           .toLowerCase ()
                           .trim () === 'true';
+    this.disabledChange.emit( this._disabled );
   }
 
   @ViewChild ( 'line' )
@@ -33,6 +39,10 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
   selectedIUserInd: number | null = null;
   private _disabled               = false;
+
+  toggle () {
+    this.disabled = !this.disabled;
+  }
 
   updateSelectedInd ( ind: number ) {
 

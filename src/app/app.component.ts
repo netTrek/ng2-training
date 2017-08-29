@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component ( {
   selector   : 'msg-root',
@@ -44,6 +44,11 @@ export class AppComponent {
 
   toggleUnderlined () {
     this.isUnderlined = ! this.isUnderlined;
+  }
+
+  @HostListener ( 'window:resize', [ '$event', 'user', '123' ] )
+  resize ( evt?: Event, name?: string, num?: string ) {
+    console.log ( 'resize', evt, name, num );
   }
 
 }

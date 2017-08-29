@@ -1,10 +1,10 @@
 :host {
   color: darkturquoise;
   background-color: yellow;
-}
 
-.selected {
-  color: red;
+  &.selected {
+    color: red;
+  }
 }
 
 // mit deep def. d.h. ohne Attribute Zusatz

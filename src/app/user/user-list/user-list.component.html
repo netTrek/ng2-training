@@ -5,6 +5,8 @@
 <msg-user usrId="123" (setSelectedInd)="updateInd($event)" [isSelected]></msg-user>
 -->
 
+<p>Value of disable in UserList:= {{disabled}}</p>
+
 <msg-user
   usrInd="1"
   [selectedUsrInd]="selectedIUserInd"
@@ -22,3 +24,5 @@
   [selectedUsrInd]="selectedIUserInd"
   (setAsSelected)="updateSelectedInd($event)"
 >Saban 3</msg-user>
+
+<button (click)="toggle()">toggle disable in List</button>
