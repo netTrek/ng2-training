@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserHeaderComponent implements OnInit {
 
+  name = 'ich bin die user comp';
+
   constructor() { }
 
   ngOnInit() {
