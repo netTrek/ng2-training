@@ -6,5 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  mail = 'us@netTrek.de';
+  imgUrl = '../assets/images/logo-alpha-klein.png';
+  imgInfo = 'schönes bild';
+  desc = `<strong class="supercool">Hello</strong><script>alert("sa");</script>`;
+
   title = 'msg';
+
+  user: {name: string, age: number} = {
+    name: 'saban',
+    age: 43
+  };
+
+  validate ( companyName?: string ): string {
+    if ( (companyName || this.title) === 'msg') {
+      return 'isMsg';
+    }
+    return 'isNotMsg';
+  }
+
 }
