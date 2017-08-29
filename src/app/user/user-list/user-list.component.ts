@@ -1,4 +1,7 @@
-import { AfterContentInit, Component, ContentChild, ContentChildren, OnInit, QueryList } from '@angular/core';
+import {
+  AfterContentInit, AfterViewInit, Component, ContentChild, ContentChildren, ElementRef, OnInit, QueryList, ViewChild,
+  ViewChildren
+} from '@angular/core';
 import { UserHeaderComponent } from '../user-header/user-header.component';
 import { UserComponent } from '../user.component';
 
@@ -7,21 +10,30 @@ import { UserComponent } from '../user.component';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss']
 })
-export class UserListComponent implements OnInit, AfterContentInit {
+export class UserListComponent implements OnInit, AfterViewInit {
 
-  @ContentChild (UserHeaderComponent)
+
+  @ViewChild ( 'line' )
+  lineRef: ElementRef;
+
+  @ViewChild ( UserHeaderComponent )
   header: UserHeaderComponent;
 
-  @ContentChildren(UserComponent)
-  users: QueryList<UserComponent>
+  @ViewChildren ( UserComponent )
+  users: QueryList<UserComponent>;
 
   constructor() {}
 
   ngOnInit() {
+
   }
 
-  ngAfterContentInit (): void {
-    console.log ( this.header );
-    console.log ( this.users );
+  ngAfterViewInit (): void {
+    // throw new Error ( 'Method not implemented.' );
+
+    console.log ( this.users, this.header, this.lineRef );
+
+    this.lineRef.nativeElement.style.height = '5px';
   }
+
 }
