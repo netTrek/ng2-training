@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { log } from 'util';
+import { DummyService } from './user/service/dummy.service';
 
 @Component ( {
   selector   : 'msg-root',
@@ -47,7 +48,8 @@ export class AppComponent {
 
   currNo: number;
 
-  constructor () {
+  constructor ( $dummy: DummyService ) {
+    console.log ( 'dummy ', $dummy );
 
     // const observable: Observable<number> = Observable.of ( 1, 2, 3, 4, 5 );
     // const observable: Observable<number> = Observable.range( 2, 22 );
@@ -66,32 +68,33 @@ export class AppComponent {
     });
 */
     // const observable: Subject<number> = new Subject();
-    const observable: BehaviorSubject<number> = new BehaviorSubject(0);
 
-    observable.next( 1 );
-    observable.next( 2 );
+    // const observable: BehaviorSubject<number> = new BehaviorSubject(0);
 
-    const sub: Subscription = observable
+    // observable.next( 1 );
+    // observable.next( 2 );
+
+    // const sub: Subscription = observable
       // .filter ( val => val % 2 === 0 )
       // .map ( val => val * 100 )
-      .subscribe(
-        next => console.log ( next ),
-        error => console.log ( error ),
-        () => {
-          console.log ('ioch habe fertig');
-        }
-      );
+      // .subscribe(
+      //   next => console.log ( next ),
+      //   error => console.log ( error ),
+      //   () => {
+      //     console.log ('ioch habe fertig');
+      //   }
+      // );
 
 
-    observable.next( 3 );
-    observable.next( 4 );
-
-    console.log ( sub );
-    const eventObservable: Observable<MouseEvent> = Observable.fromEvent ( document, 'mousemove');
-
-    eventObservable
-      .filter ( evt => evt.clientX < 100 )
-      .subscribe( evt => console.log( evt ) );
+    // observable.next( 3 );
+    // observable.next( 4 );
+    //
+    // console.log ( sub );
+    // const eventObservable: Observable<MouseEvent> = Observable.fromEvent ( document, 'mousemove');
+    //
+    // eventObservable
+    //   .filter ( evt => evt.clientX < 100 )
+    //   .subscribe( evt => console.log( evt ) );
 
 /*
     observable.subscribe(
@@ -115,7 +118,7 @@ export class AppComponent {
         zip      : `46282 - ${i}`
       } );
     }
-    console.log ( this.users );
+    // console.log ( this.users );
   }
 
   validate ( companyName?: string ): string {

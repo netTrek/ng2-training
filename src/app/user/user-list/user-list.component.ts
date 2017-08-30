@@ -6,6 +6,7 @@ import {
 import { UserHeaderComponent } from '../user-header/user-header.component';
 import { UserComponent } from '../user.component';
 import { UserDto } from '../user-dto';
+import { UserService } from '../service/user.service';
 
 @Component ( {
   selector   : 'msg-user-list',
@@ -56,6 +57,15 @@ export class UserListComponent implements OnInit, AfterViewInit {
   private _disabled             = false;
   private _usersList: UserDto[] = [];
   private _original: UserDto[] | null = null;
+
+  constructor ( public $user: UserService ) {
+    console.log ( $user.company$ );
+    $user.company$.subscribe( next => console.log ( 'new val', next ));
+  }
+
+  updateCompany () {
+    this.$user.company$.next( '.msg' );
+  }
 
   toggle () {
     this.disabled = ! this.disabled;

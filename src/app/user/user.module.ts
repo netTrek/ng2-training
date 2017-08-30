@@ -5,11 +5,14 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserHeaderComponent } from './user-header/user-header.component';
 import { UserNameComponent } from './user-name/user-name.component';
 import { UserToStringPipe } from './user-to-string.pipe';
+import { UserService } from './service/user.service';
+import { DummyService } from './service/dummy.service';
 
 @NgModule({
   imports: [
     CommonModule
   ],
+  providers: [ UserService, DummyService ],
   declarations: [UserComponent, UserListComponent, UserHeaderComponent, UserNameComponent, UserToStringPipe],
   exports: [UserComponent, UserListComponent, UserHeaderComponent, UserNameComponent, UserToStringPipe]
 })

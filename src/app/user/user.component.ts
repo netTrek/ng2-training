@@ -3,6 +3,7 @@ import {
   SimpleChanges
 } from '@angular/core';
 import { UserDto } from './user-dto';
+import { UserService } from './service/user.service';
 
 @Component ( {
   selector   : 'msg-user',
@@ -57,7 +58,8 @@ export class UserComponent implements OnInit, OnChanges {
 
   // private _isSelected = false;
 
-  constructor ( private _cdr: ChangeDetectorRef ) {
+  constructor ( private _cdr: ChangeDetectorRef, public $user: UserService) {
+    console.log ( 'usrService in userComp', this.$user );
   }
 
   @HostListener ('click')
