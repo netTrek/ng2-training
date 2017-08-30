@@ -7,10 +7,12 @@ import { UserNameComponent } from './user-name/user-name.component';
 import { UserToStringPipe } from './user-to-string.pipe';
 import { UserService } from './service/user.service';
 import { DummyService } from './service/dummy.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    HttpModule
   ],
   providers: [ UserService, DummyService ],
   declarations: [UserComponent, UserListComponent, UserHeaderComponent, UserNameComponent, UserToStringPipe],

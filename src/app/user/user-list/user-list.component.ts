@@ -21,10 +21,15 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
   @Input ()
   set usersList ( value: UserDto[] ) {
-    if ( !!value && this._original === null ) {
-      this._original = value; // referenz;
+    console.log ( 'ddd', value );
+    if ( value !== null ) {
+      console.log ( '###', value );
+      if ( !!value && this._original === null ) {
+        this._original = value; // referenz;
+      }
+      this._usersList = [ ...value ];
     }
-    this._usersList = [ ...value ];
+
   }
 
   @Output ()
@@ -67,6 +72,19 @@ export class UserListComponent implements OnInit, AfterViewInit {
     this.$user.company$.next( '.msg' );
   }
 
+  createNew () {
+    this.$user.createUsr( <UserDto> {
+      firstname: 'msg ' + Math.floor(Math.random() * 10000 ),
+      lastname: 'systems',
+      birthday: Date.now().toString()
+    }).subscribe(
+      next => {
+        // console.log ( 'newUSer', next );
+        this.usersList.push( next );
+      }
+    );
+  }
+
   toggle () {
     this.disabled = ! this.disabled;
   }
@@ -86,7 +104,9 @@ export class UserListComponent implements OnInit, AfterViewInit {
       if ( this.selectedUser === usr ) {
         this.selectedUser = null;
       } else {
-        this.selectedUser = usr;
+        this.$user.getUserById( Number (usr.id)  ).subscribe(
+          next => this.selectedUser = next
+        );
       }
     }
 

@@ -1,10 +1,12 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Inject, LOCALE_ID, Pipe, PipeTransform } from '@angular/core';
 import { UserDto } from './user-dto';
 
 @Pipe ( {
   name: 'userToString'
 } )
 export class UserToStringPipe implements PipeTransform {
+
+  constructor ( @Inject( LOCALE_ID) private _localId: string  ) {}
 
   transform ( value: UserDto, ...properties: string[] ): string {
     if ( ! ! value ) {
@@ -22,7 +24,7 @@ export class UserToStringPipe implements PipeTransform {
             }
           }
         }
-        return output.trim();
+        return output.trim() + ' ' + this._localId;
       } else {
         return value.firstname + ' ' + value.lastname;
       }

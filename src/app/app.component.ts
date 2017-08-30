@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
 import { UserDto } from './user/user-dto';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
@@ -11,11 +11,13 @@ import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { log } from 'util';
 import { DummyService } from './user/service/dummy.service';
+import { UserService } from './user/service/user.service';
 
 @Component ( {
   selector   : 'msg-root',
   templateUrl: './app.component.html',
-  styleUrls  : [ './app.component.scss' ]
+  styleUrls  : [ './app.component.scss' ]/*,
+  changeDetection: ChangeDetectionStrategy.OnPush*/
 } )
 export class AppComponent {
 
@@ -48,7 +50,7 @@ export class AppComponent {
 
   currNo: number;
 
-  constructor ( $dummy: DummyService ) {
+  constructor ( $dummy: DummyService, public $user: UserService ) {
     console.log ( 'dummy ', $dummy );
 
     // const observable: Observable<number> = Observable.of ( 1, 2, 3, 4, 5 );
@@ -109,6 +111,11 @@ export class AppComponent {
       }
     );*/
 
+    $user.getUsers().subscribe(
+      next => this.users = next
+    );
+
+    /*
     for ( let i = 0; i < 10; i ++ ) {
       this.users.push ( <UserDto> {
         firstname: `saban ${i}`,
@@ -118,6 +125,8 @@ export class AppComponent {
         zip      : `46282 - ${i}`
       } );
     }
+    */
+    //
     // console.log ( this.users );
   }
 
@@ -139,7 +148,7 @@ export class AppComponent {
   toggleUnderlined () {
     this.isUnderlined = ! this.isUnderlined;
   }
-
+/*
   @HostListener ( 'window:resize', [ '$event',
                                      'user',
                                      '123'
@@ -147,5 +156,6 @@ export class AppComponent {
   resize ( evt?: Event, name?: string, num?: string ) {
     console.log ( 'resize', evt, name, num );
   }
+*/
 
 }
