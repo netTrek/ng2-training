@@ -15,7 +15,7 @@ export class AppComponent {
   progress = 30;
 
   mail    = 'us@netTrek.de';
-  imgUrl  = '../assets/images/logo-alpha-klein.png';
+  imgUrl  = '../assets/images/#netTrekLogo.png';
   imgInfo = 'schönes bild';
   desc    = `<strong class="supercool">Hello</strong><script>alert("sa");</script>`;
 

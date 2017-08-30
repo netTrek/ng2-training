@@ -4,8 +4,8 @@
     display: block;
   }
 
-  /deep/ msg-user-header {
-    color: red;
+  ::ng-deep msg-user-header {
+    color: green;
   }
 
 }
