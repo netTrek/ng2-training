@@ -7,6 +7,10 @@ import { Component, HostListener } from '@angular/core';
 } )
 export class AppComponent {
 
+  users: string [] = ['saban', 'peter', 'franz', 'uvm'];
+
+
+
   className = 'supercool';
 
   isFett       = true;
@@ -15,7 +19,10 @@ export class AppComponent {
   progress = 30;
 
   mail    = 'us@netTrek.de';
-  imgUrl  = '../assets/images/#netTrekLogo.png';
+  imgUrl  = '../assets/images/netTrekLogo.png';
+
+  showImg = true;
+
   imgInfo = 'schönes bild';
   desc    = `<strong class="supercool">Hello</strong><script>alert("sa");</script>`;
 

@@ -1,3 +1,24 @@
+<!--
+<button (click)="showImg=!showImg">toggle</button>
+<br>
+
+<img [src]="imgUrl" *ngIf="showImg; else noPic" alt="tolles bild">
+
+<ng-template #noPic>
+  <div>Kein Bild</div>
+</ng-template>
+
+-->
+<!--
+
+<ng-template [ngIf]="showImg">
+  <img [src]="imgUrl" alt="tolles bild">
+  <aside>saskdfjh</aside>
+</ng-template>
+
+
+
+
 <div class="supercool superfett">
   Hallo
 </div>
@@ -19,11 +40,16 @@
 <input type="text" (keydown)="keyDown($event)">
 
 <msg-countdown></msg-countdown>
+-->
+
 
 <!--<msg-user-list [disabled]="disableList" (disabledChange)="disableList = $event">-->
-<msg-user-list [(disabled)]="disableList">
+<msg-user-list [usersList]="users" [(disabled)]="disableList">
 </msg-user-list>
+<p>original user <br> {{users | json}}</p>
+<!--
 
 <p>Value of disableList in AppComponent:= {{disableList}}</p>
 
 <button (click)="disableList = !disableList">toggle disable</button>
+-->

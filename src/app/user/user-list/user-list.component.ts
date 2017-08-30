@@ -13,6 +13,16 @@ import { UserComponent } from '../user.component';
 } )
 export class UserListComponent implements OnInit, AfterViewInit {
 
+  get usersList (): string[] {
+    return this._usersList;
+  }
+
+  @Input()
+  set usersList ( value: string[] ) {
+    this._usersList = [...value];
+  }
+
+
   @Output()
   disabledChange: EventEmitter<boolean> = new EventEmitter();
 
@@ -39,9 +49,16 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
   selectedIUserInd: number | null = null;
   private _disabled               = false;
+  private _usersList: string[] = [];
 
   toggle () {
     this.disabled = !this.disabled;
+  }
+
+  deleteUsrWithInd ( ind: number ) {
+    if ( confirm( `soll der user mit der id ${ind} wirklich gelöscht werden?`)) {
+      this.usersList.splice( ind, 1 );
+    }
   }
 
   updateSelectedInd ( ind: number ) {
@@ -57,7 +74,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit () {
-
+    console.log ( this.usersList );
   }
 
   ngAfterViewInit (): void {

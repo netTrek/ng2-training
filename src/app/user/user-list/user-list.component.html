@@ -6,12 +6,17 @@
 -->
 
 <p>Value of disable in UserList:= {{disabled}}</p>
-
+<p>in list {{usersList | json}}</p>
 <msg-user
-  usrInd="1"
+  *ngFor="let user of usersList; index as index; even as e"
+  [usrInd]="index"
+  [class.even]="e"
+  [class.odd]="!e"
   [selectedUsrInd]="selectedIUserInd"
   (setAsSelected)="updateSelectedInd($event)"
->Saban 1</msg-user>
+  (deleteUsrInd)="deleteUsrWithInd($event)"
+>{{user}} {{index}}</msg-user>
+<!--
 
 <msg-user
   usrInd="2"
@@ -26,3 +31,5 @@
 >Saban 3</msg-user>
 
 <button (click)="toggle()">toggle disable in List</button>
+-->
+

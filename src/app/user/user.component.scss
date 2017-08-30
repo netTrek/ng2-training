@@ -1,9 +1,14 @@
 :host {
   color: darkturquoise;
-  background-color: yellow;
-
+  display: block;
   &.selected {
     color: red;
+  }
+  &.even {
+    background-color: yellow;
+  }
+  &.odd {
+    background-color: #e2e200;
   }
 }
 
