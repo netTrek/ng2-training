@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { UserDto } from './user/user-dto';
 
 @Component ( {
   selector   : 'msg-root',
@@ -7,9 +8,9 @@ import { Component, HostListener } from '@angular/core';
 } )
 export class AppComponent {
 
-  users: string [] = ['saban', 'peter', 'franz', 'uvm'];
+  users: UserDto [] = [];
 
-
+  date: number = Date.now();
 
   className = 'supercool';
 
@@ -18,8 +19,8 @@ export class AppComponent {
 
   progress = 30;
 
-  mail    = 'us@netTrek.de';
-  imgUrl  = '../assets/images/netTrekLogo.png';
+  mail   = 'us@netTrek.de';
+  imgUrl = '../assets/images/netTrekLogo.png';
 
   showImg = true;
 
@@ -32,7 +33,24 @@ export class AppComponent {
     name: 'saban',
     age : 43
   };
-  disableList = false;
+  disableList                         = false;
+
+  constructor () {
+
+    
+
+
+    for ( let i = 0; i < 10; i ++ ) {
+      this.users.push ( <UserDto> {
+        firstname: `saban ${i}`,
+        lastname : `uenlue ${i}`,
+        age      : 22 + i,
+        city     : `dorste ${i}`,
+        zip: `46282 - ${i}`
+      } );
+    }
+    console.log ( this.users );
+  }
 
   validate ( companyName?: string ): string {
     if ( (companyName || this.title) === 'msg' ) {
@@ -53,7 +71,10 @@ export class AppComponent {
     this.isUnderlined = ! this.isUnderlined;
   }
 
-  @HostListener ( 'window:resize', [ '$event', 'user', '123' ] )
+  @HostListener ( 'window:resize', [ '$event',
+                                     'user',
+                                     '123'
+  ] )
   resize ( evt?: Event, name?: string, num?: string ) {
     console.log ( 'resize', evt, name, num );
   }

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +16,9 @@ import { ComonUIModule } from './comon-ui/comon-ui.module';
     ComonUIModule,
     AppRoutingModule
   ],
-  providers   : [],
+  providers   : [
+    { provide: LOCALE_ID, useValue: 'de'}
+  ],
   bootstrap   : [ AppComponent ]
 } )
 export class AppModule {

@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, HostBinding, HostListener, Input, OnChanges, OnInit, Output,
   SimpleChanges
 } from '@angular/core';
+import { UserDto } from './user-dto';
 
 @Component ( {
   selector   : 'msg-user',
@@ -17,7 +18,7 @@ import {
 } )
 export class UserComponent implements OnInit, OnChanges {
 
-  // <div [class.selected]="selectedUsrInd===usrInd">
+  // <div [class.selected]="selectedUsr===usr">
 
   @HostBinding ('class.selected')
   showSelectedClass = false;
@@ -26,49 +27,33 @@ export class UserComponent implements OnInit, OnChanges {
   fontColor = 'red';
   */
 
-  get selectedUsrInd (): number {
-    return this._selectedUsrInd;
+  get selectedUsr (): UserDto {
+    return this._selectedUsr;
   }
 
   @Input ()
-  set selectedUsrInd ( value: number ) {
-    this._selectedUsrInd = Number ( value );
-    this.showSelectedClass = this.selectedUsrInd === this.usrInd;
-    /*
-    if ( this.showSelectedClass ) {
-      this.fontColor = 'blue';
-    }
-    */
+  set selectedUsr ( value: UserDto ) {
+    this._selectedUsr = value ;
+    this.showSelectedClass = this.selectedUsr === this.usr;
   }
 
   @Output ()
-  setAsSelected: EventEmitter<number> = new EventEmitter ();
+  setAsSelected: EventEmitter<UserDto> = new EventEmitter ();
 
   @Output ()
-  deleteUsrInd: EventEmitter<number> = new EventEmitter ();
+  deleteUsr: EventEmitter<UserDto> = new EventEmitter ();
 
-  /*
-    get isSelected (): boolean {
-      return this._isSelected;
-    }
-    @Input ()
-    set isSelected ( value: boolean ) {
-      this._isSelected = value.toString ()
-                              .toLowerCase ()
-                              .trim () === 'true';
-    }
-  */
-  get usrInd (): number {
-    return this._usrInd;
+  get usr (): UserDto {
+    return this._usr;
   }
 
   @Input ()
-  set usrInd ( value: number ) {
-    this._usrInd = Number ( value );
+  set usr ( value: UserDto ) {
+    this._usr = value ;
   }
 
-  private _usrInd: number;
-  private _selectedUsrInd: number;
+  private _usr: UserDto;
+  private _selectedUsr: UserDto;
 
   // private _isSelected = false;
 
@@ -77,20 +62,20 @@ export class UserComponent implements OnInit, OnChanges {
 
   @HostListener ('click')
   onClick () {
-    this.setAsSelected.emit ( this.usrInd );
+    this.setAsSelected.emit ( this.usr );
   }
 
   @HostListener ('dblclick')
   onDblClick () {
-    this.deleteUsrInd.emit ( this.usrInd );
+    this.deleteUsr.emit ( this.usr );
   }
 
 
   ngOnChanges ( changes: SimpleChanges ): void {
     // throw new Error ( 'Method not implemented.' );
     // console.log ( changes );
-    // if ( !! changes.selectedUsrInd ) {
-    //   console.log( 'selectedUsrInd has changed' );
+    // if ( !! changes.selectedUsr ) {
+    //   console.log( 'selectedUsr has changed' );
     //   this._cdr.detectChanges();
     // }
   }

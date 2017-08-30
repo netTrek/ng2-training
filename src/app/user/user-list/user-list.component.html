@@ -6,16 +6,26 @@
 -->
 
 <p>Value of disable in UserList:= {{disabled}}</p>
-<p>in list {{usersList | json}}</p>
+<section *ngIf="selectedUser !== null">
+  <article>
+    <header>
+      <h1>Selected User</h1>
+    </header>
+    <!--<msg-user-name [user]="selectedUser"></msg-user-name>-->
+    {{selectedUser | userToString : 'firstname' : 'age' : 'city'}}
+  </article>
+</section>
 <msg-user
   *ngFor="let user of usersList; index as index; even as e"
-  [usrInd]="index"
-  [class.even]="e"
-  [class.odd]="!e"
-  [selectedUsrInd]="selectedIUserInd"
-  (setAsSelected)="updateSelectedInd($event)"
-  (deleteUsrInd)="deleteUsrWithInd($event)"
->{{user}} {{index}}</msg-user>
+  [usr]="user"
+  class="large"
+  [ngClass]="{even: e, odd: !e}"
+  [selectedUsr]="selectedUser"
+  (setAsSelected)="updateSelected($event)"
+  (deleteUsr)="deleteUsrWith($event)">
+  <msg-user-name [user]="user"></msg-user-name>
+</msg-user>
+
 <!--
 
 <msg-user

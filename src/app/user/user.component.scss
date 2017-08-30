@@ -10,6 +10,9 @@
   &.odd {
     background-color: #e2e200;
   }
+  &.large {
+    font-size: xx-large;
+  }
 }
 
 // mit deep def. d.h. ohne Attribute Zusatz
@@ -25,3 +28,4 @@ h2 {
   text-decoration: none;
   font-style: italic;
 }
+

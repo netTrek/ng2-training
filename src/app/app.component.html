@@ -42,12 +42,21 @@
 <msg-countdown></msg-countdown>
 -->
 
+<ul>
+  <li>Datum {{date | date }}</li>
+  <li>Datum {{date | date : 'longDate' }}</li>
+  <li>Datum {{date | number }}</li>
+  <li>Datum {{date | number : '1.1-5' }}</li>
+  <li>Datum {{ (date/1243) | number }}</li>
+  <li>Datum {{ (date/1243) | number : '1.1-5' }}</li>
+  <li>Datum {{ (date/1243) | currency : 'EUR' : true }}</li>
+</ul>
 
 <!--<msg-user-list [disabled]="disableList" (disabledChange)="disableList = $event">-->
 <msg-user-list [usersList]="users" [(disabled)]="disableList">
 </msg-user-list>
-<p>original user <br> {{users | json}}</p>
 <!--
+<p>original user <br> {{users | json}}</p>
 
 <p>Value of disableList in AppComponent:= {{disableList}}</p>
 
